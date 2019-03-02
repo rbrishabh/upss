@@ -43,11 +43,11 @@ addEvent.post('/',authenticate, (req,res)=> {
                 newEvent.eventImage.contentType = files.eventImage.type;
                 newEvent.save().then((event) => {
                     if (event) {
-                        events.findOne({eventOrganizer:fields.eventOrganizer}).then((event)=>{
+
                             res.contentType(event.eventImage.contentType);
                             // console.log(typeof event.eventImage.data[0]);
                             res.send(event.eventImage.data);
-                        });
+
                     }
                 }, (e) => {
                     console.log(e);

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const urlLocal = 'mongodb://localhost:27017/alumni';
-// const urlDeploy = process.env.URI;
-const database =  urlLocal;
+// const urlLocal = 'mongodb://localhost:27017/alumni';
+const urlDeploy = process.env.MONGODB_URI;
+const database =  urlDeploy;
 var db = mongoose.connection;
 
 //handle mongo error
