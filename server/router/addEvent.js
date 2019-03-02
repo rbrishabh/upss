@@ -4,10 +4,13 @@ const {Users} = require('./../models/users');
 var fs = require('fs');
 const multer = require("multer");
 const {events} = require('./../models/events');
+var {ObjectID} = require('mongodb')
 var randomize = require('randomatic');
 const formidable = require('formidable');
 const _ = require('lodash');
 const {authenticate,authenticated} = require('./../middleware/authenticate');
+// var {mongoose,db, global} = require('./../db/mongoose');
+
 
 var addEvent = express.Router();
 
@@ -38,27 +41,52 @@ addEvent.post('/',authenticate, (req,res)=> {
                 // })
                 var body = _.pick(fields, ['eventName', 'eventDate', 'eventOrganizer', 'eventNotes', 'eventLocation', 'imageName', 'eventRepeatFreq', 'eventRepeatDate']);
 
-                var newEvent = new events(body);
-                newEvent.eventImage.data =  fs.readFileSync(files.eventImage.path);
-                newEvent.eventImage.contentType = files.eventImage.type;
-                newEvent.save().then((event) => {
-                    if (event) {
 
-                            res.contentType(event.eventImage.contentType);
-                            // console.log(typeof event.eventImage.data[0]);
-                            res.send(event.eventImage.data);
+                const readStream =  fs.createReadStream(files.eventImage.path);
+                const options = ({ filename: files.eventImage.name, contentType: files.eventImage.type});
+                attachmentGrid.write(options, readStream, (error, file) => {
+                    if(error){
+                        res.send(error);
+                    } else {
+                        body.imageName = file.filename;
+                        body.eventImage = file._id;
 
+                        var newEvent = new events(body);
+                        newEvent.save().then((event) => {
+                            if (event) {
+                                console.log(event.eventImage);
+                                var obj = new ObjectID(event.eventImage);
+                                console.log(obj);
+                                attachmentGrid.readById(obj, (error, buffer) => {
+                                    if(error){
+                                        console.log(error);
+                                        res.send(error);
+                                    } else {
+                                        console.log(buffer);
+                                        res.contentType(file.contentType);
+                                        res.send(buffer);
+                                    }
+
+                                });
+
+                                // console.log(typeof event.eventImage.data[0]);
+
+
+                            }
+                        }, (e) => {
+                            console.log(e);
+                            res.render('addEvent.hbs',  {msg:"fail"});
+                        }, (e) => {
+                            console.log(e);
+                            res.render('addEvent.hbs',  {msg:"fail"});
+                        }).catch((e) => {
+                            console.log(e);
+                            res.render('addEvent.hbs',  {msg:"fail"});
+                        });
                     }
-                }, (e) => {
-                    console.log(e);
-                    res.render('addEvent.hbs',  {msg:"fail"});
-                }, (e) => {
-                    console.log(e);
-                    res.render('addEvent.hbs',  {msg:"fail"});
-                }).catch((e) => {
-                    console.log(e);
-                    res.render('addEvent.hbs',  {msg:"fail"});
                 });
+
+
 
 
 

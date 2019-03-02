@@ -37,8 +37,8 @@ var eventsSchema = new mongoose.Schema({
         trim:true
     },
     eventImage: {
-        data: Buffer,
-        contentType: String
+        type: String,
+        required: true
     },
     imageName: {
         type: String,
