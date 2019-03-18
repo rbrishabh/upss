@@ -63,8 +63,7 @@ addEvent.post('/',authenticate, (req,res)=> {
                                         res.send(error);
                                     } else {
                                         console.log(buffer);
-                                        res.contentType(file.contentType);
-                                        res.send(buffer);
+                                        res.redirect('/allEvents');
                                     }
 
                                 });

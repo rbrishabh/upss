@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
-        <title>U.P. SAINIK SCHOOL OBA - New Event</title>
+        <title>U.P. SAINIK SCHOOL OBA - All Achievers</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="Author" content="hemant.me"/>
@@ -20,9 +20,6 @@
         <!-- CORE CSS -->
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-        <!-- REVOLUTION SLIDER -->
-        <link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
 
         <!-- THEME CSS -->
         <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
@@ -58,7 +55,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <!-- Logo -->
-                        <a class="logo pull-left" href="/">
+                        <a class="logo pull-left" href="index.html">
                             <img src="assets/images/logo-sm.png" alt="" />
                         </a>
 
@@ -97,8 +94,6 @@
 
             <section>
                 <div class="container">
-                    
-                    <div class="container">
 
                     <div class="row">
 
@@ -113,118 +108,101 @@
 
 
                                         <div class="box-title margin-bottom-30">
-                                            <h2 class="size-20 pull-left">Add Event</h2>
-<!--
+                                            <h2 class="size-20 pull-left">Achievers</h2>
+
+
+
+
                                             <label class="switch switch-primary switch-round pull-right">
                                                 <input type="checkbox" >
                                                 <span class="switch-label" data-on="MY" data-off="ALL"></span>
                                             </label>
--->
 
                                             <div class="clearfix"></div>
                                         </div>
 
-                                        
-                                       
-                                <form class="nomargin" method="post" enctype="multipart/form-data" action="/addEvent" autocomplete="off">
-                                    <div class="row">
-                                        <div class="col-md-6">
-
-
-                                            <div class="clearfix">
-                                                <div class="form-group">
-                                                    <input type="text" name="eventName" class="form-control" placeholder="Event Name" required="">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input type="text" name="eventDate" class="form-control datepicker" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false" placeholder=" &nbsp; Date">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" name="eventOrganizer" class="form-control" placeholder="Organizer" required="">
-                                                </div>
-                                                <div class="form-group">
-                                                    <textarea rows="6" class="form-control word-count" name="eventNotes" data-maxlength="200" data-info="textarea-words-info" placeholder="Notes"></textarea>
-                                                </div>
-
-
-
-                                            </div>
-
+                                        <div class="autosuggest" data-minLength="1" data-queryURL="">
+                                            <input type="text" name="src" placeholder="Search..." class="form-control typeahead" />
                                         </div>
+                                        <br>
+
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover " style="background-color: #ececec;">
+                                                <thead>
+                                                    <tr>
+                                                        <th> Name</th>
+                                                        <th> School Number</th>
+                                                        <th> Died on Date</th>
+                                                        <th> Background</th>
+                                                        <th> Rank</th>
+                                                        <th> Options</th>
+                                                        <th> Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!--<tr>-->
+                                                        <!--<td>Name</td>-->
+                                                        <!--<td>1542</td>-->
+                                                        <!--<td>Dec 12, 1988</td>-->
+                                                        <!--<td>Military</td>-->
+                                                        <!--<td>Colonel</td>-->
+
+                                                        <!--<td >-->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="View" ><i class="glyphicon glyphicon-eye-open" ></i></a>-->
+                                                            <!--&nbsp; &nbsp; &nbsp; -->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-pencil" ></i></a>-->
+                                                            <!--&nbsp; &nbsp; &nbsp; -->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash" ></i></a>-->
 
 
+                                                        <!--</td>-->
+                                                        <!--<td class="text-center"><a href="#" class="" style=" color: #87B631;"  data-toggle="tooltip" data-placement="top" title="Approved" ><i class="fa fa-check-circle" ></i> </a></td>-->
+
+                                                    <!--</tr>-->
+                                                    <!--<tr>-->
+                                                        <!--<td>Name</td>-->
+                                                        <!--<td>1542</td>-->
+                                                        <!--<td>Dec 12, 1988</td>-->
+                                                        <!--<td>Military</td>-->
+                                                        <!--<td>Colonel</td>-->
+                                                        <!--<td>-->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="View" ><i class="glyphicon glyphicon-eye-open" ></i></a>-->
+                                                            <!--&nbsp; &nbsp; &nbsp; -->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-pencil" ></i></a>-->
+                                                            <!--&nbsp; &nbsp; &nbsp; -->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash" ></i></a>-->
 
 
+                                                        <!--</td>-->
+                                                        <!--<td class="text-center"><a href="#" class="" style=" color: #EC971F;"  data-toggle="tooltip" data-placement="top" title="Pending" ><i class="fa fa-clock-o" ></i> </a></td>-->
+
+                                                    <!--</tr>-->
+                                                    <!--<tr>-->
+                                                        <!--<td>Name</td>-->
+                                                        <!--<td>1542</td>-->
+                                                        <!--<td>Dec 12, 1988</td>-->
+                                                        <!--<td>Military</td>-->
+                                                        <!--<td>Colonel</td>-->
+                                                        <!--<td>-->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="View" ><i class="glyphicon glyphicon-eye-open" ></i></a>-->
+                                                            <!--&nbsp; &nbsp; &nbsp; -->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-pencil" ></i></a>-->
+                                                            <!--&nbsp; &nbsp; &nbsp; -->
+                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash" ></i></a>-->
 
 
-                                        <div class="col-md-6">
+                                                        <!--</td>-->
+                                                        <!--<td class="text-center"><a href="#" class="" style=" color: #C9302C;"  data-toggle="tooltip" data-placement="top" title="Rejected" ><i class="fa fa-close" ></i> </a></td>-->
 
-                                            <div class="clearfix">
+                                                    <!--</tr>-->
 
-                                                <div class="fancy-file-upload" style="margin-bottom: 15px;">
-                                                    <i class="fa fa-image"></i>
-                                                    <input type="file" class="form-control" name="eventImage" onchange="jQuery(this).next('input').val(this.value);" />
-                                                    <input type="text" class="form-control" name="imageName" placeholder="Upload Picture" readonly="" style="background-color: #fff;" />
-                                                    
-                                                </div>
-
-
-
-                                                <div class="form-group">
-                                                    <input type="text" name="eventLocation" class="form-control" placeholder="Location" required="">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <select name="eventRepeatFreq" class="form-control"  onchange="datebox()" id="frequency">
-                                                        <option value="0">Repeat Frequency</option>
-                                                        <option value="Once">Once</option>
-                                                        <option value="Once a Month">Once a Month</option>
-                                                        <option value="Once a Year">Once a Year</option>
-                                                        <option value="Date">Date</option>
-                                                    </select>
-                                                </div>
-                                                
-                                                <div class="form-group" id="repdate" style="display: none;">
-                                                    <input type="text" name="eventRepeatDate" class="form-control datepicker" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false" placeholder=" &nbsp; Repeat Date">
-                                                </div>
-                                                
-                                            </div>
-
+                                                </tbody>
+                                            </table>
                                         </div>
-
                                     </div>
-
-
-
-
-
-                                    <div class="row">
-
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-
-                                            <!-- Inform Tip -->                                        
-                                            <div class="form-tip pt-20">
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-
-                                            <button type="submit" class="btn btn-primary">SAVE</button>
-
-                                        </div>
-
-                                    </div>
-
-                                </form>
-
-
-
-
-                                    </div>
-
-
+                                    
+                                    
+                                    
 
                                     <!-- LEFT -->
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-lg-pull-9 col-md-pull-9 col-sm-pull-9">
@@ -238,28 +216,28 @@
                                             </div>
 
                                             <ul class="list-group list-group-bordered list-group-noicon uppercase">
-                                                <li class="list-group-item  active">
+                                                <li class="list-group-item">
                                                     <a class="dropdown-toggle" href="#">EVENTS</a>
                                                     <ul>
-                                                        <li class="active">
-                                                            <a href="allevents"><span class="size-11 text-muted pull-right"> </span> All Events
+                                                        <li>
+                                                            <a href="allevents.html"><span class="size-11 text-muted pull-right"> </span> All Events
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="addevent"><span class="size-11 text-muted pull-right"> </span> Add Events
+                                                            <a href="add_event.html"><span class="size-11 text-muted pull-right"> </span> Add Events
                                                             </a>
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="list-group-item">
+                                                <li class="list-group-item active">
                                                     <a class="dropdown-toggle" href="#">HOMAGE</a>
                                                     <ul>
-                                                        <li  class="">
-                                                            <a href="allhomage"><span class="size-11 text-muted pull-right"> </span> All Homages
+                                                        <li  class=" active">
+                                                            <a href="all_homage.html"><span class="size-11 text-muted pull-right"> </span> All Homages
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="addhomage"><span class="size-11 text-muted pull-right"> </span> Add Homage
+                                                            <a href="add_homage.html"><span class="size-11 text-muted pull-right"> </span> Add Homage
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -268,11 +246,11 @@
                                                     <a class="dropdown-toggle" href="#">MARTYRS</a>
                                                     <ul>
                                                         <li>
-                                                            <a href="allmartyrs"><span class="size-11 text-muted pull-right"> </span> All Martyrs
+                                                            <a href="all_martyrs.html"><span class="size-11 text-muted pull-right"> </span> All Martyrs
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="addmartyr"><span class="size-11 text-muted pull-right"> </span> Add Martyr
+                                                            <a href="add_martyr.html"><span class="size-11 text-muted pull-right"> </span> Add Martyr
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -281,11 +259,11 @@
                                                     <a class="dropdown-toggle" href="#">ACHIEVERS</a>
                                                     <ul>
                                                         <li>
-                                                            <a href="allachievers"><span class="size-11 text-muted pull-right"> </span> All Achievers
+                                                            <a href="all_achievers.html"><span class="size-11 text-muted pull-right"> </span> All Achievers
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="addachiever"><span class="size-11 text-muted pull-right"> </span> Add Achiever
+                                                            <a href="add_achiever.html"><span class="size-11 text-muted pull-right"> </span> Add Achiever
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -294,11 +272,11 @@
                                                     <a class="dropdown-toggle" href="#">OFFICE BEARERS</a>
                                                     <ul>
                                                         <li>
-                                                            <a href="allbearers"><span class="size-11 text-muted pull-right"> </span> All Office Bearers
+                                                            <a href="all_office_bearers.html"><span class="size-11 text-muted pull-right"> </span> All Office Bearers
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="addofficebearer"><span class="size-11 text-muted pull-right"> </span> Add Office Bearer
+                                                            <a href="add_office_bearer.html"><span class="size-11 text-muted pull-right"> </span> Add Office Bearer
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -307,11 +285,11 @@
                                                     <a class="dropdown-toggle" href="#">BIRTHDAY</a>
                                                     <ul>
                                                         <li>
-                                                            <a href="allbirthdays"><span class="size-11 text-muted pull-right"> </span> All Birthdays
+                                                            <a href="all_birthdays.html"><span class="size-11 text-muted pull-right"> </span> All Birthdays
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="addbirthday"><span class="size-11 text-muted pull-right"> </span> Add Birthday
+                                                            <a href="add_birthday.html"><span class="size-11 text-muted pull-right"> </span> Add Birthday
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -320,11 +298,11 @@
                                                     <a class="dropdown-toggle" href="#">MEDIA COVERAGE</a>
                                                     <ul>
                                                         <li>
-                                                            <a href="allCoverage"><span class="size-11 text-muted pull-right"> </span> All Media Coverages
+                                                            <a href="all_media_coveragess.html"><span class="size-11 text-muted pull-right"> </span> All Media Coverages
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="addCoverage"><span class="size-11 text-muted pull-right"> </span> Add Media Coverage
+                                                            <a href="add_media_coverage.html"><span class="size-11 text-muted pull-right"> </span> Add Media Coverage
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -333,11 +311,11 @@
                                                     <a class="dropdown-toggle" href="#">DONOR GALLERY</a>
                                                     <ul>
                                                         <li>
-                                                            <a href="alldonors"><span class="size-11 text-muted pull-right"> </span> All Donors
+                                                            <a href="all_donors.html"><span class="size-11 text-muted pull-right"> </span> All Donors
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="donate"><span class="size-11 text-muted pull-right"> </span> Donate Now
+                                                            <a href="donate.html"><span class="size-11 text-muted pull-right"> </span> Donate Now
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -355,20 +333,32 @@
                                                         </li>
                                                     </ul>
                                                 </li>
+
+
+
                                             </ul>
 
                                         </div>
                                         <!-- /Menu End -->
 
+
+
+
+
                                     </div>
 
                                 </div>
 
+
+
+
                             </div>
+
+
 
                         </div>
                     </div>
-                </div>
+
                 </div>
 
             </section>
@@ -407,30 +397,14 @@
                 <span class="loader"></span>
             </div>
         </div><!-- /PRELOADER -->
-<script>
-    
-    
-    function datebox(){
-           var frequencyvalue = document.getElementById("frequency").value;
-           
-           if(frequencyvalue=="Date"){
-               document.getElementById("repdate").style.display = "block";
-           }
-           else {
-               document.getElementById("repdate").style.display = "none";
-           }
-       };
-        </script>
+
 
         <!-- JAVASCRIPT FILES -->
         <script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
         <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
         <script type="text/javascript" src="assets/js/scripts.js"></script>
-        <!-- REVOLUTION SLIDER -->
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script type="text/javascript" src="assets/js/view/demo.revolution_slider.js"></script>
+
 
     </body>
 </html>

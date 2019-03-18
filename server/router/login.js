@@ -23,6 +23,7 @@ login.post('/',authenticated, (req,res)=> {
     // console.log(username);
 
     if(password){
+        console.log('reached!!')
         Users.findByCredentials(username, password).then((user) => {
 
             req.session.userId = user._id;
