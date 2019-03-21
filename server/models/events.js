@@ -7,6 +7,11 @@ var eventsSchema = new mongoose.Schema({
         trim:true,
         required:true
     },
+    eventCreator: {
+        type: String,
+        trim:true,
+        required:true
+    },
     eventDate: {
         type: String,
         trim:true,
