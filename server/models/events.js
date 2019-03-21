@@ -43,6 +43,10 @@ var eventsSchema = new mongoose.Schema({
     imageName: {
         type: String,
         trim:true
+    },
+    eventStatus: {
+        type: String,
+        trim:true
     }
 });
 

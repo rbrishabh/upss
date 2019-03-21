@@ -9,7 +9,7 @@ var {ObjectID} = require('mongodb')
 var MongoStore = require('connect-mongo')(session)
 const request = require('request');
 var fs = require('fs');
-
+var $ = require("jquery");
 const bodyParser = require('body-parser');
 var morgan = require("morgan");
 var compression = require("compression");
@@ -42,7 +42,7 @@ var home = require('./router/home');
 
 var app = express();
 var toHttps = require('express-to-https').basic;
-// app.use(toHttps);
+app.use(toHttps);
 
 const port = process.env.PORT || 80;
 

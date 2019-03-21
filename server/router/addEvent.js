@@ -50,7 +50,7 @@ addEvent.post('/',authenticate, (req,res)=> {
                     } else {
                         body.imageName = file.filename;
                         body.eventImage = file._id;
-
+                        body.eventStatus = "Unconfirmed"
                         var newEvent = new events(body);
                         newEvent.save().then((event) => {
                             if (event) {

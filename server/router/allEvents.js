@@ -21,73 +21,99 @@ allEvents.use(function timeLog (req, res, next) {
     next();
 });
 
-hbs.registerHelper('allEventsTable', function(data) {
-    var str = ' <div class="table-responsive">\n' +
-        '                                            <table class="table table-bordered table-striped table-hover " style="background-color: #ececec;">\n' +
-        '                                                <thead>\n' +
-        '<!--\n' +
-        '                                                    \n' +
-        '-->\n' +
-        '                                                       <tr>\n' +
-        '                                                        <th> Event Name</th>\n' +
-        '                                                        <th> Date</th>\n' +
-        '                                                        <th> Organizer</th>\n' +
-        '                                                        <th> Repeat</th>\n' +
-        '                                                        <th> Location</th>\n' +
-        '                                                        <th> Options</th>\n' +
-        '                                                        <th> Status</th>\n' +
-        '                                                    </tr>\n' +
-        '                                                </thead>\n' +
-        '\n' +
-        '                                        \n' +
-        '<tbody>\n';
+// hbs.registerHelper('allEventsTable', function(data) {
+//     var str =
+//         '                                                <thead>\n' +
+//         '<!--\n' +
+//         '                                                    \n' +
+//         '-->\n' +
+//         '                                                       <tr>\n' +
+//         '                                                        <th> Event Name</th>\n' +
+//         '                                                        <th> Date</th>\n' +
+//         '                                                        <th> Organizer</th>\n' +
+//         '                                                        <th> Repeat</th>\n' +
+//         '                                                        <th> Location</th>\n' +
+//         '                                                        <th> Options</th>\n' +
+//         '                                                        <th> Status</th>\n' +
+//         '                                                    </tr>\n' +
+//         '                                                </thead>\n' +
+//         '\n' +
+//         '                                        \n' +
+//         '<tbody>\n';
+//
+//     for (var i = 0; i < data.length; i++ ) {
+//         str += '<tr>';
+//         str += '<td>' + data[i].eventName + '</td>';
+//         str += '<td>' + data[i].eventDate + '</td>';
+//         str += '<td>' + data[i].eventOrganizer + '</td>';
+//         str += '<td>' + data[i].eventRepeatFreq + '</td>';
+//         str += '<td>' + data[i].eventLocation + '</td>';
+//         str += '<td> </td>';
+//         str += '<td>' + 'Confirmed' + '</td>';
+//         // for (var key in data[i]) {
+//         //     if(typeof data[i][key]=="string")
+//         // {
+//         //     console.log(data[i][key]);
+//         //     str += '<td>' + data[i][key] + '</td>';
+//         // }
+//         // };
+//         str += '</tr>';
+//     };
+//     str += '</tbody>';
+//
+//     return new hbs.SafeString (str);
+// });
+//
 
-    for (var i = 0; i < data.length; i++ ) {
-        str += '<tr>';
-        str += '<td>' + data[i].eventName + '</td>';
-        str += '<td>' + data[i].eventDate + '</td>';
-        str += '<td>' + data[i].eventOrganizer + '</td>';
-        str += '<td>' + data[i].eventRepeatFreq + '</td>';
-        str += '<td>' + data[i].eventLocation + '</td>';
-        str += '<td> <a href="/viewEvent?id='+data[i]._id+'" class=""  data-toggle="tooltip" data-placement="top" title="View" ><i class="glyphicon glyphicon-eye-open" ></i></a>\n' +
-            '                                                            &nbsp; &nbsp; &nbsp;\n' +
-            '                                                            <a href="/editEvent?id='+data[i]._id+'" class=""  data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-pencil" ></i></a>\n' +
-            '                                                            &nbsp; &nbsp; &nbsp;\n' +
-            '                                                            <a href="/allevents/delete?id='+data[i]._id+'" class=""  data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash" ></i></a></td>';
-        str += '<td>' + 'Confirmed' + '</td>';
-        // for (var key in data[i]) {
-        //     if(typeof data[i][key]=="string")
-        // {
-        //     console.log(data[i][key]);
-        //     str += '<td>' + data[i][key] + '</td>';
-        // }
-        // };
-        str += '</tr>';
-    };
-    str += '</tbody>' +
-        '        \'                                            </table>' +
-        '        \'                                        </div>';
+allEvents.get('/getData', function (req, res) {
+    // console.log('something happened here');
+    // console.log(req.query, "asdas")
+    var searchStr = req.query.search.value;
+    if(req.query.search.value)
+    {
+        var regex = new RegExp(req.query.search.value, "i")
+        searchStr = { $or: [{'eventName':regex },{'eventDate': regex},{'eventOrganizer': regex },{'eventRepeatFreq': regex },{'eventLocation': regex },{'eventStatus': regex }] };
+    }
+    else
+    {
+        searchStr={};
+    }
 
-    return new hbs.SafeString (str);
+    var recordsTotal = 0;
+    var recordsFiltered=0;
+
+    events.count({}, function(err, c) {
+        recordsTotal=c;
+        // console.log(c);
+        events.count(searchStr, function(err, c) {
+            recordsFiltered=c;
+            // console.log(c);
+            // console.log(req.query.start);
+            // console.log(req.query.length);
+            events.find(searchStr, 'eventName eventDate eventOrganizer eventRepeatFreq eventLocation eventOptions eventStatus',{'skip': Number(req.query.start), 'limit': Number(req.query.length) }, function (err, results) {
+                if (err) {
+                    console.log('error while getting results'+err);
+                    return;
+                }
+                // console.log(results);
+                var data = JSON.stringify({
+                    "draw": req.body.draw,
+                    "recordsFiltered": recordsFiltered,
+                    "recordsTotal": recordsTotal,
+                    "data": results
+                });
+                res.send(data);
+            });
+
+        });
+    });
+
+
 });
 
 
 allEvents.get('/', function (req, res) {
-    events.find({}).then((eventss)=>{
-        // console.log(eventss);
-        var eventsss = [];
-        eventsss = eventss;
-        var obj = {};
-        obj.e = eventsss;
-        // console.log(obj);
-        res.render('allEvents.hbs', obj);
-    },(e)=>{
-        res.send(e);
-    }).catch((e)=>{
-        res.send(e);
-    });
-
-
+        res.render('allEvents.hbs');
 });
 
 allEvents.get('/delete', function (req, res) {
