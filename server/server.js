@@ -35,7 +35,7 @@ var addAchievers = require('./router/addAchievers');
 var allAchievers = require('./router/allAchievers');
 var addEvent = require('./router/addEvent');
 var allEvents = require('./router/allEvents');
-var allcoverage = require('./router/allcoverage');
+var allCoverage = require('./router/allCoverage');
 var donate = require('./router/donate');
 var home = require('./router/home');
 
@@ -79,7 +79,7 @@ app.use('/addEvent', addEvent);
 app.use('/allEvents', allEvents);
 app.use('/addMartyrs', addMartyrs);
 app.use('/allbearers', allbearers);
-app.use('/allcoverage', allcoverage);
+app.use('/allCoverage', allCoverage);
 app.use('/donate', donate);
 app.use('/allMartyrs', allMartyrs);
 app.use('/allHomage', allHomage);
