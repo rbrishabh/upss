@@ -42,7 +42,7 @@ var home = require('./router/home');
 
 var app = express();
 var toHttps = require('express-to-https').basic;
-app.use(toHttps);
+// app.use(toHttps);
 
 const port = process.env.PORT || 80;
 
@@ -88,26 +88,56 @@ app.use('/addAchievers', addAchievers);
 app.use('/addHomage', addHomage);
 app.use('/login', login);
 
-app.get("/viewEvent", function (req, res) {
+app.get("/viewEvent", authenticate, function (req, res) {
     var id = req.query.id;
+    var user = req.session.userId;
+
+    Users.findById(user).then((user) => {
     events.findById(id).then((found) => {
-        res.render('viewEvent.hbs', found);
+        if(found.eventCreator == user.email){
+            found.canEdit = true;
+            res.render('viewEvent.hbs', found);
+        } else {
+            res.render('viewEvent.hbs', found);
+        }
+
     }, (e) => {
         res.send(e);
     }).catch((e) => {
+        res.send(e);
+    });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
         res.send(e);
     });
 });
 
-app.get("/editEvent", function (req, res) {
+app.get("/editEvent", authenticate, function (req, res) {
     var id = req.query.id;
-    events.findById(id).then((found) => {
-        res.render('editEvent.hbs', found);
+    var user = req.session.userId;
+    Users.findById(user).then((user) => {
+        events.findById(id).then((found) => {
+            if(found.eventCreator == user.email){
+                res.render('editEvent.hbs', found);
+            } else {
+                res.sendStatus(401).send();
+            }
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
     }, (e) => {
-        res.send(e);
-    }).catch((e) => {
-        res.send(e);
-    });
+            console.log(e);
+            res.redirect("/login");
+        }).catch((e) => {
+            console.log(e);
+            res.send(e);
+        });
 });
 
 app.post("/editEvent", authenticate, function (req, res) {
