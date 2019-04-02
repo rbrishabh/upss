@@ -46,7 +46,7 @@ var home = require('./router/home');
 
 var app = express();
 var toHttps = require('express-to-https').basic;
-// app.use(toHttps);
+app.use(toHttps);
 
 const port = process.env.PORT || 80;
 
