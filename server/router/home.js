@@ -13,7 +13,23 @@ home.use(function timeLog (req, res, next) {
 });
 
 home.get('/', function (req, res) {
-    res.render('home.hbs');
+    if (req.session && req.session.userId) {
+        var user = req.session.userId;
+        Users.findById(user).then((user) => {
+            res.render('home.hbs', user);
+        }, (e) => {
+            console.log(e);
+            res.send(e);
+            // res.render('editEvent.hbs', {msg: "fail"});
+        }).catch((e) => {
+            // console.log(e);
+            res.send(e);
+            // res.render('editEvent.hbs', {msg: "fail"});
+        });
+    } else {
+        res.render('home.hbs');
+    }
+
 });
 
 

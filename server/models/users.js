@@ -151,10 +151,10 @@ userSchema.methods.toJSON = function () {
 };
 
 
-userSchema.statics.findByCredentials = function (username , password) {
+userSchema.statics.findByCredentials = function (email , password) {
     var Users = this;
     // console.log(username);
-    return Users.findOne({email:username}).then((user)=>{
+    return Users.findOne({email:email}).then((user)=>{
         // console.log(user);
         if(!user){
             return Promise.reject();

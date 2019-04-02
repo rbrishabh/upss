@@ -19,8 +19,8 @@ allAchievers.use(function timeLog (req, res, next) {
     next();
 });
 
-allAchievers.get('/', function (req, res) {
-    res.render('allHomage.hbs');
+allAchievers.get('/', authenticate, function (req, res) {
+    res.render('allAchievers.hbs');
 });
 
 // addEvent.post('/',authenticate, (req,res)=> {

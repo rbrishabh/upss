@@ -12,7 +12,7 @@ login.use(function timeLog (req, res, next) {
     next();
 });
 
-login.get('/', function (req, res) {
+login.get('/', authenticated, function (req, res) {
     res.render('login.hbs');
 });
 

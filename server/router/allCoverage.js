@@ -20,7 +20,7 @@ allCoverage.use(function timeLog (req, res, next) {
     next();
 });
 
-allCoverage.get('/', function (req, res) {
+allCoverage.get('/', authenticate, function (req, res) {
     res.render('allcoverage.hbs');
 });
 

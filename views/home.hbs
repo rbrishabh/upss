@@ -58,7 +58,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <!-- Logo -->
-                        <a class="logo pull-left" href="index.html">
+                        <a class="logo pull-left" href="/">
                             <img src="assets/images/logo-sm.png" alt="" />
                         </a>
 
@@ -67,26 +67,45 @@
 
 
                                 <ul id="topMain" class="nav nav-pills nav-main">
-
                                     <li class="">
-                                        <a href="/login">
-                                            <i class="fa fa-user"></i> LOGIN
+                                        <a href="/donate">
+                                            <i class="fa fa-gratipay"></i> Donate
                                         </a>
 
                                     </li>
+                                    {{#if email}}
 
-                                    <li class="">
-                                        <a href="/signup">
-                                            <i class="fa fa-user-plus"></i> SIGNUP
-                                        </a>
+                                        <li class="">
+                                            <a href="/">
+                                                <i class="fa fa-user"></i> {{name}}
+                                            </a>
 
-                                    </li>
-                                    <li class="">
-                                        <a href="donate.html">
-                                            <i class="fa fa-gratipay"></i> DONATE
-                                        </a>
+                                        </li>
 
-                                    </li>
+
+                                        <li class="">
+                                            <a href="/logout">
+                                                <i class="fa fa-sign-out"></i> Logout
+                                            </a>
+
+                                        </li>
+                                    {{else}}
+                                        <li class="">
+                                            <a href="/login">
+                                                <i class="fa fa-user"></i> LOGIN
+                                            </a>
+
+                                        </li>
+
+                                        <li class="">
+                                            <a href="/signup">
+                                                <i class="fa fa-user-plus"></i> SIGNUP
+                                            </a>
+
+                                        </li>
+                                    {{/if}}
+
+
                                 </ul>
                             </nav>
                         </div>
@@ -124,9 +143,9 @@
                                  data-autoplay="true"
                                  data-autoplayonlyfirsttime="false"
                                  data-nextslideatend="true"
-                                 data-volume="mute" 
-                                 data-forceCover="1" 
-                                 data-aspectratio="16:9" 
+                                 data-volume="mute"
+                                 data-forceCover="1"
+                                 data-aspectratio="16:9"
                                  data-forcerewind="on" style="z-index: 2;">
 
                                 <div class="tp-dottedoverlay twoxtwo"><!-- dotted overlay --></div>
@@ -243,12 +262,12 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
                                 <ul class="text-left size-14 list-inline list-separator">
                                     <li style="color:darkorange !important;">
-                                        <i class="fa fa-clock-o"></i> 
+                                        <i class="fa fa-clock-o"></i>
                                         10:00 am
                                     </li>
                                     <li>
                                         <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"  title="Venue Address">
-                                            <i class="fa fa-institution" ></i> 
+                                            <i class="fa fa-institution" ></i>
                                             School Campus
                                         </a>
                                     </li>
@@ -294,12 +313,12 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
                                 <ul class="text-left size-14 list-inline list-separator">
                                     <li style="color:darkorange !important;">
-                                        <i class="fa fa-clock-o"></i> 
+                                        <i class="fa fa-clock-o"></i>
                                         10:00 am
                                     </li>
                                     <li>
                                         <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"  title="Venue Address">
-                                            <i class="fa fa-institution"></i> 
+                                            <i class="fa fa-institution"></i>
                                             School
                                         </a>
                                     </li>
@@ -346,12 +365,12 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
                                 <ul class="text-left size-14 list-inline list-separator">
                                     <li style="color:darkorange !important;">
-                                        <i class="fa fa-clock-o"></i> 
+                                        <i class="fa fa-clock-o"></i>
                                         10:00 am
                                     </li>
                                     <li>
                                         <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"  title="Venue Address">
-                                            <i class="fa fa-institution"></i> 
+                                            <i class="fa fa-institution"></i>
                                             School
                                         </a>
                                     </li>
@@ -425,17 +444,17 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                             <h4 class="text-left margin-top-0"><a href="#">Captain Manoj Kumar Panday</a></h4>
                                             <p class="text-left">CaptainManoj Kumar Pandey, posthumously awarded the India's highest military honour, ParamVir Chakra for his audacious courage and leadership during adverse times. </p>
                                             <ul class="text-left size-14 list-inline list-separator" style="font-family: Roboto !important;">
-                                               
+
                                                 <li style="color: #cc1111; ">
                                                    <a href="#" title="Venue Address">
-                                                    <i class="fa fa-calendar"></i> 
+                                                    <i class="fa fa-calendar"></i>
                                                     2/3 Jul 199
                                                     </a>
                                                 </li>
-                                                
+
                                                 <li>
                                                     <a href="blog-single-default.html#comments" style="color: dodgerblue;" title="Tributes">
-                                                        <i class="fa fa-comments"></i> 
+                                                        <i class="fa fa-comments"></i>
                                                         301
                                                     </a>
                                                 </li>
@@ -462,12 +481,12 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                             <p class="text-left">On the October 17, 1987 Sainik School lost a very courageous ex-cadet, Captain Sunil Chandra of 8 Mahar regiment in Sri Lanka. Capt Sunil Chandra on 16/17 October 1987,   </p>
                                             <ul class="text-left size-14 list-inline list-separator" style="font-family: Roboto !important;">
                                                 <li style="color: #cc1111;">
-                                                    <i class="fa fa-calendar"></i> 
+                                                    <i class="fa fa-calendar"></i>
                                                     17 Oct 1987
                                                 </li>
                                                 <li>
                                                     <a href="blog-single-default.html#comments" style="color: dodgerblue;">
-                                                        <i class="fa fa-comments"></i> 
+                                                        <i class="fa fa-comments"></i>
                                                         312
                                                     </a>
                                                 </li>
@@ -517,7 +536,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                             <div class="item-box">
                                 <figure>
                                     <div class="h-overlay">
-                                        It was July 3rd 2008 and the sky was overcast. Upsainians around Delhi were asked to gather by India... 
+                                        It was July 3rd 2008 and the sky was overcast. Upsainians around Delhi were asked to gather by India...
                                         <br><a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
                                     </div>
                                     <img alt="" class="img-responsive" src="assets/images/cManoj.jpg" width="263" height="147">
@@ -752,7 +771,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                     </div>
                                 </div>
 
-                                <div class="badgescard"> 
+                                <div class="badgescard">
                                     <a href="login.html" class="btn btn-danger pull-right btn-xs">Read More</a>
                                 </div>
 
@@ -770,7 +789,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                         </div>
                                     </div>
                                 </div>
-                                <div class="badgescard"> 
+                                <div class="badgescard">
                                     <a href="login.html" class="btn btn-danger pull-right btn-xs">Read More</a>
                                 </div>
                             </div>
@@ -1056,7 +1075,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                             <td>22/7/2015</td>
                                             <td>Welfare Fund</td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -1261,7 +1280,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                                 <div class="col-xs-3">
                                                     <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
                                                         <a class="box-icon-title" href="#"  title="Total Messages">
-                                                            <i class="fa fa-envelope" style="color:darkorange;"></i> 
+                                                            <i class="fa fa-envelope" style="color:darkorange;"></i>
                                                             <h4>41</h4>
                                                         </a>
                                                     </div>
@@ -1269,13 +1288,13 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                                 <div class="col-xs-3">
                                                     <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
                                                         <a class="box-icon-title" href="#"  title="Total Comments">
-                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i> 
+                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i>
                                                             <h4>124</h4>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clearfix">    
+                                            <div class="clearfix">
                                             </div>
                                             <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
                                         </div>
@@ -1310,7 +1329,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                                 <div class="col-xs-3">
                                                     <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
                                                         <a class="box-icon-title" href="#"  title="Total Messages">
-                                                            <i class="fa fa-envelope" style="color:darkorange;"></i> 
+                                                            <i class="fa fa-envelope" style="color:darkorange;"></i>
                                                             <h4>41</h4>
                                                         </a>
                                                     </div>
@@ -1318,13 +1337,13 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                                 <div class="col-xs-3">
                                                     <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
                                                         <a class="box-icon-title" href="#"  title="Total Comments">
-                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i> 
+                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i>
                                                             <h4>124</h4>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clearfix">    
+                                            <div class="clearfix">
                                             </div>
                                             <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
                                         </div>
@@ -1359,7 +1378,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                                 <div class="col-xs-3">
                                                     <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
                                                         <a class="box-icon-title" href="#"  title="Total Messages">
-                                                            <i class="fa fa-envelope" style="color:darkorange;"></i> 
+                                                            <i class="fa fa-envelope" style="color:darkorange;"></i>
                                                             <h4>41</h4>
                                                         </a>
                                                     </div>
@@ -1367,13 +1386,13 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                                 <div class="col-xs-3">
                                                     <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
                                                         <a class="box-icon-title" href="#"  title="Total Comments">
-                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i> 
+                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i>
                                                             <h4>124</h4>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="clearfix">    
+                                            <div class="clearfix">
                                             </div>
                                             <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
                                         </div>
@@ -1417,17 +1436,17 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
 
                         </div>
-                        
-                        
-                        
-                        
+
+
+
+
 
                         <div class="col-sm-8">
                             <div class="heading-title">
-                             
+
                                 <strong>Aim of School :</strong>
                             </div>
-                           
+
                                 <ul>
                                     <li>To prepare a cadet to join National Defence Academy.</li>
                                     <li>Prepare him to be self reliant and excel in other fields in case he is unable to join NDA.</li>
@@ -1439,7 +1458,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                 <p>
                                     <strong> Our website 'www.upsainian.org' launched on April 28, 2000, and launched by Chief Secretary of Uttar Pradesh at CM Annexe in presence of OBA Members.</strong>
                                 </p>
-                            
+
 
 
                         </div>
@@ -1447,9 +1466,9 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                             <img src="assets/images/pride.jpeg" class="img-responsive img-thumbnail" alt="UP Sainik School Image" />
                             <p>Launch of 'upsainian.org' by Chief Secretary of Uttar Pradesh</p>
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="col-md-12">
                             <div class="toggle toggle-transparent toggle-noicon">
 

@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
-        <title>U.P. SAINIK SCHOOL OBA - Add Homage</title>
+        <title>U.P. SAINIK SCHOOL OBA - Add Martyrs</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="Author" content="hemant.me"/>
@@ -113,7 +113,7 @@
 
 
                                             <div class="box-title margin-bottom-30">
-                                                <h2 class="size-20 pull-left">Add Homage</h2>
+                                                <h2 class="size-20 pull-left">Add Martyrs</h2>
                                                 <!--
 <label class="switch switch-primary switch-round pull-right">
 <input type="checkbox" >
@@ -180,17 +180,22 @@
                                                             
 
                                                             <div class="form-group">
-                                                                <select name="" class="form-control"  onchange="rank()" id="rankval">
-                                                                    <option value="0">Background</option>
+                                                                <select name="" class="form-control"  id="rankval">
+                                                                    <option value="0">Rank</option>
+                                                                    <option value="1">Civil</option>
+                                                                    <option value="military">Military</option>
+                                                                </select>
+                                                            </div>
+                                                            
+                                                            <div class="form-group">
+                                                                <select name="" class="form-control"  id="rankval">
+                                                                    <option value="0">Citation</option>
                                                                     <option value="1">Civil</option>
                                                                     <option value="military">Military</option>
                                                                 </select>
                                                             </div>
 
-                                                            <div class="form-group" id="rankbox" style="display: none;">
-                                                                <input type="text" class="form-control" placeholder="Rank & Decoration">
-                                                            </div>
-
+                                                           
                                                         </div>
 
                                                     </div>
@@ -240,7 +245,7 @@
                                             </div>
 
                                                 <ul class="list-group list-group-bordered list-group-noicon uppercase">
-                                                    <li class="list-group-item">
+                                                    <li class="list-group-item ">
                                                         <a class="dropdown-toggle" href="#">EVENTS</a>
                                                         <ul>
                                                             <li >
@@ -253,33 +258,33 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item active">
+                                                    <li class="list-group-item">
                                                         <a class="dropdown-toggle" href="#">HOMAGE</a>
                                                         <ul>
                                                             <li  >
                                                                 <a href="allhomage"><span class="size-11 text-muted pull-right"> </span> All Homages
                                                                 </a>
                                                             </li>
-                                                            <li class="active">
+                                                            <li >
                                                                 <a href="addhomage"><span class="size-11 text-muted pull-right"> </span> Add Homage
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item ">
+                                                    <li class="list-group-item active">
                                                         <a class="dropdown-toggle" href="#">MARTYRS</a>
                                                         <ul>
                                                             <li>
                                                                 <a href="allmartyrs"><span class="size-11 text-muted pull-right"> </span> All Martyrs
                                                                 </a>
                                                             </li>
-                                                            <li>
+                                                            <li class="active">
                                                                 <a href="addmartyr"><span class="size-11 text-muted pull-right"> </span> Add Martyr
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item ">
+                                                    <li class="list-group-item">
                                                         <a class="dropdown-toggle" href="#">ACHIEVERS</a>
                                                         <ul>
                                                             <li>
@@ -359,8 +364,7 @@
                                                     </li>
                                                 </ul>
 
-
-                                            </div>
+                                        </div>
                                         <!-- /Menu End -->
 
                                         </div>
@@ -410,20 +414,7 @@
                 <span class="loader"></span>
             </div>
         </div><!-- /PRELOADER -->
-        <script>
-
-
-            function rank(){
-                var rankvalue = document.getElementById("rankval").value;
-
-                if(rankvalue=="military"){
-                    document.getElementById("rankbox").style.display = "block";
-                }
-                else {
-                    document.getElementById("rankbox").style.display = "none";
-                }
-            };
-        </script>
+      
 
         <!-- JAVASCRIPT FILES -->
         <script type="text/javascript">var plugin_path = 'assets/plugins/';</script>

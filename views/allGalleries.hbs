@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
-        <title>U.P. SAINIK SCHOOL OBA - Add Homage</title>
+        <title>U.P. SAINIK SCHOOL OBA - All Galleries</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="Author" content="hemant.me"/>
@@ -32,6 +32,21 @@
         <!-- PAGE LEVEL SCRIPTS -->
         <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+        <style>
+            .card-gallery{
+                padding: 5px;
+                background-color: #eee;
+                border-radius: 4px;
+            }
+            .box-gallery{
+                padding: 10px;
+                padding-top: 20px;
+                padding-bottom: 30px;
+
+            }
+
+        </style>
 
 
     </head>
@@ -72,11 +87,11 @@
 
                                         <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"> </i> USER NAME</a>
                                         <ul class="dropdown-menu pull-right">
-                                            <li><a tabindex="-1" href="#"><i class="fa fa-history"></i> EDIT PROFILE</a></li>
+                                            <li><a tabindex="-1" href="edit_event.html"><i class="fa fa-history"></i> EDIT PROFILE</a></li>
                                             <li class="divider"></li>
                                             <li><a tabindex="-1" href="#"><i class="fa fa-cog"></i> SETTINGS</a></li>
                                             <li class="divider"></li>
-                                            <li><a tabindex="-1" href="#"><i class="glyphicon glyphicon-off"></i> LOGOUT</a></li>
+                                            <li><a tabindex="-1" href="add_event.html"><i class="glyphicon glyphicon-off"></i> LOGOUT</a></li>
                                         </ul>
 
                                     </li>
@@ -113,114 +128,168 @@
 
 
                                             <div class="box-title margin-bottom-30">
-                                                <h2 class="size-20 pull-left">Add Homage</h2>
+                                                <h2 class="size-20 pull-left">All Galleries</h2>
+
+
+
                                                 <!--
-<label class="switch switch-primary switch-round pull-right">
-<input type="checkbox" >
-<span class="switch-label" data-on="MY" data-off="ALL"></span>
-</label>
+<div class="btn-group pull-right" style="margin-top: -5px;">
+<button type="button" class="btn btn-link btn-xs dropdown-toggle" data-toggle="dropdown" style="text-decoration: none; color: #aaa; font-size: 20px;"><i class="fa fa-search" title="Search"></i></button>
+<ul class="dropdown-menu" role="menu">
+<li>
+
+<div class="search-box" style="width: 300px; padding: 20px; height: 80px; ">
+<form action="#" method="get" >
+<div class="input-group">
+<input type="text" name="src" placeholder="Search" class="form-control" />
+<span class="input-group-btn">
+<button class="btn btn-primary" type="submit">Search</button>
+</span>
+</div>
+</form>
+</div> 
+
+</li>
+
+</ul>
+</div>
 -->
+
+
+
+                                                <label class="switch switch-primary switch-round pull-right">
+                                                    <input type="checkbox" >
+                                                    <span class="switch-label" data-on="MY" data-off="ALL"></span>
+                                                </label>
 
                                                 <div class="clearfix"></div>
                                             </div>
 
 
-
-                                            <form class="nomargin" method="post" action="#" autocomplete="off">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-
-
-                                                        <div class="clearfix">
-                                                            <div class="form-group">
-                                                                <input type="text" name="" class="form-control" placeholder="Name" required="">
-                                                            </div>
-
-
-                                                            <div class="form-group">
-                                                                <input type="text" name="" class="form-control" placeholder="School Number" required="">
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control datepicker" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false" data-to="+0d"  placeholder=" &nbsp; Died on (Date)">
-
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <textarea rows="6" class="form-control word-count" data-maxlength="200" data-info="textarea-words-info" placeholder="Notes"></textarea>
-                                                            </div>
-
-
-
-                                                        </div>
-
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="autosuggest" data-minLength="1" data-queryURL="">
+                                                        <input type="text" name="src" placeholder="Search..." class="form-control typeahead" />
                                                     </div>
-
-
-
-
-
-
-                                                    <div class="col-md-6">
-
-                                                        <div class="clearfix">
-
-                                                            <div class="fancy-file-upload" style="margin-bottom: 15px;">
-                                                                <i class="fa fa-image"></i>
-                                                                <input type="file" class="form-control" name="image[attachment]" onchange="jQuery(this).next('input').val(this.value);" />
-                                                                <input type="text" class="form-control" placeholder="Upload Picture" readonly="" style="background-color: #fff;" />
-
-                                                            </div>
-
-                                                           
-
-                                                           
-
-
-                                                            
-
-                                                            <div class="form-group">
-                                                                <select name="" class="form-control"  onchange="rank()" id="rankval">
-                                                                    <option value="0">Background</option>
-                                                                    <option value="1">Civil</option>
-                                                                    <option value="military">Military</option>
-                                                                </select>
-                                                            </div>
-
-                                                            <div class="form-group" id="rankbox" style="display: none;">
-                                                                <input type="text" class="form-control" placeholder="Rank & Decoration">
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-
+                                                    <br>
                                                 </div>
 
 
+                                                <div class="col-md-4">
+                                                    <!-- News item -->
+                                                    <div class="item-box card-gallery">
+                                                        <figure>
+                                                            <a class="item-hover" href="view_gallery.html">
+                                                                <span class="overlay color2"></span>
+                                                                <span class="inner">
+                                                                    <span class="block fa fa-eye fsize20"></span>
+                                                                    <strong>VIEW</strong> GALLERY
+                                                                </span>
+                                                            </a>
+                                                            <img alt="" class="img-responsive" src="assets/images/news/thumb_3-min.jpg" >
+                                                        </figure>
+                                                        <div class="box-gallery">
+                                                            <h4 class="margin-top-0">Gallery Name</h4>
+                                                            <small>29 June 2014</small>
+                                                            <br>
 
+                                                            <div class="pull-right">
+                                                                <small>
+                                                                    <span class="pull-right">
+                                                                        <a href="v"   data-toggle="tooltip" data-placement="top" title="12 Images and 2 Videos in this Gallery">
+                                                                            <i class="fa fa-image" style="color:darkcyan;"> </i> x12
 
+                                                                            &nbsp;
 
-                                                <div class="row">
-
-                                                    <div class="col-md-6 col-sm-6 col-xs-6">
-
-                                                        <!-- Inform Tip -->                                        
-                                                        <div class="form-tip pt-20">
-
+                                                                            <i class="fa fa-youtube-play"  style="color:red;"> </i> x2
+                                                                        </a>
+                                                                    </span>
+                                                                </small>
+                                                            </div>
                                                         </div>
-
                                                     </div>
-
-                                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-
-                                                        <button class="btn btn-primary"> &nbsp; SAVE &nbsp; </button>
-
-                                                    </div>
-
+                                                    <!-- /News item -->
                                                 </div>
 
-                                            </form>
+                                                <div class="col-md-4">
+                                                    <!-- News item -->
+                                                    <div class="item-box card-gallery">
+                                                        <figure>
+                                                            <a class="item-hover" href="view_gallery.html">
+                                                                <span class="overlay color2"></span>
+                                                                <span class="inner">
+                                                                    <span class="block fa fa-eye fsize20"></span>
+                                                                    <strong>VIEW</strong> GALLERY
+                                                                </span>
+                                                            </a>
+                                                            <img alt="" class="img-responsive" src="assets/images/news/thumb_3-min.jpg" >
+                                                        </figure>
+                                                        <div class="box-gallery">
+                                                            <h4 class="margin-top-0">Gallery Name</h4>
+                                                            <small>29 June 2014</small>
+                                                            <br>
+
+                                                            <div class="pull-right">
+                                                                <small>
+                                                                    <span class="pull-right">
+                                                                        <a href="view_gallery.html"   data-toggle="tooltip" data-placement="top" title="12 Images and 2 Videos in this Gallery">
+                                                                            <i class="fa fa-image" style="color:darkcyan;"> </i> x12
+
+                                                                            &nbsp;
+
+                                                                            <i class="fa fa-youtube-play"  style="color:red;"> </i> x2
+                                                                        </a>
+                                                                    </span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /News item -->
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <!-- News item -->
+                                                    <div class="item-box card-gallery">
+                                                        <figure>
+                                                            <a class="item-hover" href="view_gallery.html">
+                                                                <span class="overlay color2"></span>
+                                                                <span class="inner">
+                                                                    <span class="block fa fa-eye fsize20"></span>
+                                                                    <strong>VIEW</strong> GALLERY
+                                                                </span>
+                                                            </a>
+                                                            <img alt="" class="img-responsive" src="assets/images/news/thumb_3-min.jpg" >
+                                                        </figure>
+                                                        <div class="box-gallery">
+                                                            <h4 class="margin-top-0">Gallery Name</h4>
+                                                            <small>29 June 2014</small>
+                                                            <br>
+
+                                                            <div class="pull-right">
+                                                                <small>
+                                                                    <span class="pull-right">
+                                                                        <a href="view_gallery.html"   data-toggle="tooltip" data-placement="top" title="12 Images and 2 Videos in this Gallery">
+                                                                            <i class="fa fa-image" style="color:darkcyan;"> </i> x12
+
+                                                                            &nbsp;
+
+                                                                            <i class="fa fa-youtube-play"  style="color:red;"> </i> x2
+                                                                        </a>
+                                                                    </span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /News item -->
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+
 
 
 
@@ -232,12 +301,13 @@
                                         <!-- LEFT -->
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-lg-pull-9 col-md-pull-9 col-sm-pull-9">
 
+                                            <!-- Menu Start -->
                                             <div class="side-nav margin-bottom-60">
 
-                                            <div class="side-nav-head">
-                                                <button class="fa fa-bars"></button>
-                                                <h4>MENU</h4>
-                                            </div>
+                                                <div class="side-nav-head">
+                                                    <button class="fa fa-bars"></button>
+                                                    <h4>MENU</h4>
+                                                </div>
 
                                                 <ul class="list-group list-group-bordered list-group-noicon uppercase">
                                                     <li class="list-group-item">
@@ -247,20 +317,20 @@
                                                                 <a href="allevents"><span class="size-11 text-muted pull-right"> </span> All Events
                                                                 </a>
                                                             </li>
-                                                            <li >
+                                                            <li>
                                                                 <a href="addevent"><span class="size-11 text-muted pull-right"> </span> Add Events
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item active">
+                                                    <li class="list-group-item">
                                                         <a class="dropdown-toggle" href="#">HOMAGE</a>
                                                         <ul>
-                                                            <li  >
+                                                            <li  class="">
                                                                 <a href="allhomage"><span class="size-11 text-muted pull-right"> </span> All Homages
                                                                 </a>
                                                             </li>
-                                                            <li class="active">
+                                                            <li>
                                                                 <a href="addhomage"><span class="size-11 text-muted pull-right"> </span> Add Homage
                                                                 </a>
                                                             </li>
@@ -344,10 +414,10 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item ">
+                                                    <li class="list-group-item active">
                                                         <a class="dropdown-toggle" href="#">IMAGES &amp; VIDEO GALLERY</a>
                                                         <ul>
-                                                            <li>
+                                                            <li class="active">
                                                                 <a href="allGalleries"><span class="size-11 text-muted pull-right"> </span> All Galleries
                                                                 </a>
                                                             </li>
@@ -359,9 +429,8 @@
                                                     </li>
                                                 </ul>
 
-
                                             </div>
-                                        <!-- /Menu End -->
+                                            <!-- /Menu End -->
 
                                         </div>
 
@@ -413,14 +482,14 @@
         <script>
 
 
-            function rank(){
-                var rankvalue = document.getElementById("rankval").value;
+            function datebox(){
+                var frequencyvalue = document.getElementById("frequency").value;
 
-                if(rankvalue=="military"){
-                    document.getElementById("rankbox").style.display = "block";
+                if(frequencyvalue=="Date"){
+                    document.getElementById("repdate").style.display = "block";
                 }
                 else {
-                    document.getElementById("rankbox").style.display = "none";
+                    document.getElementById("repdate").style.display = "none";
                 }
             };
         </script>
@@ -430,10 +499,7 @@
         <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
         <script type="text/javascript" src="assets/js/scripts.js"></script>
-        <!-- REVOLUTION SLIDER -->
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script type="text/javascript" src="assets/js/view/demo.revolution_slider.js"></script>
+
 
     </body>
 </html>

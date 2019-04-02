@@ -177,7 +177,7 @@ allEvents.get('/getMyData', authenticate, function (req, res) {
 
 });
 
-allEvents.get('/', function (req, res) {
+allEvents.get('/', authenticate, function (req, res) {
         res.render('allEvents.hbs');
 });
 

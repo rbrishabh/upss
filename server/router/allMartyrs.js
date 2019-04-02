@@ -19,7 +19,7 @@ allMartyrs.use(function timeLog (req, res, next) {
     next();
 });
 
-allMartyrs.get('/', function (req, res) {
+allMartyrs.get('/',  authenticate, function (req, res) {
     res.render('allMartyrs.hbs');
 });
 

@@ -12,7 +12,7 @@ signUp.use(function timeLog (req, res, next) {
     next();
 });
 
-signUp.get('/', function (req, res) {
+signUp.get('/', authenticated, function (req, res) {
     res.render('signUp.hbs');
 });
 

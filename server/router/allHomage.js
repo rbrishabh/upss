@@ -19,7 +19,7 @@ allHomage.use(function timeLog (req, res, next) {
     next();
 });
 
-allHomage.get('/', function (req, res) {
+allHomage.get('/', authenticate, function (req, res) {
     res.render('allHomage.hbs');
 });
 

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const database =   process.env.MONGODB_URI || 'mongodb://localhost:27017/alumni';
+const database =   process.env.MONGODB_URI || 'mongodb://localhost:27017/alumni2';
 const gridfs = require('mongoose-gridfs');
 
 var db = mongoose.connection;

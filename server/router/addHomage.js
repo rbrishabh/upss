@@ -19,7 +19,7 @@ addHomage.use(function timeLog (req, res, next) {
     next();
 });
 
-addHomage.get('/', function (req, res) {
+addHomage.get('/', authenticate, function (req, res) {
     res.render('addHomage.hbs');
 });
 

@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
-        <title>U.P. SAINIK SCHOOL OBA - Add Homage</title>
+        <title>U.P. SAINIK SCHOOL OBA - Add Gallery</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="Author" content="hemant.me"/>
@@ -20,18 +20,49 @@
         <!-- CORE CSS -->
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-        <!-- REVOLUTION SLIDER -->
-        <link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
-
         <!-- THEME CSS -->
         <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/thematics-education.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/dropzone.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="assets/js/dropzone.js"></script>
+
 
         <!-- PAGE LEVEL SCRIPTS -->
         <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+        <style>
+            .card-gallery{
+                padding: 5px;
+                background-color: #eee;
+                border-radius: 4px;
+            }
+            .box-gallery{
+                padding: 10px;
+                padding-top: 20px;
+                padding-bottom: 30px;
+
+            }
+            .gi{
+                display: block;
+                height: 100px !important;
+            }
+            .gi img{
+                display: block;
+                height: 100px !important;
+            }
+            .gi span{
+                display: block;
+                height: 100px !important;
+            }
+
+
+
+
+
+
+        </style>
 
 
     </head>
@@ -72,11 +103,11 @@
 
                                         <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"> </i> USER NAME</a>
                                         <ul class="dropdown-menu pull-right">
-                                            <li><a tabindex="-1" href="#"><i class="fa fa-history"></i> EDIT PROFILE</a></li>
+                                            <li><a tabindex="-1" href="edit_event.html"><i class="fa fa-history"></i> EDIT PROFILE</a></li>
                                             <li class="divider"></li>
                                             <li><a tabindex="-1" href="#"><i class="fa fa-cog"></i> SETTINGS</a></li>
                                             <li class="divider"></li>
-                                            <li><a tabindex="-1" href="#"><i class="glyphicon glyphicon-off"></i> LOGOUT</a></li>
+                                            <li><a tabindex="-1" href="add_event.html"><i class="glyphicon glyphicon-off"></i> LOGOUT</a></li>
                                         </ul>
 
                                     </li>
@@ -113,114 +144,149 @@
 
 
                                             <div class="box-title margin-bottom-30">
-                                                <h2 class="size-20 pull-left">Add Homage</h2>
-                                                <!--
-<label class="switch switch-primary switch-round pull-right">
-<input type="checkbox" >
-<span class="switch-label" data-on="MY" data-off="ALL"></span>
-</label>
--->
+                                                <h2 class="size-20 pull-left">Add New Gallery</h2>
+
 
                                                 <div class="clearfix"></div>
                                             </div>
 
 
 
-                                            <form class="nomargin" method="post" action="#" autocomplete="off">
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-6">
 
+                                                    <div class="form-group">
+                                                        <input type="text" name="" class="form-control" placeholder="Gallery Name" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
 
-                                                        <div class="clearfix">
-                                                            <div class="form-group">
-                                                                <input type="text" name="" class="form-control" placeholder="Name" required="">
-                                                            </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control datepicker" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false" placeholder=" &nbsp; Date">
+                                                    </div>
+                                                </div>
 
-
-                                                            <div class="form-group">
-                                                                <input type="text" name="" class="form-control" placeholder="School Number" required="">
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control datepicker" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false" data-to="+0d"  placeholder=" &nbsp; Died on (Date)">
-
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <textarea rows="6" class="form-control word-count" data-maxlength="200" data-info="textarea-words-info" placeholder="Notes"></textarea>
-                                                            </div>
-
-
-
-                                                        </div>
-
+                                                <div class="col-md-12">
+                                                    <br><br>
+                                                    <div class="heading-title  heading-color">
+                                                        <h4 style="background: none !important;"> Upload <span>Images</span></h4>
                                                     </div>
 
 
-
-
-
-
-                                                    <div class="col-md-6">
-
-                                                        <div class="clearfix">
-
-                                                            <div class="fancy-file-upload" style="margin-bottom: 15px;">
-                                                                <i class="fa fa-image"></i>
-                                                                <input type="file" class="form-control" name="image[attachment]" onchange="jQuery(this).next('input').val(this.value);" />
-                                                                <input type="text" class="form-control" placeholder="Upload Picture" readonly="" style="background-color: #fff;" />
-
+                                                    <div id="dropzone">
+                                                        <form action="#" method="post" class="dropzone" id="my-awesome-dropzone">
+                                                            <div class="dz-message">    
+                                                                Drop Images here or click to upload.<br>
+                                                                <small>.jpg, .jpeg, .png and .gif files supported</small><br>
+                                                                <small>Max file size 5 Mb.</small>
                                                             </div>
-
-                                                           
-
-                                                           
-
-
-                                                            
-
-                                                            <div class="form-group">
-                                                                <select name="" class="form-control"  onchange="rank()" id="rankval">
-                                                                    <option value="0">Background</option>
-                                                                    <option value="1">Civil</option>
-                                                                    <option value="military">Military</option>
-                                                                </select>
-                                                            </div>
-
-                                                            <div class="form-group" id="rankbox" style="display: none;">
-                                                                <input type="text" class="form-control" placeholder="Rank & Decoration">
-                                                            </div>
-
-                                                        </div>
-
+                                                        </form>
                                                     </div>
+
 
                                                 </div>
 
 
+                                                <div class="col-md-12">
+                                                    <br><br>
+                                                    <div class="heading-title  heading-color">
+                                                        <h4 style="background: none !important;"> Link <span>Videos</span></h4>
+                                                        <small>Only 6 Youtube embed links allowed</small>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="fancy-form"><!-- input -->
+                                                                <i class="fa fa-youtube-play"></i>
 
+                                                                <input type="tel" class="form-control" placeholder="YouTube Embed Link 1">
 
-
-                                                <div class="row">
-
-                                                    <div class="col-md-6 col-sm-6 col-xs-6">
-
-                                                        <!-- Inform Tip -->                                        
-                                                        <div class="form-tip pt-20">
-
+                                                                <span class="fancy-tooltip top-left"> <!-- positions: .top-left | .top-right -->
+                                                                    <em>Enter YouTube Embed Link Here</em>
+                                                                </span>
+                                                            </div>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="fancy-form"><!-- input -->
+                                                                <i class="fa fa-youtube-play"></i>
 
+                                                                <input type="tel" class="form-control" placeholder="YouTube Embed Link 2">
+
+                                                                <span class="fancy-tooltip top-left"> <!-- positions: .top-left | .top-right -->
+                                                                    <em>Enter YouTube Embed Link Here</em>
+                                                                </span>
+                                                            </div>
+                                                        </div><div class="col-md-6">
+                                                            <div class="fancy-form"><!-- input -->
+                                                                <i class="fa fa-youtube-play"></i>
+
+                                                                <input type="tel" class="form-control" placeholder="YouTube Embed Link 3">
+
+                                                                <span class="fancy-tooltip top-left"> <!-- positions: .top-left | .top-right -->
+                                                                    <em>Enter YouTube Embed Link Here</em>
+                                                                </span>
+                                                            </div>
+                                                        </div><div class="col-md-6">
+                                                            <div class="fancy-form"><!-- input -->
+                                                                <i class="fa fa-youtube-play"></i>
+
+                                                                <input type="tel" class="form-control" placeholder="YouTube Embed Link 4">
+
+                                                                <span class="fancy-tooltip top-left"> <!-- positions: .top-left | .top-right -->
+                                                                    <em>Enter YouTube Embed Link Here</em>
+                                                                </span>
+                                                            </div>
+                                                        </div><div class="col-md-6">
+                                                            <div class="fancy-form"><!-- input -->
+                                                                <i class="fa fa-youtube-play"></i>
+
+                                                                <input type="tel" class="form-control" placeholder="YouTube Embed Link 5">
+
+                                                                <span class="fancy-tooltip top-left"> <!-- positions: .top-left | .top-right -->
+                                                                    <em>Enter YouTube Embed Link Here</em>
+                                                                </span>
+                                                            </div>
+                                                        </div><div class="col-md-6">
+                                                            <div class="fancy-form"><!-- input -->
+                                                                <i class="fa fa-youtube-play"></i>
+
+                                                                <input type="tel" class="form-control" placeholder="YouTube Embed Link 6">
+
+                                                                <span class="fancy-tooltip top-left"> <!-- positions: .top-left | .top-right -->
+                                                                    <em>Enter YouTube Embed Link Here</em>
+                                                                </span>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
-                                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
 
-                                                        <button class="btn btn-primary"> &nbsp; SAVE &nbsp; </button>
-
-                                                    </div>
 
                                                 </div>
 
-                                            </form>
+                                            </div>
+
+
+
+
+
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+
+                                                    <!-- Inform Tip -->                                        
+                                                    
+
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                                    <br><br>
+
+                                                    <button class="btn btn-primary"> &nbsp; SAVE &nbsp; </button>
+
+                                                </div>
+
+                                            </div>
+
+
 
 
 
@@ -232,12 +298,13 @@
                                         <!-- LEFT -->
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-lg-pull-9 col-md-pull-9 col-sm-pull-9">
 
+                                            <!-- Menu Start -->
                                             <div class="side-nav margin-bottom-60">
 
-                                            <div class="side-nav-head">
-                                                <button class="fa fa-bars"></button>
-                                                <h4>MENU</h4>
-                                            </div>
+                                                <div class="side-nav-head">
+                                                    <button class="fa fa-bars"></button>
+                                                    <h4>MENU</h4>
+                                                </div>
 
                                                 <ul class="list-group list-group-bordered list-group-noicon uppercase">
                                                     <li class="list-group-item">
@@ -247,20 +314,20 @@
                                                                 <a href="allevents"><span class="size-11 text-muted pull-right"> </span> All Events
                                                                 </a>
                                                             </li>
-                                                            <li >
+                                                            <li>
                                                                 <a href="addevent"><span class="size-11 text-muted pull-right"> </span> Add Events
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item active">
+                                                    <li class="list-group-item">
                                                         <a class="dropdown-toggle" href="#">HOMAGE</a>
                                                         <ul>
-                                                            <li  >
+                                                            <li  class="">
                                                                 <a href="allhomage"><span class="size-11 text-muted pull-right"> </span> All Homages
                                                                 </a>
                                                             </li>
-                                                            <li class="active">
+                                                            <li>
                                                                 <a href="addhomage"><span class="size-11 text-muted pull-right"> </span> Add Homage
                                                                 </a>
                                                             </li>
@@ -344,14 +411,14 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item ">
+                                                    <li class="list-group-item active">
                                                         <a class="dropdown-toggle" href="#">IMAGES &amp; VIDEO GALLERY</a>
                                                         <ul>
                                                             <li>
                                                                 <a href="allGalleries"><span class="size-11 text-muted pull-right"> </span> All Galleries
                                                                 </a>
                                                             </li>
-                                                            <li>
+                                                            <li class="active">
                                                                 <a href="addGalleries"><span class="size-11 text-muted pull-right"> </span> Add Gallery
                                                                 </a>
                                                             </li>
@@ -359,9 +426,8 @@
                                                     </li>
                                                 </ul>
 
-
                                             </div>
-                                        <!-- /Menu End -->
+                                            <!-- /Menu End -->
 
                                         </div>
 
@@ -412,17 +478,48 @@
         </div><!-- /PRELOADER -->
         <script>
 
+            $(function(){
+                Dropzone.options.myAwesomeDropzone = {
+                    maxFilesize: 5,
+                    addRemoveLinks: true,
+                    dictResponseError: 'Server Error',
+                    acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+                    init:function(){
+                        var self = this;
 
-            function rank(){
-                var rankvalue = document.getElementById("rankval").value;
 
-                if(rankvalue=="military"){
-                    document.getElementById("rankbox").style.display = "block";
-                }
-                else {
-                    document.getElementById("rankbox").style.display = "none";
-                }
-            };
+                        // config
+                        self.options.addRemoveLinks = true;
+                        self.options.dictRemoveFile = "Delete";
+                        //New file added
+                        self.on("addedfile", function (file) {
+                            console.log('new file added ', file);
+                        });
+                        // Send file starts
+                        self.on("sending", function (file) {
+                            console.log('upload started', file);
+                            $('.meter').show();
+                        });
+
+                        // File upload Progress
+                        self.on("totaluploadprogress", function (progress) {
+                            console.log("progress ", progress);
+                            $('.roller').width(progress + '%');
+                        });
+
+                        self.on("queuecomplete", function (progress) {
+                            $('.meter').delay(999).slideUp(999);
+                        });
+
+                        // On removing file
+                        self.on("removedfile", function (file) {
+                            console.log(file);
+                        });
+                    }
+                };
+            })
+
+
         </script>
 
         <!-- JAVASCRIPT FILES -->
@@ -430,10 +527,9 @@
         <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
         <script type="text/javascript" src="assets/js/scripts.js"></script>
+        <script type="text/javascript" src="assets/js/dropzone.js"></script>
         <!-- REVOLUTION SLIDER -->
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script type="text/javascript" src="assets/js/view/demo.revolution_slider.js"></script>
+
 
     </body>
 </html>

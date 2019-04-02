@@ -4,7 +4,7 @@ const {Users} = require('./../models/users');
 var fs = require('fs');
 const multer = require("multer");
 const {events} = require('./../models/events');
-var {ObjectID} = require('mongodb')
+var {ObjectID} = require('mongodb');
 var randomize = require('randomatic');
 const formidable = require('formidable');
 const _ = require('lodash');
@@ -19,7 +19,7 @@ addEvent.use(function timeLog (req, res, next) {
     next();
 });
 
-addEvent.get('/', function (req, res) {
+addEvent.get('/', authenticate, function (req, res) {
     res.render('addEvent.hbs');
 });
 
