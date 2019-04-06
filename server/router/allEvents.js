@@ -193,10 +193,15 @@ allEvents.get('/delete', authenticate, function (req, res) {
                 events.findOneAndDelete({_id: obj}).then((found) => {
                     if (found) {
                         console.log(found);
-                        var obj = new ObjectID(found.eventImage);
-                        attachmentGrid.unlinkById(obj, (error) => {
-                            //done!
-                            res.redirect('/allEvents');
+                        var obj = found.eventImage;
+                        gfs.remove({filename:obj, root: 'events'}, (err, gridStore) => {
+                            if (err) {
+                                return res.status(404).json({err: err});
+                            } else {
+                                res.redirect('/allEvents');
+
+
+                            }
                         });
 
 

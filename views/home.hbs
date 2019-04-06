@@ -243,7 +243,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                             <h2>Upcoming Events</h2>
 
                         </div>
-
+                    {{#each_upto results 3}}
                         <div class="col-sm-4">
 
                             <div class="box-icon box-icon-left card" >
@@ -256,157 +256,44 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                             28
                                         </div>
                                     </div>
-                                    <h2>Investiture Ceremony</h2>
+                                    <h2>{{eventName}}</h2>
                                 </a>
                                 <br>
 
                                 <ul class="text-left size-14 list-inline list-separator">
                                     <li style="color:darkorange !important;">
                                         <i class="fa fa-clock-o"></i>
-                                        10:00 am
+                                        {{eventDate}}
                                     </li>
                                     <li>
                                         <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"  title="Venue Address">
                                             <i class="fa fa-institution" ></i>
-                                            School Campus
+                                            {{eventLocation}}
                                         </a>
                                     </li>
 
                                 </ul>
                                 <span class="text-left size-14  pull-left margine-left-10" style="font-family: Roboto !important;">
 
-                                    <a href="blog-single-default.html#comments" style="color:#666;"  data-toggle="tooltip" data-placement="top" title="Comments">
+                                    <a href="/viewEvent?id={{_id}}#comment" style="color:#666;"  title="Comments by -   {{#each comments}}&#10;{{name}}{{/each}} ">
                                         <i class="fa fa-comments"></i> 
-                                        12
+                                        {{comments.length}}
                                     </a>
-                                    &nbsp;
-                                    <a href="blog-single-default.html#comments" style="color: dodgerblue;"  data-toggle="tooltip" data-placement="top" title="Likes">
-                                        <i class="fa fa-thumbs-up"></i> 
-                                        301
-                                    </a>
+
                                     &nbsp;
 
                                 </span>
-                                <a href="login.html" class="btn btn-danger btn-xs pull-right ">Read more</a>
+                                <a href="/viewEvent?id={{_id}}" class="btn btn-danger btn-xs pull-right ">Read more</a>
                                 <br>
                             </div>
 
                         </div>
 
-
-
-                        <div class="col-sm-4">
-
-                            <div class="box-icon box-icon-left card" >
-                                <a class="box-icon-title" href="#">
-                                    <div class="callendar-body pull-left">
-                                        <div class="callendar-header">
-                                           JUL
-                                        </div>
-                                        <div class="calendar-data">
-                                            3
-                                        </div>
-                                    </div>
-                                    <h2>Martydom Day of School</h2>
-                                </a>
-                                <br>
-
-                                <ul class="text-left size-14 list-inline list-separator">
-                                    <li style="color:darkorange !important;">
-                                        <i class="fa fa-clock-o"></i>
-                                        10:00 am
-                                    </li>
-                                    <li>
-                                        <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"  title="Venue Address">
-                                            <i class="fa fa-institution"></i>
-                                            School
-                                        </a>
-                                    </li>
-
-                                </ul>
-                                <span class="text-left size-14  pull-left margine-left-10" style="font-family: Roboto !important;">
-
-                                    <a href="blog-single-default.html#comments" style="color:#666;"  data-toggle="tooltip" data-placement="top" title="Comments">
-                                        <i class="fa fa-comments"></i> 
-                                        12
-                                    </a>
-                                    &nbsp;
-                                    <a href="blog-single-default.html#comments" style="color: dodgerblue;"  data-toggle="tooltip" data-placement="top" title="Likes">
-                                        <i class="fa fa-thumbs-up"></i> 
-                                        301
-                                    </a>
-                                    &nbsp;
-
-                                </span>
-                                <a href="login.html" class="btn btn-danger btn-xs pull-right ">Read more</a>
-                                <br>
-                            </div>
-
-                        </div>
-
-
-
-
-                        <div class="col-sm-4">
-
-                            <div class="box-icon box-icon-left card" >
-                                <a class="box-icon-title" href="#">
-                                    <div class="callendar-body pull-left">
-                                        <div class="callendar-header">
-                                            MAY
-                                        </div>
-                                        <div class="calendar-data">
-                                            29
-                                        </div>
-                                    </div>
-                                    <h2>VISIT TO NDA</h2>
-                                </a>
-                                <br>
-
-                                <ul class="text-left size-14 list-inline list-separator">
-                                    <li style="color:darkorange !important;">
-                                        <i class="fa fa-clock-o"></i>
-                                        10:00 am
-                                    </li>
-                                    <li>
-                                        <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"  title="Venue Address">
-                                            <i class="fa fa-institution"></i>
-                                            School
-                                        </a>
-                                    </li>
-
-                                </ul>
-
-                                <span class="text-left size-14  pull-left margine-left-10" style="font-family: Roboto !important;">
-
-                                    <a href="blog-single-default.html#comments" style="color:#666;"  data-toggle="tooltip" data-placement="top" title="Comments">
-                                        <i class="fa fa-comments"></i> 
-                                        12
-                                    </a>
-                                    &nbsp;
-                                    <a href="blog-single-default.html#comments" style="color: dodgerblue;"  data-toggle="tooltip" data-placement="top" title="Likes">
-                                        <i class="fa fa-thumbs-up"></i> 
-                                        301
-                                    </a>
-                                    &nbsp;
-                                    <!--
-<a href="blog-single-default.html#comments" style="color:firebrick;"  data-toggle="tooltip" data-placement="top" title="Hate">
-<i class="fa fa-thumbs-down"></i> 
-30
-</a>
--->
-                                </span>
-
-
-                                <a href="login.html" class="btn btn-danger btn-xs pull-right ">Read more</a>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
+                    {{/each_upto}}
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="login.html" class="btn btn-primary btn-md" >View All Events</a>
+                            <a href="/allevents" class="btn btn-primary btn-md" >View All Events</a>
                         </div>
                     </div>
 
@@ -431,35 +318,35 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                             <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": false, "navigation": true, "pagination": false}'>
 
 
-
+                            {{#each_upto results1 3}}
                                 <div class="img-hover card">
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <a href="blog-single-default.html">
-                                                <img class="img-responsive margin-top-10" src="assets/images/achievers/CaptManojPandey_PVC.jpg" alt="">
+                                            <a href="#">
+                                                <img class="img-responsive margin-top-10" src="/getHomageImage?imageId={{homageImage}}" alt="">
                                             </a>
                                         </div>
 
                                         <div class="col-md-7">
-                                            <h4 class="text-left margin-top-0"><a href="#">Captain Manoj Kumar Panday</a></h4>
-                                            <p class="text-left">CaptainManoj Kumar Pandey, posthumously awarded the India's highest military honour, ParamVir Chakra for his audacious courage and leadership during adverse times. </p>
+                                            <h4 class="text-left margin-top-0"><a href="#">{{homageName}}</a></h4>
+                                            <p class="text-left">{{homageNotes}}</p>
                                             <ul class="text-left size-14 list-inline list-separator" style="font-family: Roboto !important;">
 
                                                 <li style="color: #cc1111; ">
                                                    <a href="#" title="Venue Address">
                                                     <i class="fa fa-calendar"></i>
-                                                    2/3 Jul 199
+                                                    {{homageDate}}
                                                     </a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="blog-single-default.html#comments" style="color: dodgerblue;" title="Tributes">
+                                                    <a href="/viewHomage?id={{_id}}" style="color: dodgerblue;" title="Tributes">
                                                         <i class="fa fa-comments"></i>
-                                                        301
+                                                        {{comments.length}}
                                                     </a>
                                                 </li>
                                             </ul>
-                                            <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
+                                            <a href="/viewHomage?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read More</a>
                                         </div>
 
                                     </div>
@@ -467,45 +354,14 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
                                 </div>
 
-
-                                <div class="img-hover card">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <a href="blog-single-default.html">
-                                                <img class="img-responsive margin-top-10" src="assets/images/achievers/CaptSunilChandra_VrC.jpg" alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <h4 class="text-left margin-top-0"><a href="#">Capt Sunil Chandra, Vr C</a></h4>
-                                            <p class="text-left">On the October 17, 1987 Sainik School lost a very courageous ex-cadet, Captain Sunil Chandra of 8 Mahar regiment in Sri Lanka. Capt Sunil Chandra on 16/17 October 1987,   </p>
-                                            <ul class="text-left size-14 list-inline list-separator" style="font-family: Roboto !important;">
-                                                <li style="color: #cc1111;">
-                                                    <i class="fa fa-calendar"></i>
-                                                    17 Oct 1987
-                                                </li>
-                                                <li>
-                                                    <a href="blog-single-default.html#comments" style="color: dodgerblue;">
-                                                        <i class="fa fa-comments"></i>
-                                                        312
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-
+                                {{/each_upto}}
 
 
 
                             </div>
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                                    <a href="login.html" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Homage</a>
+                                    <a href="/allhomage" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Homage</a>
                                 </div>
                             </div>
 

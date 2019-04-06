@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+x<!DOCTYPE html>
 <!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
@@ -32,11 +32,7 @@
         <!-- PAGE LEVEL SCRIPTS -->
         <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
-        <script>
 
-
-
-        </script>
 
     </head>
 
@@ -117,7 +113,7 @@
 
 
                                             <div class="box-title margin-bottom-30">
-                                                <h2 class="size-20 pull-left">Edit Homage</h2>
+                                                <h2 class="size-20 pull-left">Edit Event</h2>
                                                 <!--
 <label class="switch switch-primary switch-round pull-right">
 <input type="checkbox" >
@@ -130,46 +126,43 @@
 
 
 
-                                            <form class="nomargin" method="post" enctype="multipart/form-data" action="/editEvent" autocomplete="off">
+                                            <form class="nomargin" method="post" enctype="multipart/form-data" action="/editHomage" autocomplete="off">
                                                 <div class="row">
                                                     <div class="col-md-6">
 
 
                                                         <div class="clearfix">
                                                             <div class="form-group">
-                                                                <input type="text"  name="eventName" class="form-control" placeholder="Event Name"  value="{{eventName}}" required="">
+                                                                <input type="text"  name="homageName" class="form-control" placeholder="Homage Name"  value="{{homageName}}" required="">
                                                             </div>
 
                                                             <div class="form-group">
 
-                                                                <input type="text" name="eventDates" required class="form-control datepicker"  value="{{eventDate}}" placeholder="date">
+                                                                <input type="text" name="homageDates" required class="form-control datepicker"  value="{{homageDate}}" placeholder="Date Of Death">
                                                             </div>
                                                             <div class="form-group">
-                                                                <input type="text" name="eventOrganizer" value="{{eventOrganizer}}" class="form-control" placeholder="Organizer" required="">
+                                                                <input type="text" name="homageSchoolNo" value="{{homageSchoolNo}}" class="form-control" placeholder="School Number:" required="">
                                                             </div>
-                                                            <input type="hidden" name="idOfEvent" value="{{_id}}">
-                                                            <input type="hidden" name="idOfEventImage" value="{{eventImage}}">
+                                                            <input type="hidden" name="idOfHomage" value="{{_id}}">
+                                                            <input type="hidden" name="idOfHomageImage" value="{{homageImage}}">
                                                             <div class="form-group">
-                                                                <textarea rows="6" required class="form-control word-count" data-maxlength="200" data-info="textarea-words-info" name="eventNotes" placeholder="Event Description">{{eventNotes}}</textarea>
+                                                                <textarea rows="6" required class="form-control word-count" data-maxlength="200" data-info="textarea-words-info" name="eventNotes" placeholder="Homage:">{{homageNotes}}</textarea>
                                                             </div>
-                                                            
+
+
+
                                                             <div class="form-group">
-                                                                <input type="text" name="eventLocation" class="form-control" placeholder="Location" required="" value="{{eventLocation}}">
-                                                            </div>
-                                                            
-                                                            <div class="form-group">
-                                                                <select name="eventRepeatFreq" required class="form-control" onchange="datebox()" id="frequency">
-                                                                    <option value="">Repeat Frequency</option>
-                                                                    <option value="Once">Once</option>
-                                                                    <option value="Once a Month">Once a Month</option>
-                                                                    <option value="Once a Year">Once a Year</option>
-                                                                    <option value="Date">Date</option>
+                                                                <select name="homageBackground" required class="form-control" onchange="datebox()" id="frequency">
+                                                                    <option value="">Background</option>
+                                                                    <option value="Military">Military</option>
+                                                                    <option value="Civil">Civil</option>
+
                                                                 </select>
                                                             </div>
 
 
                                                             <div class="form-group" id="repdate" style="display: none;">
-                                                                <input type="text" value="{{eventRepeatDate}}" name="eventDate" class="form-control datepicker" data-format="yyyy-mm-dd" data-lang="en" data-RTL="false" placeholder=" &nbsp; Repeat Date">
+                                                                <input type="text" value="{{homageRank}}" name="homageRank" class="form-control" placeholder=" &nbsp;Homage Rank">
                                                             </div>
 
 
@@ -184,10 +177,10 @@
 
 
                                                     <div class="col-md-6">
-                                                      
+
                                                         <div class="clearfix">
                                                             <div class="thumbnail text-center">
-                                                                <img src="/getImage?imageId={{eventImage}}" class="img-responsive">
+                                                                <img src="/getHomageImage?imageId={{homageImage}}" class="img-responsive">
 
                                                             </div>
                                                         </div>
@@ -196,13 +189,13 @@
 
                                                             <div class="fancy-file-upload" style="margin-bottom: 15px;">
                                                                 <i class="fa fa-image"></i>
-                                                                <input type="file" class="form-control" name="eventImage" onchange="jQuery(this).next('input').val(this.value);" />
+                                                                <input type="file" class="form-control" name="homageImage" onchange="jQuery(this).next('input').val(this.value);" />
                                                                 <input type="text" name="imageName" class="form-control" placeholder="Change Picture" readonly="" value="" style="background-color: #fff;" />
 
                                                             </div>
 
 
-                                                            
+
 
                                                         </div>
 
@@ -218,7 +211,7 @@
 
                                                     <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                                        <!-- Inform Tip -->                                        
+                                                        <!-- Inform Tip -->
                                                         <div class="form-tip pt-20">
 
                                                         </div>
@@ -227,14 +220,13 @@
 
                                                     <div class="col-md-6 col-sm-6 col-xs-6 text-right">
 
-                                                            <button type="submit" class="btn btn-primary"> &nbsp; SAVE &nbsp; </button>
+                                                        <button type="submit" class="btn btn-primary"> &nbsp; SAVE &nbsp; </button>
 
                                                     </div>
 
                                                 </div>
 
                                             </form>
-
 
 
 
@@ -245,7 +237,7 @@
                                         <!-- LEFT -->
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-lg-pull-9 col-md-pull-9 col-sm-pull-9">
 
-<!--                                            &lt;!&ndash; Menu Start &ndash;&gt;-->
+                                            <!-- Menu Start -->
 <!--                                            <div class="side-nav margin-bottom-60">-->
 
 <!--                                                <div class="side-nav-head">-->
@@ -374,18 +366,21 @@
         </div><!-- /PRELOADER -->
         <script>
 
-            document.getElementById('frequency').value="{{eventRepeatFreq}}";
+            document.getElementById('frequency').value="{{homageBackground}}";
+            if(document.getElementById("frequency").value === "Military"){
+                document.getElementById("repdate").style.display = "block";
+            }
             function datebox(){
+
                 var frequencyvalue = document.getElementById("frequency").value;
 
-                if(frequencyvalue=="Date"){
+                if(frequencyvalue=="Military"){
                     document.getElementById("repdate").style.display = "block";
                 }
                 else {
                     document.getElementById("repdate").style.display = "none";
                 }
             };
-
         </script>
 
         <!-- JAVASCRIPT FILES -->

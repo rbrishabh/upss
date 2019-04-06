@@ -1,18 +1,23 @@
 const mongoose = require('mongoose');
-const database =   process.env.MONGODB_URI || 'mongodb://localhost:27017/alumni2';
-const gridfs = require('mongoose-gridfs');
+const database =   process.env.MONGODB_URI || 'mongodb://localhost:27017/alumni';
+global.database = database;
+const multer = require("multer");
+const GridFsStorage = require("multer-gridfs-storage");
+const Grid = require("gridfs-stream");
 
-var db = mongoose.connection;
+const conn = mongoose.createConnection(database);
 
+
+
+//init gfs
+let gfs;
 //handle mongo error
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
+conn.on('error', console.error.bind(console, 'connection error:'));
+conn.once('open', function () {
     // we're connected!
-    global.attachmentGrid = gridfs({
-        collection: 'images',
-        model: 'Image',
-        mongooseConnection: db
-    });
+    gfs = Grid(conn.db, mongoose.mongo);
+    gfs.collection("events", "homages");
+    global.gfs = gfs;
 });
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
@@ -22,4 +27,4 @@ mongoose.connect(database,{
 
 
 
-module.exports = {mongoose,db};
+module.exports = {mongoose,conn};

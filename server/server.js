@@ -9,18 +9,22 @@ var {ObjectID} = require('mongodb')
 var MongoStore = require('connect-mongo')(session)
 const request = require('request');
 var fs = require('fs');
-var $ = require("jquery");
+var path = require("path");
 const bodyParser = require('body-parser');
 var morgan = require("morgan");
 var compression = require("compression");
-const formidable = require('formidable');
+const crypto = require('crypto');
+const multer = require("multer");
+const GridFsStorage = require("multer-gridfs-storage");
+const Grid = require("gridfs-stream");
 
 
 //models and db
 const {Users} = require('./models/users');
 const {authenticate, authenticated} = require('./middleware/authenticate');
-var {mongoose, db} = require('./db/mongoose');
+var {mongoose, conn} = require('./db/mongoose');
 const {events} = require('./models/events');
+const {homage} = require('./models/homage');
 
 
 //router
@@ -68,7 +72,7 @@ app.use(session({
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
-        mongooseConnection: db
+        mongooseConnection: conn
     })
 }));
 
@@ -218,6 +222,103 @@ app.get("/viewEvent", authenticate, function (req, res) {
     });
 });
 
+app.get("/viewHomage", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+
+
+    Users.findById(user).then((user) => {
+        console.log(typeof user._id);
+        homage.findById(id).then((post) => {
+            if(req.query.showAllComments){
+                post.showAtOnce = post.comments.length;
+            } else {
+                post.showAtOnce = 5;
+            }
+            if(post.comments.length>0){
+                var a = 0;
+                for(var i = 0; i < post.comments.length; i++){
+
+                    if (
+                        post.comments[i].likes.filter(like => like.user.toString() === user._id.toString())
+                            .length > 0
+                    ) {
+                        post.comments[i].already = true;
+                    } else {
+                        post.comments[i].already = false;
+                    }
+
+                    var uid = user._id;
+                    if(post.comments[i].user.equals(uid)){
+                        post.comments[i].author = true;
+                    } else  {
+                        post.comments[i].author = false;
+                    }
+
+                    for(var j = 0; j < post.comments[i].commentReplies.length; j++){
+
+                        if(post.comments[i].commentReplies[j].user.equals(uid)) {
+                            post.comments[i].commentReplies[j].author = true;
+                        } else {
+                            post.comments[i].commentReplies[j].author = false;
+                        }
+
+                        if (
+                            post.comments[i].commentReplies[j].likes.filter(like => like.user.toString() === user._id.toString())
+                                .length > 0
+                        ) {
+                            post.comments[i].commentReplies[j].already = true;
+                        } else {
+                            post.comments[i].commentReplies[j].already = false;
+                        }
+
+
+
+                    }
+
+                    if(i == post.comments.length-1){
+                        console.log(i);
+                        console.log(post.comments.length-1);
+                        if(post.homageCreator == user.email){
+                            post.canEdit = true;
+                            console.log(post);
+                            res.render('viewHomage.hbs', post);
+                        } else {
+                            res.render('viewHomage.hbs', post);
+                        }
+                    }
+
+                }
+            } else {
+                if(post.homageCreator == user.email){
+                    post.canEdit = true;
+                    res.render('viewHomage.hbs', post);
+                } else {
+                    res.render('viewHomage.hbs', post);
+                }
+            }
+
+
+
+
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
+
+
+
+
 app.post('/comment/:id', authenticate, function (req, res) {
         var id = req.params.id;
         var user = req.session.userId;
@@ -246,6 +347,30 @@ app.post('/comment/:id', authenticate, function (req, res) {
             res.send(e);
         });
 });
+app.get("/editHomage", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+    Users.findById(user).then((user) => {
+        homage.findById(id).then((found) => {
+            if(found.homageCreator == user.email){
+                res.render('editHomage.hbs', found);
+            } else {
+                res.sendStatus(401).send();
+            }
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
 
 app.get("/editEvent", authenticate, function (req, res) {
     var id = req.query.id;
@@ -272,31 +397,42 @@ app.get("/editEvent", authenticate, function (req, res) {
         });
 });
 
-app.post("/editEvent", authenticate, function (req, res) {
+const storage = new GridFsStorage({
+    url: database,
+    file: (req, file) => {
+        if(!file){
+            return resolve();
+        }
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString("hex") + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: "events"
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+const upload = multer({ storage });
+
+
+
+app.post("/editEvent", [authenticate,  upload.single("eventImage"),], function (req, res) {
     // console.log(req.body);
     var user = req.session.userId;
     Users.findById(user).then((user) => {
-        var form = new formidable.IncomingForm();
 
-        form.parse(req, (err, fields, files) => {
-            console.log("here !!")
-
-            if (err) {
-                console.log(err);
-                res.send(err);
-            } else {
-                console.log('Fields', fields);
-                // console.log('Files', files);
-                // files.map(file=>{
-                //     console.log(file);
-                // })
-                var body = _.pick(fields, ['eventName', 'eventDate', 'eventOrganizer', 'eventNotes', 'eventLocation', 'imageName', 'eventRepeatFreq', 'eventRepeatDate', 'idOfEvent']);
-                body.eventDate = fields.eventDates;
+                var body = _.pick(req.body, ['eventName', 'eventDate', 'eventOrganizer', 'eventNotes', 'eventLocation', 'imageName', 'eventRepeatFreq', 'eventRepeatDate', 'idOfEvent']);
+                body.eventDate = req.body.eventDates;
                 body.eventCreator = user.email;
-                console.log(body);
-                var obj = new ObjectID(fields.idOfEvent);
+                var obj = new ObjectID(req.body.idOfEvent);
 
-                if (fields.imageName == null || fields.imageName == undefined || fields.imageName == "" || !fields.imageName) {
+                if (req.body.imageName == null || req.body.imageName == undefined || req.body.imageName == "" || !req.body.imageName) {
 
 
                     events.findOneAndUpdate({_id: obj}, {$set: body}, {new: true}).then((updated) => {
@@ -307,95 +443,26 @@ app.post("/editEvent", authenticate, function (req, res) {
                         res.send(e);
                     });
                 } else {
-                    console.log('here!!!!!')
 
 
-                    console.log(fields.idOfEventImage);
-                    var obj = new ObjectID(fields.idOfEventImage);
-                    attachmentGrid.unlinkById(obj, (error) => {
-                        //done!
-                        console.log('older image deleted!')
-                        var obj = new ObjectID(fields.idOfEvent);
-                        events.findOneAndDelete({_id: obj}).then((found) => {
-                            if (found) {
-                                console.log('older Event deleted!, now new event')
-                                console.log(found, "earlyy");
-                                console.log(files)
-                                //done!
-                                var founds = {};
-                                founds.eventCreator = user.email;
-                                founds.eventName = fields.eventName;
-                                founds.eventOrganizer = fields.eventOrganizer;
-                                founds.eventNotes = fields.eventNotes;
-                                founds.eventLocation = fields.eventLocation;
-                                founds.imageName = fields.imageName;
-                                founds.eventRepeatFreq = fields.eventRepeatFreq;
-                                founds.eventRepeatDate = fields.eventRepeatDate;
-                                founds.idOfEvent = fields.idOfEvent;
-                                founds.eventStatus = fields.eventStatus;
-                                founds.comments = found.comments;
-                                founds.eventDate = fields.eventDates;
-                                console.log(founds, "earl");
+                    gfs.remove({filename: req.body.idOfEventImage, root: 'events'}, (err, gridStore) => {
+                        if (err) {
+                            return res.status(404).json({err: err});
+                        } else {
+                            body.eventImage = req.file.filename;
+                            events.findOneAndUpdate({_id: obj}, {$set: body}, {new: true}).then((updated) => {
+                                res.render('editEvent.hbs', updated);
 
-                                const readStream = fs.createReadStream(files.eventImage.path);
-                                const options = ({filename: files.eventImage.name, contentType: files.eventImage.type});
-                                attachmentGrid.write(options, readStream, (error, file) => {
-                                    if (error) {
-                                        res.send(error);
-                                    } else {
-                                        founds.imageName = file.filename;
-                                        founds.eventImage = file._id;
-
-                                        var newEvent = new events(founds);
-                                        newEvent.save().then((event) => {
-                                            if (event) {
-                                                console.log(event.eventImage);
-                                                var obj = new ObjectID(event.eventImage);
-                                                console.log(obj);
-                                                attachmentGrid.readById(obj, (error, buffer) => {
-                                                    if (error) {
-                                                        console.log(error);
-                                                        res.send(error);
-                                                    } else {
-                                                        console.log(buffer);
-                                                        res.render('editEvent.hbs', event);
-                                                    }
-
-                                                });
-
-                                                // console.log(typeof event.eventImage.data[0]);
-
-
-                                            }
-                                        }, (e) => {
-                                            console.log(e);
-                                            res.send(e);
-                                            // res.render('editEvent.hbs', {msg: "fail"});
-                                        }, (e) => {
-                                            console.log(e);
-                                            res.send(e);
-                                            // res.render('editEvent.hbs', {msg: "fail"});
-                                        }).catch((e) => {
-                                            // console.log(e);
-                                            res.send(e);
-                                            // res.render('editEvent.hbs', {msg: "fail"});
-                                        });
-                                    }
-                                });
-
-                            }
-                        });
-
-
+                            }, (e) => {
+                                res.send(e);
+                            }).catch((e) => {
+                                res.send(e);
+                            });
+                        }
                     });
                 }
 
-            }
-
-        });
-
-
-    }, (e) => {
+     }, (e) => {
         console.log(e);
         res.redirect("/login");
     }).catch((e) => {
@@ -407,17 +474,18 @@ app.post("/editEvent", authenticate, function (req, res) {
 
 app.get("/getImage", function (req, res) {
     var id = req.query.imageId;
-    var obj = new ObjectID(id);
 
-    attachmentGrid.readById(obj, (error, buffer) => {
-        if (error) {
-            console.log(error);
-            res.send(error);
+    gfs.collection('events')
+    gfs.files.findOne({ filename: id}, (err, file) => {
+        // Check if file
+        if (!file || file.length === 0) {
+            return res.status(404).json({
+                err: "No file exists"
+            });
         } else {
-            console.log(obj)
-            console.log(buffer);
-            res.contentType('image/jpeg');
-            res.send(buffer);
+            res.contentType("image/png");
+             const readstream = gfs.createReadStream(file.filename);
+            readstream.pipe(res);
         }
     });
 });

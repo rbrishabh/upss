@@ -3,13 +3,16 @@ var moment = require('moment');
 const {Users} = require('./../models/users');
 var fs = require('fs');
 const multer = require("multer");
+var path = require("path");
 const {events} = require('./../models/events');
 var {ObjectID} = require('mongodb');
 var randomize = require('randomatic');
-const formidable = require('formidable');
+const crypto = require("crypto");
+const GridFsStorage = require("multer-gridfs-storage");
+const Grid = require("gridfs-stream");
 const _ = require('lodash');
 const {authenticate,authenticated} = require('./../middleware/authenticate');
-// var {mongoose,db, global} = require('./../db/mongoose');
+
 
 
 var addEvent = express.Router();
@@ -23,56 +26,49 @@ addEvent.get('/', authenticate, function (req, res) {
     res.render('addEvent.hbs');
 });
 
-addEvent.post('/',authenticate, (req,res)=> {
+const storage = new GridFsStorage({
+    url: database,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString("hex") + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: "events"
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+const upload = multer({ storage });
+
+
+
+
+
+
+
+addEvent.post('/',[authenticate,  upload.single("eventImage"),], (req,res)=> {
     var user = req.session.userId;
     var obj = {};
     Users.findById(user).then((user) => {
-       var form =  new formidable.IncomingForm();
-        form.parse(req);
-        form.parse(req,(err, fields, files)=>{
-            if(err){
-                console.log(err);
-                res.send(err);
-            } else {
-                console.log('Fields', fields);
-                // console.log('Files', files);
-                // files.map(file=>{
-                //     console.log(file);
-                // })
-                var body = _.pick(fields, ['eventName', 'eventDate', 'eventOrganizer', 'eventNotes', 'eventLocation', 'imageName', 'eventRepeatFreq', 'eventRepeatDate']);
-
-
-                const readStream =  fs.createReadStream(files.eventImage.path);
-                const options = ({ filename: files.eventImage.name, contentType: files.eventImage.type});
-                attachmentGrid.write(options, readStream, (error, file) => {
-                    if(error){
-                        res.send(error);
-                    } else {
-                        body.imageName = file.filename;
-                        body.eventImage = file._id;
-                        body.eventStatus = "Unconfirmed"
-                        body.eventCreator = user.email;
+        var body = _.pick(req.body, ['eventName', 'eventDate', 'eventOrganizer', 'eventNotes', 'eventLocation', 'imageName', 'eventRepeatFreq', 'eventRepeatDate']);
+        var img = req.file.filename;
+        body.eventImage = img;
+        body.eventStatus = "Unconfirmed"
+        body.eventCreator = user.email;
                         var newEvent = new events(body);
                         newEvent.save().then((event) => {
                             if (event) {
-                                console.log(event.eventImage);
-                                var obj = new ObjectID(event.eventImage);
-                                console.log(obj);
-                                attachmentGrid.readById(obj, (error, buffer) => {
-                                    if(error){
-                                        console.log(error);
-                                        res.send(error);
-                                    } else {
-                                        console.log(buffer);
-                                        res.redirect('/allEvents');
-                                    }
 
-                                });
-
-                                // console.log(typeof event.eventImage.data[0]);
-
+                                res.redirect('/allEvents');
 
                             }
+
                         }, (e) => {
                             console.log(e);
                             res.render('addEvent.hbs',  {msg:"fail"});
@@ -83,22 +79,7 @@ addEvent.post('/',authenticate, (req,res)=> {
                             console.log(e);
                             res.render('addEvent.hbs',  {msg:"fail"});
                         });
-                    }
-                });
-
-
-
-
-
-
-            }
-
-
-        });
-
-
-
-    }, (e) => {
+  }, (e) => {
         console.log(e);
         res.redirect("/login");
     }).catch((e) => {

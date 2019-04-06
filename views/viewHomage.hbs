@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
-        <title>U.P. SAINIK SCHOOL OBA - View Event</title>
+        <title>U.P. SAINIK SCHOOL OBA - View Homage</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="Author" content="hemant.me"/>
@@ -21,7 +21,6 @@
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
         <!-- REVOLUTION SLIDER -->
-        <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
         <link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
 
@@ -31,9 +30,9 @@
         <link href="assets/css/thematics-education.css" rel="stylesheet" type="text/css" />
 
         <!-- PAGE LEVEL SCRIPTS -->
-        <script src="assets/js/config.js"></script>
         <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+        <script src="assets/js/config.js"></script>
 
 
     </head>
@@ -60,7 +59,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <!-- Logo -->
-                        <a class="logo pull-left" href="/">
+                        <a class="logo pull-left" href="index.html">
                             <img src="assets/images/logo-sm.png" alt="" />
                         </a>
 
@@ -115,24 +114,20 @@
 
 
                                             <div class="box-title margin-bottom-30">
-                                                <h2 class="size-20 pull-left">{{eventName}}
+                                                <h2 class="size-20 pull-left">{{homageName}}
 
 
 
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" style="background-color: #dedede;"><i class="fa fa-pencil"></i> <span class="caret"></span></button>
                                                         <ul class="dropdown-menu" role="menu">
-                                                            {{#if canEdit}}
-                                                                <li><a href="/editEvent?id={{_id}}"><i class="fa fa-edit"></i> Edit this Event</a></li>
+                                                                {{#if canEdit}}
+                                                                <li><a href="/editHomage?id={{_id}}"><i class="fa fa-edit"></i> Edit</a></li>
                                                                 <li class="divider"></li>
-                                                                <li><a href="/allEvents/delete?id={{_id}}"><i class="fa fa-trash"></i> Delete this Event</a></li>
+                                                                <li><a href="/allHomage/delete?id={{_id}}"><i class="fa fa-trash"></i> Delete</a></li>
                                                                 <li class="divider"></li>
-                                                                <li><a href="/addEvent"><i class="fa fa-plus"></i> Create New Event</a></li>
-                                                            {{else}}
-                                                                <li class="divider"></li>
-                                                                <li><a href="/addEvent"><i class="fa fa-plus"></i> Create New Event</a></li>
-                                                            {{/if}}
-
+                                                                {{/if}}
+                                                            <li><a href="/addHomage"><i class="fa fa-plus"></i> Create New</a></li>
 
                                                         </ul>
                                                     </div>
@@ -142,7 +137,7 @@
 
                                                 </h2>
                                                 <strong class=" pull-right">
-                                                   {{eventDate}}
+                                                    Died on: {{homageDate}}
                                                 </strong>
 
                                                 <div class="clearfix"></div>
@@ -155,11 +150,10 @@
                                                         <span class="label label-warning">NOTE! </span>
                                                         <br>
                                                         <p style="text-align: justify;">
-                                                        {{eventNotes}}
+                                                            {{homageNotes}}
                                                         </p>
 
-                                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-image" ></i> Go to this event's gallery</a>
-
+                                                        
 
 
                                                     </div>
@@ -170,7 +164,7 @@
 
                                                     <div class="clearfix">
                                                         <div class="thumbnail text-center">
-                                                            <img src="/getImage?imageId={{eventImage}}" class="img-responsive">
+                                                            <img src="/getHomageImage?imageId={{homageImage}}" class="img-responsive">
                                                             <!--
 <h2 class="size-18 margin-top-10 margin-bottom-0">Event Name</h2>
 <h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">Some Text</h3>
@@ -187,8 +181,17 @@
 
                                                     <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd;; padding: 10px;">
                                                         <a class="box-icon-title" href="#">
+                                                            <i class="fa fa-university"></i>
+                                                            <h5>School No. : {{homageSchoolNo}}</h5>
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
+                                                        <a class="box-icon-title" href="#">
                                                             <i class="fa fa-user"></i>
-                                                            <h5>Organizer: {{eventOrganizer}}</h5>
+                                                            <h5>Background: {{homageBackground}}</h5>
                                                         </a>
                                                     </div>
 
@@ -196,17 +199,8 @@
                                                 <div class="col-md-4 col-sm-4 col-xs-4">
                                                     <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
                                                         <a class="box-icon-title" href="#">
-                                                            <i class="fa fa-refresh"></i>
-                                                            <h5>Repeat: {{eventRepeatFreq}}</h5>
-                                                        </a>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-md-4 col-sm-4 col-xs-4">
-                                                    <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
-                                                        <a class="box-icon-title" href="#">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            <h5>Location: {{eventLocation}}</h5>
+                                                            <i class="fa fa-star"></i>
+                                                            <h5>Rank: {{#if homageRank}} {{homageRank}} {{else}} None {{/if}}</h5>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -219,71 +213,69 @@
 
                                                     <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large box-icon-content">
                                                         <div class="box-icon-title">
-                                                            <i class="fa fa-comment"></i>
-                                                            <h2>{{eventName}} - Comments</h2>
+                                                            <i class="fa fa-heart-o"></i>
+                                                            <h2>Tributes</h2>
                                                         </div>
-                                                        <p>Join the convertation about {{eventName}}</p>
-
                                                     </div>
 
                                                 </div>
                                             </div>
 
 
-                                                <!--  Comments Start--------------------------------------->
-                                                <div class="row">
+                                            <!--  Comments Start--------------------------------------->
+                                            <div class="row">
 
-                                                    <div class="col-md-12">
+                                                <div class="col-md-12">
 
-                                                        <div class="box-light"><!-- .box-light OR .box-dark -->
+                                                    <div class="box-light"><!-- .box-light OR .box-dark -->
 
-                                                            <div class="box-inner">
-                                                                <li>
-                                                                    <a href="#comment"></a>
-                                                                    <a href="/viewEvent?id={{_id}}&showAllComments=true" class="text-muted">Show All Comments ({{comments.length}})</a>
-                                                                </li>
-                                                                <br>
-                                                                <input type="hidden" value="5" id="commentShow">
-                                                                {{#each_upto comments showAtOnce}}
+                                                        <div class="box-inner">
+                                                            <li>
+                                                                <a href="#comment"></a>
+                                                                <a href="/viewHomage?id={{_id}}&showAllComments=true" class="text-muted">Show All Comments ({{comments.length}})</a>
+                                                            </li>
+                                                            <br>
+                                                            <input type="hidden" value="5" id="commentShow">
+                                                            {{#each_upto comments showAtOnce}}
 
-                                                                    <ul class="comment list-unstyled">
+                                                                <ul class="comment list-unstyled">
 
-                                                                        <li class="comment">
+                                                                    <li class="comment">
 
-                                                                            <!-- avatar -->
-                                                                            <img class="avatar img-circle" src="assets/images/avatar2.jpg" width="50" height="50" alt="avatar">
+                                                                        <!-- avatar -->
+                                                                        <img class="avatar img-circle" src="assets/images/avatar2.jpg" width="50" height="50" alt="avatar">
 
-                                                                            <!-- comment body -->
-                                                                            <div class="comment-body">
-                                                                                <a href="#" class="comment-author">
-                                                                                    <small class="text-muted pull-right">   {{date}} </small>
-                                                                                    <span>{{name}}</span>
-                                                                                </a>
-                                                                                <p id="{{commentId}}comment">
-                                                                                    {{text}}
-                                                                                </p>
-                                                                            </div><!-- /comment body -->
+                                                                        <!-- comment body -->
+                                                                        <div class="comment-body">
+                                                                            <a href="#" class="comment-author">
+                                                                                <small class="text-muted pull-right">   {{date}} </small>
+                                                                                <span>{{name}}</span>
+                                                                            </a>
+                                                                            <p id="{{commentId}}comment">
+                                                                                {{text}}
+                                                                            </p>
+                                                                        </div><!-- /comment body -->
 
-                                                                            <!-- options -->
-                                                                            <ul class="list-inline size-11 margin-top-10">
+                                                                        <!-- options -->
+                                                                        <ul class="list-inline size-11 margin-top-10">
 
-                                                                                <li>
-                                                                                    <input type="hidden" id="{{commentId}}" value="{{already}}">
-                                                                                    <a href="#" onclick='return checkLike("{{@root._id}}", "{{commentId}}", document.getElementById("{{commentId}}").value)' class="text-success"><i class="fa fa-thumbs-up"></i> Like (<span id="{{commentId}}yy">{{likes.length}}</span>)</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#" class="text-muted">Show All Replies ({{commentReplies.length}})</a>
-                                                                                </li>
-                                                                    {{#if author}}
+                                                                            <li>
+                                                                                <input type="hidden" id="{{commentId}}" value="{{already}}">
+                                                                                <a href="#" onclick='return checkLike("{{@root._id}}", "{{commentId}}", document.getElementById("{{commentId}}").value)' class="text-success"><i class="fa fa-thumbs-up"></i> Like (<span id="{{commentId}}yy">{{likes.length}}</span>)</a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#" class="text-muted">Show All Replies ({{commentReplies.length}})</a>
+                                                                            </li>
+                                                                            {{#if author}}
                                                                                 <li class="pull-right">
-                                                                                    <a href="/eventCommentDelete?id={{@root.id}}&commentId={{commentId}}" class="text-danger">Delete</a>
+                                                                                    <a href="/homageCommentDelete?id={{@root.id}}&commentId={{commentId}}" class="text-danger">Delete</a>
                                                                                 </li>
                                                                                 <li class="pull-right">
                                                                                     <a href="#" onclick='return editComment("{{@root._id}}", "{{commentId}}")' class="text-primary">Edit</a>
                                                                                 </li>
-                                                                    {{/if}}
-                                                                            </ul>
-                                                                        </li><!-- /options -->
+                                                                            {{/if}}
+                                                                        </ul>
+                                                                    </li><!-- /options -->
 
 
                                                                     {{#each_upto commentReplies commentReplies.length}}
@@ -313,20 +305,20 @@
 
                                                                                 {{#if author}}
 
-                                                                                <li class="pull-right">
-                                                                                    <a href="/eventCommentReplyDelete?id={{@root.id}}&commentId={{../commentId}}&replyId={{replyId}}" class="text-danger">Delete</a>
-                                                                                </li>
-                                                                                <li class="pull-right">
-                                                                                    <a href="#" onclick='return editCommentReply("{{@root._id}}", "{{../commentId}}", "{{replyId}}")' class="text-primary">Edit</a>
-                                                                                </li>
+                                                                                    <li class="pull-right">
+                                                                                        <a href="/homageCommentReplyDelete?id={{@root.id}}&commentId={{../commentId}}&replyId={{replyId}}" class="text-danger">Delete</a>
+                                                                                    </li>
+                                                                                    <li class="pull-right">
+                                                                                        <a href="#" onclick='return editCommentReply("{{@root._id}}", "{{../commentId}}", "{{replyId}}")' class="text-primary">Edit</a>
+                                                                                    </li>
                                                                                 {{/if}}
                                                                             </ul><!-- /options -->
 
 
                                                                         </li>
                                                                     {{/each_upto}}
-                                                                        <li class="comment comment-reply">
-                                                                            <form action="/eventCommentReply?commentId={{commentId}}&id={{@root._id}}" method="post">
+                                                                    <li class="comment comment-reply">
+                                                                        <form action="/homageCommentReply?commentId={{commentId}}&id={{@root._id}}" method="post">
                                                                         <div class="input-group">
 
                                                                             <input id="btn-input" type="text" class="form-control" name="reply" placeholder="Type your reply...">
@@ -337,28 +329,28 @@
                                                                         </span>
 
                                                                         </div>
-                                                                            </form>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <!-- /COMMENT -->
-                                                                {{/each_upto}}
+                                                                        </form>
+                                                                    </li>
+                                                                </ul>
+                                                                <!-- /COMMENT -->
+                                                            {{/each_upto}}
 
 
 
-                                                                <form action="/eventComment?id={{_id}}" method="post">
-                                                                    <div class="input-group">
+                                                            <form action="/homageComment?id={{_id}}" method="post">
+                                                            <div class="input-group">
 
-                                                                        <input id="btn-input" name="text" type="text" class="form-control" placeholder="Type your comment...">
+                                                                <input id="btn-input" name="text" type="text" class="form-control" placeholder="Type your comment...">
 
-                                                                        <span class="input-group-btn">
+                                                                <span class="input-group-btn">
                                                                             <button class="btn btn-primary" type="submit" id="btn-chat">
                                                                                 <i class="fa fa-reply"></i> Comment
                                                                             </button>
                                                                         </span>
 
 
-                                                                    </div>
-                                                                </form>
+                                                            </div>
+                                                            </form>
                                                         </div>
 
                                                     </div>
@@ -370,8 +362,7 @@
 
 
 
-
-                                        </div>
+                                            </div>
 
 
 
@@ -468,7 +459,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+
             </section>
 
 
@@ -508,7 +499,7 @@
         <script>
             function editComment(id, commentId) {
                 var a = $("#"+commentId+"comment").text().trim();
-                $("#"+commentId+"comment").html('<form method="post" action="/editComment?id='+id+'&commentId='+commentId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedComment" id="edit'+commentId+'">&nbsp<input  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+                $("#"+commentId+"comment").html('<form method="post" action="/editCommentHomage?id='+id+'&commentId='+commentId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedComment" id="edit'+commentId+'">&nbsp<input  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
                 $('#edit'+commentId).val(a);
 
                 console.log(a);
@@ -518,7 +509,7 @@
 
             function editCommentReply(id, commentId, replyId) {
                 var a = $("#"+replyId+"reply").text().trim();
-                $("#"+replyId+"reply").html('<form method="post" action="/editCommentReply?id='+id+'&commentId='+commentId+'&replyId='+replyId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedReply" id="edit'+replyId+'">&nbsp<input type="submit"  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+                $("#"+replyId+"reply").html('<form method="post" action="/editCommentReplyHomage?id='+id+'&commentId='+commentId+'&replyId='+replyId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedReply" id="edit'+replyId+'">&nbsp<input type="submit"  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
                 $('#edit'+replyId).val(a);
 
                 console.log(a);
@@ -526,7 +517,7 @@
             }
             function checkLike(id, commentId, mine) {
                 console.log(id, commentId, mine);
-                var url = urlFinal+'eventCommentLike?id='+id+'&commentId='+commentId;
+                var url = urlFinal+'homageCommentLike?id='+id+'&commentId='+commentId;
 
                 var ourRequest = new XMLHttpRequest();
                 ourRequest.open('POST',url, true);
@@ -549,7 +540,7 @@
 
             function checkLikeReply(id, commentId, replyId, mine) {
                 console.log(id, commentId, replyId, mine);
-                var url = urlFinal+'eventCommentReplyLike?id='+id+'&commentId='+commentId+'&replyId='+replyId;
+                var url = urlFinal+'homageCommentReplyLike?id='+id+'&commentId='+commentId+'&replyId='+replyId;
 
                 var ourRequest = new XMLHttpRequest();
                 ourRequest.open('POST',url, true);

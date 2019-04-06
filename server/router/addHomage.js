@@ -3,13 +3,15 @@ var moment = require('moment');
 const {Users} = require('./../models/users');
 var fs = require('fs');
 const multer = require("multer");
-const {events} = require('./../models/events');
-var {ObjectID} = require('mongodb')
+var path = require("path");
+const {homage} = require('./../models/homage');
+var {ObjectID} = require('mongodb');
 var randomize = require('randomatic');
-const formidable = require('formidable');
+const crypto = require("crypto");
+const GridFsStorage = require("multer-gridfs-storage");
+const Grid = require("gridfs-stream");
 const _ = require('lodash');
 const {authenticate,authenticated} = require('./../middleware/authenticate');
-// var {mongoose,db, global} = require('./../db/mongoose');
 
 
 var addHomage = express.Router();
@@ -23,91 +25,76 @@ addHomage.get('/', authenticate, function (req, res) {
     res.render('addHomage.hbs');
 });
 
-// addEvent.post('/',authenticate, (req,res)=> {
-//     var user = req.session.userId;
-//     var obj = {};
-//     Users.findById(user).then((user) => {
-//         var form =  new formidable.IncomingForm();
-//         form.parse(req);
-//         form.parse(req,(err, fields, files)=>{
-//             if(err){
-//                 console.log(err);
-//                 res.send(err);
-//             } else {
-//                 console.log('Fields', fields);
-//                 // console.log('Files', files);
-//                 // files.map(file=>{
-//                 //     console.log(file);
-//                 // })
-//                 var body = _.pick(fields, ['eventName', 'eventDate', 'eventOrganizer', 'eventNotes', 'eventLocation', 'imageName', 'eventRepeatFreq', 'eventRepeatDate']);
-//
-//
-//                 const readStream =  fs.createReadStream(files.eventImage.path);
-//                 const options = ({ filename: files.eventImage.name, contentType: files.eventImage.type});
-//                 attachmentGrid.write(options, readStream, (error, file) => {
-//                     if(error){
-//                         res.send(error);
-//                     } else {
-//                         body.imageName = file.filename;
-//                         body.eventImage = file._id;
-//
-//                         var newEvent = new events(body);
-//                         newEvent.save().then((event) => {
-//                             if (event) {
-//                                 console.log(event.eventImage);
-//                                 var obj = new ObjectID(event.eventImage);
-//                                 console.log(obj);
-//                                 attachmentGrid.readById(obj, (error, buffer) => {
-//                                     if(error){
-//                                         console.log(error);
-//                                         res.send(error);
-//                                     } else {
-//                                         console.log(buffer);
-//                                         res.contentType(file.contentType);
-//                                         res.send(buffer);
-//                                     }
-//
-//                                 });
-//
-//                                 // console.log(typeof event.eventImage.data[0]);
-//
-//
-//                             }
-//                         }, (e) => {
-//                             console.log(e);
-//                             res.render('addEvent.hbs',  {msg:"fail"});
-//                         }, (e) => {
-//                             console.log(e);
-//                             res.render('addEvent.hbs',  {msg:"fail"});
-//                         }).catch((e) => {
-//                             console.log(e);
-//                             res.render('addEvent.hbs',  {msg:"fail"});
-//                         });
-//                     }
-//                 });
-//
-//
-//
-//
-//
-//
-//             }
-//
-//
-//         });
-//
-//
-//
-//     }, (e) => {
-//         console.log(e);
-//         res.redirect("/login");
-//     }).catch((e) => {
-//         console.log(e);
-//         res.send(e);
-//     });
-//
-// });
-//
+
+const storage = new GridFsStorage({
+    url: database,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString("hex") + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: "homages"
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+const upload = multer({ storage });
+
+
+
+addHomage.post('/',[authenticate,  upload.single("homageImage"),], (req,res)=> {
+    var user = req.session.userId;
+    var obj = {};
+    Users.findById(user).then((user) => {
+
+                var body = _.pick(req.body, ['homageName', 'homageDate', 'homageSchoolNo', 'homageNotes', 'homageBackground', 'imageName']);
+
+
+                        body.homageRank = req.body.homageRankAndDec;
+                        body.homageImage = req.file.filename;
+                        body.homageStatus = "Unconfirmed"
+                        body.homageCreator = user.email;
+                        var newEvent = new homage(body);
+                        newEvent.save().then((homage) => {
+                            if (homage) {
+
+
+                                res.redirect('/allHomage');
+
+                            }
+
+
+                                // console.log(typeof homage.homageImage.data[0]);
+
+
+
+                        }, (e) => {
+                            console.log(e);
+                            res.render('addHomage.hbs',  {msg:"fail"});
+
+                        }).catch((e) => {
+                            console.log(e);
+                            res.render('addHomage.hbs',  {msg:"fail"});
+                        });
+
+
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+
+});
+
+
 
 
 
