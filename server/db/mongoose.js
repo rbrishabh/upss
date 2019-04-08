@@ -5,6 +5,7 @@ const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
 
+
 const conn = mongoose.createConnection(database);
 
 
@@ -16,7 +17,8 @@ conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', function () {
     // we're connected!
     gfs = Grid(conn.db, mongoose.mongo);
-    gfs.collection("events", "homages");
+    gfs.collection("images");
+
     global.gfs = gfs;
 });
 mongoose.Promise = global.Promise;

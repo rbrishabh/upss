@@ -126,25 +126,24 @@
 
 
 
-                                            <form class="nomargin" method="post" action="#" autocomplete="off">
+                                            <form class="nomargin" method="post" enctype="multipart/form-data" action="/addAchiever" autocomplete="off">
                                                 <div class="row">
                                                     <div class="col-md-6">
 
 
                                                         <div class="clearfix">
                                                             <div class="form-group">
-                                                                <input type="text" name="" class="form-control" placeholder="Name" required="">
+                                                                <input type="text" name="achieverName" class="form-control" placeholder="Name" required="">
                                                             </div>
 
 
                                                             <div class="form-group">
-                                                                <input type="text" name="" class="form-control" placeholder="School Number" required="">
+                                                                <input type="text" name="achieverSchoolNo" class="form-control" placeholder="School Number" required="">
                                                             </div>
 
-                                                            
 
                                                             <div class="form-group">
-                                                                <textarea rows="6" class="form-control word-count" data-maxlength="200" data-info="textarea-words-info" placeholder="Notes"></textarea>
+                                                                <textarea rows="6" name="achieverNotes" class="form-control word-count" data-maxlength="200" data-info="textarea-words-info" placeholder="Notes"></textarea>
                                                             </div>
 
 
@@ -164,29 +163,26 @@
 
                                                             <div class="fancy-file-upload" style="margin-bottom: 15px;">
                                                                 <i class="fa fa-image"></i>
-                                                                <input type="file" class="form-control" name="image[attachment]" onchange="jQuery(this).next('input').val(this.value);" />
-                                                                <input type="text" class="form-control" placeholder="Upload Picture" readonly="" style="background-color: #fff;" />
+                                                                <input type="file" class="form-control" name="achieverImage" onchange="jQuery(this).next('input').val(this.value);" />
+                                                                <input type="text" class="form-control" name="imageName" placeholder="Upload Picture" readonly="" style="background-color: #fff;" />
 
                                                             </div>
 
-                                                           
-
-                                                           
 
 
-                                                            
+
+
+
+
 
                                                             <div class="form-group">
-                                                                <select name="" class="form-control"  onchange="rank()" id="rankval">
-                                                                    <option value="0">Background</option>
-                                                                    <option value="1">Civil</option>
-                                                                    <option value="military">Military</option>
+                                                                <select name="achieverBackground" class="form-control">
+                                                                    <option value="">Background</option>
+                                                                    <option value="Civil">Civil</option>
+                                                                    <option value="Military">Military</option>
                                                                 </select>
                                                             </div>
 
-                                                            <div class="form-group" id="rankbox" style="display: none;">
-                                                                <input type="text" class="form-control" placeholder="Rank & Decoration">
-                                                            </div>
 
                                                         </div>
 
@@ -202,7 +198,7 @@
 
                                                     <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                                        <!-- Inform Tip -->                                        
+                                                        <!-- Inform Tip -->
                                                         <div class="form-tip pt-20">
 
                                                         </div>
@@ -211,14 +207,13 @@
 
                                                     <div class="col-md-6 col-sm-6 col-xs-6 text-right">
 
-                                                        <button class="btn btn-primary"> &nbsp; SAVE &nbsp; </button>
+                                                        <button type="submit" class="btn btn-primary"> &nbsp; SAVE &nbsp; </button>
 
                                                     </div>
 
                                                 </div>
 
                                             </form>
-
 
 
 

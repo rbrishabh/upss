@@ -25,6 +25,8 @@ const {authenticate, authenticated} = require('./middleware/authenticate');
 var {mongoose, conn} = require('./db/mongoose');
 const {events} = require('./models/events');
 const {homage} = require('./models/homage');
+const {martyr} = require('./models/martyr');
+const {achiever} = require('./models/achiever');
 
 
 //router
@@ -90,6 +92,8 @@ hbs.registerHelper('each_upto', function(ary, max, options) {
         result.push(options.fn(ary[i]));
     return result.join('');
 });
+
+
 
 // hbs.registerHelper('times', function(n, comments, block) {
 //     console.log(block.fn[0])
@@ -316,6 +320,193 @@ app.get("/viewHomage", authenticate, function (req, res) {
     });
 });
 
+app.get("/viewMartyr", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+
+
+    Users.findById(user).then((user) => {
+        console.log(typeof user._id);
+        martyr.findById(id).then((post) => {
+            if(req.query.showAllComments){
+                post.showAtOnce = post.comments.length;
+            } else {
+                post.showAtOnce = 5;
+            }
+            if(post.comments.length>0){
+                var a = 0;
+                for(var i = 0; i < post.comments.length; i++){
+
+                    if (
+                        post.comments[i].likes.filter(like => like.user.toString() === user._id.toString())
+                            .length > 0
+                    ) {
+                        post.comments[i].already = true;
+                    } else {
+                        post.comments[i].already = false;
+                    }
+
+                    var uid = user._id;
+                    if(post.comments[i].user.equals(uid)){
+                        post.comments[i].author = true;
+                    } else  {
+                        post.comments[i].author = false;
+                    }
+
+                    for(var j = 0; j < post.comments[i].commentReplies.length; j++){
+
+                        if(post.comments[i].commentReplies[j].user.equals(uid)) {
+                            post.comments[i].commentReplies[j].author = true;
+                        } else {
+                            post.comments[i].commentReplies[j].author = false;
+                        }
+
+                        if (
+                            post.comments[i].commentReplies[j].likes.filter(like => like.user.toString() === user._id.toString())
+                                .length > 0
+                        ) {
+                            post.comments[i].commentReplies[j].already = true;
+                        } else {
+                            post.comments[i].commentReplies[j].already = false;
+                        }
+
+
+
+                    }
+
+                    if(i == post.comments.length-1){
+                        console.log(i);
+                        console.log(post.comments.length-1);
+                        if(post.martyrCreator == user.email){
+                            post.canEdit = true;
+                            console.log(post);
+                            res.render('viewMartyr.hbs', post);
+                        } else {
+                            res.render('viewMartyr.hbs', post);
+                        }
+                    }
+
+                }
+            } else {
+                if(post.martyrCreator == user.email){
+                    post.canEdit = true;
+                    res.render('viewMartyr.hbs', post);
+                } else {
+                    res.render('viewMartyr.hbs', post);
+                }
+            }
+
+
+
+
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
+
+app.get("/viewAchiever", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+
+
+    Users.findById(user).then((user) => {
+        console.log(typeof user._id);
+        achiever.findById(id).then((post) => {
+            if(req.query.showAllComments){
+                post.showAtOnce = post.comments.length;
+            } else {
+                post.showAtOnce = 5;
+            }
+            if(post.comments.length>0){
+                var a = 0;
+                for(var i = 0; i < post.comments.length; i++){
+
+                    if (
+                        post.comments[i].likes.filter(like => like.user.toString() === user._id.toString())
+                            .length > 0
+                    ) {
+                        post.comments[i].already = true;
+                    } else {
+                        post.comments[i].already = false;
+                    }
+
+                    var uid = user._id;
+                    if(post.comments[i].user.equals(uid)){
+                        post.comments[i].author = true;
+                    } else  {
+                        post.comments[i].author = false;
+                    }
+
+                    for(var j = 0; j < post.comments[i].commentReplies.length; j++){
+
+                        if(post.comments[i].commentReplies[j].user.equals(uid)) {
+                            post.comments[i].commentReplies[j].author = true;
+                        } else {
+                            post.comments[i].commentReplies[j].author = false;
+                        }
+
+                        if (
+                            post.comments[i].commentReplies[j].likes.filter(like => like.user.toString() === user._id.toString())
+                                .length > 0
+                        ) {
+                            post.comments[i].commentReplies[j].already = true;
+                        } else {
+                            post.comments[i].commentReplies[j].already = false;
+                        }
+
+
+
+                    }
+
+                    if(i == post.comments.length-1){
+                        console.log(i);
+                        console.log(post.comments.length-1);
+                        if(post.achieverCreator == user.email){
+                            post.canEdit = true;
+                            console.log(post);
+                            res.render('viewAchiever.hbs', post);
+                        } else {
+                            res.render('viewAchiever.hbs', post);
+                        }
+                    }
+
+                }
+            } else {
+                if(post.achieverCreator == user.email){
+                    post.canEdit = true;
+                    res.render('viewAchiever.hbs', post);
+                } else {
+                    res.render('viewAchiever.hbs', post);
+                }
+            }
+
+
+
+
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
 
 
 
@@ -354,6 +545,55 @@ app.get("/editHomage", authenticate, function (req, res) {
         homage.findById(id).then((found) => {
             if(found.homageCreator == user.email){
                 res.render('editHomage.hbs', found);
+            } else {
+                res.sendStatus(401).send();
+            }
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
+
+
+app.get("/editMartyr", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+    Users.findById(user).then((user) => {
+        martyr.findById(id).then((found) => {
+            if(found.martyrCreator == user.email){
+                res.render('editMartyr.hbs', found);
+            } else {
+                res.sendStatus(401).send();
+            }
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});app.get("/editAchiever", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+    Users.findById(user).then((user) => {
+        achiever.findById(id).then((found) => {
+            if(found.achieverCreator == user.email){
+                res.render('editAchiever.hbs', found);
             } else {
                 res.sendStatus(401).send();
             }
@@ -411,7 +651,7 @@ const storage = new GridFsStorage({
                 const filename = buf.toString("hex") + path.extname(file.originalname);
                 const fileInfo = {
                     filename: filename,
-                    bucketName: "events"
+                    bucketName: "images"
                 };
                 resolve(fileInfo);
             });
@@ -445,7 +685,7 @@ app.post("/editEvent", [authenticate,  upload.single("eventImage"),], function (
                 } else {
 
 
-                    gfs.remove({filename: req.body.idOfEventImage, root: 'events'}, (err, gridStore) => {
+                    gfs.remove({filename: req.body.idOfEventImage, root: 'images'}, (err, gridStore) => {
                         if (err) {
                             return res.status(404).json({err: err});
                         } else {
@@ -475,7 +715,7 @@ app.post("/editEvent", [authenticate,  upload.single("eventImage"),], function (
 app.get("/getImage", function (req, res) {
     var id = req.query.imageId;
 
-    gfs.collection('events')
+    gfs.collection('images')
     gfs.files.findOne({ filename: id}, (err, file) => {
         // Check if file
         if (!file || file.length === 0) {

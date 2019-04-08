@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>U.P. SAINIK SCHOOL OBA - View Achiever</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="Author" content="hemant.me"/>
+
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+
+    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+    <!-- CORE CSS -->
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- REVOLUTION SLIDER -->
+    <link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
+
+    <!-- THEME CSS -->
+    <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/thematics-education.css" rel="stylesheet" type="text/css" />
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+    <script src="assets/js/config.js"></script>
+
+
+</head>
+
+<body class="smoothscroll enable-animation" style="background-color: #ededed;">
+
+
+
+
+<!-- wrapper -->
+<div id="wrapper">
+
+
+
+    <div id="header" class="sticky clearfix">
+
+
+        <!-- TOP NAV -->
+        <header id="topNav">
+            <div class="container">
+
+                <!-- Mobile Menu Button -->
+                <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <!-- Logo -->
+                <a class="logo pull-left" href="index.html">
+                    <img src="assets/images/logo-sm.png" alt="" />
+                </a>
+
+                <div class="navbar-collapse pull-right nav-main-collapse collapse submenu-dark">
+                    <nav class="nav-main">
+
+
+                        <ul id="topMain" class="nav nav-pills nav-main">
+
+                            <li>
+
+                                <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"> </i> USER NAME</a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a tabindex="-1" href="edit_event.html"><i class="fa fa-history"></i> EDIT PROFILE</a></li>
+                                    <li class="divider"></li>
+                                    <li><a tabindex="-1" href="#"><i class="fa fa-cog"></i> SETTINGS</a></li>
+                                    <li class="divider"></li>
+                                    <li><a tabindex="-1" href="add_event.html"><i class="glyphicon glyphicon-off"></i> LOGOUT</a></li>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+
+
+            </div>
+        </header>
+        <!-- /Top Nav -->
+
+    </div>
+
+
+
+    <section>
+        <div class="container">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div class="box-static box-border-top padding-30 card">
+
+                            <div class="row">
+
+                                <!-- RIGHT -->
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-lg-push-3 col-md-push-3 col-sm-push-3">
+
+
+                                    <div class="box-title margin-bottom-30">
+                                        <h2 class="size-20 pull-left">{{achieverName}}
+
+
+
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" style="background-color: #dedede;"><i class="fa fa-pencil"></i> <span class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    {{#if canEdit}}
+                                                        <li><a href="/editAchiever?id={{_id}}"><i class="fa fa-edit"></i> Edit</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="/allAchiever/delete?id={{_id}}"><i class="fa fa-trash"></i> Delete</a></li>
+                                                        <li class="divider"></li>
+                                                    {{/if}}
+                                                    <li><a href="/addAchiever"><i class="fa fa-plus"></i> Create New</a></li>
+
+                                                </ul>
+                                            </div>
+
+
+
+
+                                        </h2>
+<!--                                        <strong class=" pull-right">-->
+<!--                                            Died on: {{achieverDate}}-->
+<!--                                        </strong>-->
+
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="clearfix">
+
+                                                <span class="label label-warning">NOTE! </span>
+                                                <br>
+                                                <p style="text-align: justify;">
+                                                    {{achieverNotes}}
+                                                </p>
+
+
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="clearfix">
+                                                <div class="thumbnail text-center">
+                                                    <img src="/getAchieverImage?imageId={{achieverImage}}" class="img-responsive">
+                                                    <!--
+<h2 class="size-18 margin-top-10 margin-bottom-0">Event Name</h2>
+<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">Some Text</h3>
+-->
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+
+                                            <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd;; padding: 10px;">
+                                                <a class="box-icon-title" href="#">
+                                                    <i class="fa fa-university"></i>
+                                                    <h5>School No. : {{achieverSchoolNo}}</h5>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
+                                                <a class="box-icon-title" href="#">
+                                                    <i class="fa fa-user"></i>
+                                                    <h5>Background: {{achieverBackground}}</h5>
+                                                </a>
+                                            </div>
+
+                                        </div>
+<!--                                        <div class="col-md-4 col-sm-4 col-xs-4">-->
+<!--                                            <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">-->
+<!--                                                <a class="box-icon-title" href="#">-->
+<!--                                                    <i class="fa fa-star"></i>-->
+<!--                                                    <h5>Rank: {{#if achieverRank}} {{achieverRank}} {{else}} None {{/if}}</h5>-->
+<!--                                                </a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large box-icon-content">
+                                                <div class="box-icon-title">
+                                                    <i class="fa fa-heart-o"></i>
+                                                    <h2>Tributes</h2>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <!--  Comments Start--------------------------------------->
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <div class="box-light"><!-- .box-light OR .box-dark -->
+
+                                                <div class="box-inner">
+                                                    <li>
+                                                        <a href="#comment"></a>
+                                                        <a href="/viewAchiever?id={{_id}}&showAllComments=true" class="text-muted">Show All Comments ({{comments.length}})</a>
+                                                    </li>
+                                                    <br>
+                                                    <input type="hidden" value="5" id="commentShow">
+                                                    {{#each_upto comments showAtOnce}}
+
+                                                        <ul class="comment list-unstyled">
+
+                                                            <li class="comment">
+
+                                                                <!-- avatar -->
+                                                                <img class="avatar img-circle" src="assets/images/avatar2.jpg" width="50" height="50" alt="avatar">
+
+                                                                <!-- comment body -->
+                                                                <div class="comment-body">
+                                                                    <a href="#" class="comment-author">
+                                                                        <small class="text-muted pull-right">   {{date}} </small>
+                                                                        <span>{{name}}</span>
+                                                                    </a>
+                                                                    <p id="{{commentId}}comment">
+                                                                        {{text}}
+                                                                    </p>
+                                                                </div><!-- /comment body -->
+
+                                                                <!-- options -->
+                                                                <ul class="list-inline size-11 margin-top-10">
+
+                                                                    <li>
+                                                                        <input type="hidden" id="{{commentId}}" value="{{already}}">
+                                                                        <a href="#" onclick='return checkLike("{{@root._id}}", "{{commentId}}", document.getElementById("{{commentId}}").value)' class="text-success"><i class="fa fa-thumbs-up"></i> Like (<span id="{{commentId}}yy">{{likes.length}}</span>)</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#" class="text-muted">Show All Replies ({{commentReplies.length}})</a>
+                                                                    </li>
+                                                                    {{#if author}}
+                                                                        <li class="pull-right">
+                                                                            <a href="/achieverCommentDelete?id={{@root.id}}&commentId={{commentId}}" class="text-danger">Delete</a>
+                                                                        </li>
+                                                                        <li class="pull-right">
+                                                                            <a href="#" onclick='return editComment("{{@root._id}}", "{{commentId}}")' class="text-primary">Edit</a>
+                                                                        </li>
+                                                                    {{/if}}
+                                                                </ul>
+                                                            </li><!-- /options -->
+
+
+                                                            {{#each_upto commentReplies commentReplies.length}}
+                                                                <li class="comment comment-reply">
+
+                                                                    <!-- avatar -->
+                                                                    <img class="avatar img-circle" src="assets/images/avatar2.jpg" width="50" height="50" alt="avatar">
+
+                                                                    <!-- comment body -->
+                                                                    <div class="comment-body">
+                                                                        <a href="#" class="comment-author">
+                                                                            <small class="text-muted pull-right"> {{date}} </small>
+                                                                            <span>{{name}}</span>
+                                                                        </a>
+                                                                        <p id="{{replyId}}reply">
+                                                                            {{text}}
+                                                                        </p>
+                                                                    </div><!-- /comment body -->
+
+                                                                    <!-- options -->
+                                                                    <ul class="list-inline size-11 margin-top-10">
+                                                                        <li>
+                                                                            <input type="hidden" id="{{replyId}}" value="{{already}}">
+
+                                                                            <a href="#" onclick='return checkLikeReply("{{@root._id}}", "{{../commentId}}", "{{replyId}}", document.getElementById("{{replyId}}").value)' class="text-success"><i class="fa fa-thumbs-up"></i> Like (<span id="{{replyId}}xx">{{likes.length}}</span>)</a>
+                                                                        </li>
+
+                                                                        {{#if author}}
+
+                                                                            <li class="pull-right">
+                                                                                <a href="/achieverCommentReplyDelete?id={{@root.id}}&commentId={{../commentId}}&replyId={{replyId}}" class="text-danger">Delete</a>
+                                                                            </li>
+                                                                            <li class="pull-right">
+                                                                                <a href="#" onclick='return editCommentReply("{{@root._id}}", "{{../commentId}}", "{{replyId}}")' class="text-primary">Edit</a>
+                                                                            </li>
+                                                                        {{/if}}
+                                                                    </ul><!-- /options -->
+
+
+                                                                </li>
+                                                            {{/each_upto}}
+                                                            <li class="comment comment-reply">
+                                                                <form action="/achieverCommentReply?commentId={{commentId}}&id={{@root._id}}" method="post">
+                                                                <div class="input-group">
+
+                                                                    <input id="btn-input" type="text" class="form-control" name="reply" placeholder="Type your reply...">
+                                                                    <span class="input-group-btn">
+                                                                            <button class="btn btn-primary" id="btn-chat">
+                                                                                <i class="fa fa-reply"></i> Reply
+                                                                            </button>
+                                                                        </span>
+
+                                                                </div>
+                                                                </form>
+                                                            </li>
+                                                        </ul>
+                                                        <!-- /COMMENT -->
+                                                    {{/each_upto}}
+
+
+
+                                                    <form action="/achieverComment?id={{_id}}" method="post">
+                                                    <div class="input-group">
+
+                                                        <input id="btn-input" name="text" type="text" class="form-control" placeholder="Type your comment...">
+
+                                                        <span class="input-group-btn">
+                                                                            <button class="btn btn-primary" type="submit" id="btn-chat">
+                                                                                <i class="fa fa-reply"></i> Comment
+                                                                            </button>
+                                                                        </span>
+
+
+                                                    </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!---   comments End----------------------------------------->
+
+
+
+
+
+
+                                    </div>
+
+
+
+                                    <!-- LEFT -->
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-lg-pull-9 col-md-pull-9 col-sm-pull-9">
+
+                                        <!-- Menu Start -->
+                                        <!--                                            <div class="side-nav margin-bottom-60">-->
+
+                                        <!--                                                <div class="side-nav-head">-->
+                                        <!--                                                    <button class="fa fa-bars"></button>-->
+                                        <!--                                                    <h4>MENU</h4>-->
+                                        <!--                                                </div>-->
+
+                                        <!--                                                <ul class="list-group list-group-bordered list-group-noicon uppercase">-->
+                                        <!--                                                    <li class="list-group-item active">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">EVENTS</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li class=" "><a href="allevents.html"><span class="size-11 text-muted pull-right"> </span> All Events</a></li>-->
+                                        <!--                                                            <li class="active"><a href="add_event.html"><span class="size-11 text-muted pull-right"> </span> Add Event</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">HOMAGE</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Achievers</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Achiever</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">MARTYRS</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Martyrs</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Martyr</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">ACHIEVERS</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Achievers</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Achiever</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">OFFICE BEARERS</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Office Bearers</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Office Bearer</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">BIRTHDAY</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Birthdays</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Birthday</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">MEDIA COVERAGE</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Media Coverages</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Media Coverage</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">DONOR GALLERY</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Donors</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Events</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+                                        <!--                                                    <li class="list-group-item ">-->
+                                        <!--                                                        <a class="dropdown-toggle" href="#">IMAGES &amp; VIDEO GALLERY</a>-->
+                                        <!--                                                        <ul>-->
+                                        <!--                                                            <li><a href="all_galleries.html"><span class="size-11 text-muted pull-right"> </span> All Galleries</a></li>-->
+                                        <!--                                                            <li><a href="add_gallery.html"><span class="size-11 text-muted pull-right"> </span> Add Gallery</a></li>-->
+                                        <!--                                                        </ul>-->
+                                        <!--                                                    </li>-->
+
+
+
+                                        <!--                                                </ul>-->
+
+                                        <!--                                            </div>-->
+                                        <!-- /Menu End -->
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer id="footer">
+
+
+        <div class="copyright">
+            <div class="container">
+                <ul class="pull-right nomargin list-inline mobile-block">
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li>&bull;</li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+                &copy; All Rights Reserved, UP Sainik School, OBA
+            </div>
+        </div>
+
+    </footer>
+    <!-- /FOOTER -->
+
+</div>
+<!-- /wrapper -->
+
+
+<!-- SCROLL TO TOP -->
+<a href="#" id="toTop"></a>
+
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="inner">
+        <span class="loader"></span>
+    </div>
+</div><!-- /PRELOADER -->
+<script>
+    function editComment(id, commentId) {
+        var a = $("#"+commentId+"comment").text().trim();
+        $("#"+commentId+"comment").html('<form method="post" action="/editCommentAchiever?id='+id+'&commentId='+commentId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedComment" id="edit'+commentId+'">&nbsp<input  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+        $('#edit'+commentId).val(a);
+
+        console.log(a);
+        return false;
+    }
+
+
+    function editCommentReply(id, commentId, replyId) {
+        var a = $("#"+replyId+"reply").text().trim();
+        $("#"+replyId+"reply").html('<form method="post" action="/editCommentReplyAchiever?id='+id+'&commentId='+commentId+'&replyId='+replyId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedReply" id="edit'+replyId+'">&nbsp<input type="submit"  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+        $('#edit'+replyId).val(a);
+
+        console.log(a);
+        return false;
+    }
+    function checkLike(id, commentId, mine) {
+        console.log(id, commentId, mine);
+        var url = urlFinal+'achieverCommentLike?id='+id+'&commentId='+commentId;
+
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('POST',url, true);
+        ourRequest.onload = function() {
+            var ourData = ourRequest.responseText;
+            console.log(ourData)
+            if(ourData === 'true'){
+                var a = Number($("#"+commentId+"yy").text());
+                $("#"+commentId+"yy").text(a+1);
+
+
+            } else {
+                var a = Number($("#"+commentId+"yy").text());
+                $("#"+commentId+"yy").text(a-1);
+            }
+        }
+        ourRequest.send();
+        return false;
+    }
+
+    function checkLikeReply(id, commentId, replyId, mine) {
+        console.log(id, commentId, replyId, mine);
+        var url = urlFinal+'achieverCommentReplyLike?id='+id+'&commentId='+commentId+'&replyId='+replyId;
+
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('POST',url, true);
+        ourRequest.onload = function() {
+            var ourData = ourRequest.responseText;
+            if(ourData === 'true'){
+                var a = Number($("#"+replyId+"xx").text());
+                console.log(a);
+                $("#"+replyId+"xx").text(a+1);
+
+
+            } else {
+                var a = Number($("#"+replyId+"xx").text());
+                console.log(a);
+                $("#"+replyId+"xx").text(a-1);
+            }
+
+        }
+        ourRequest.send();
+        return false;
+    }
+</script>
+<script>
+
+
+    function datebox(){
+        var frequencyvalue = document.getElementById("frequency").value;
+
+        if(frequencyvalue=="Date"){
+            document.getElementById("repdate").style.display = "block";
+        }
+        else {
+            document.getElementById("repdate").style.display = "none";
+        }
+    };
+</script>
+
+<!-- JAVASCRIPT FILES -->
+<script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
+<script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+
+<script type="text/javascript" src="assets/js/scripts.js"></script>
+<!-- REVOLUTION SLIDER -->
+<script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="assets/js/view/demo.revolution_slider.js"></script>
+
+</body>
+</html>

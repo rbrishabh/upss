@@ -32,8 +32,9 @@
         <!-- PAGE LEVEL SCRIPTS -->
         <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+        <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
-
+        <script src="assets/js/home.js"></script>
     </head>
 
     <body class="smoothscroll enable-animation" style="background-color: #ededed;">
@@ -313,7 +314,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                         <h3 style="background: none !important; color: #fff; margin: 0px !important;  padding: 0px !important; font-size: 30px;">Homage</h3>
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="homageImage">
                         <div class="col-md-12">
                             <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": false, "navigation": true, "pagination": false}'>
 
@@ -323,7 +324,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                     <div class="row">
                                         <div class="col-md-5">
                                             <a href="#">
-                                                <img class="img-responsive margin-top-10" src="/getHomageImage?imageId={{homageImage}}" alt="">
+                                                <img class="img-responsive margin-top-10 {{id}}" src="" id="{{homageImage}}" alt="">
                                             </a>
                                         </div>
 
@@ -385,112 +386,42 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                         <h2>Martyrs</h2>
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="martyrImage">
+{{#each_upto results2 4}}
                         <div class="col-md-3">
 
                             <!-- article item -->
                             <div class="item-box">
                                 <figure>
                                     <div class="h-overlay">
-                                        It was July 3rd 2008 and the sky was overcast. Upsainians around Delhi were asked to gather by India...
-                                        <br><a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
+                                        {{martyrNotes}}
+                                        <br><a href="/viewMartyr?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read More</a>
                                     </div>
-                                    <img alt="" class="img-responsive" src="assets/images/cManoj.jpg" width="263" height="147">
+
+                                    <img alt="" class="img-responsive {{_id}}" src="" id="{{martyrImage}}" width="263" height="147">
 
                                 </figure>
 
                                 <div class="item-box-desc">
-                                    <h4>Capt Manoj Kumar Pandey</h4>
-                                    <small>29 June 1999</small>
+                                    <h4>{{martyrName}}</h4>
+                                    <small>{{martyrDate}}
+                                    {{martyrImage}}</small>
                                     <div class="pull-left">
-                                        <i class="fa fa-star" style="color: coral;"> </i><strong> Param Veer Chakra</strong>
+                                        <i class="fa fa-star" style="color: coral;"> </i><strong> {{martyrCitation}}</strong>
                                     </div>
                                 </div>
                             </div>
                             <!-- /article item -->
 
                         </div>
+{{/each_upto}}
 
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        The 27 year old, popularly known as sallu among his friends and colleagues, displayed tremendous courage...
-                                        <br><a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                    </div>
-                                    <img alt="" class="img-responsive" src="assets/images/khan.jpg" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <h4>Maj Salman Khan</h4>
-                                    <small>1999</small>
-                                    <div class="pull-left">
-                                        <i class="fa fa-star" style="color: coral;"> </i><strong> Shaurya Chakra</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
-
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        On the October 17, 1987 Sainik School lost a very courageous ex-cadet, Captain Sunil Chandra of ...
-                                        <br><a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                    </div>
-                                    <img alt="" class="img-responsive" src="assets/images/achievers/CaptSunilChandra_VrC.jpg" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <h4>Lieutenant Sunil Chandra</h4>
-                                    <small>17 Oct 1987</small>
-                                    <div class="pull-left">
-                                        <i class="fa fa-star" style="color: coral;"> </i><strong> Shaurya Chakra</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
-
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        Some small text about the Martyr here and redirecting button here to redirect on full information.
-                                        <br><a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                    </div>
-                                    <img alt="" class="img-responsive" src="assets/images/cManoj.jpg" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <h4>Lieutenant Sunil Chandra</h4>
-                                    <small>29 June 2014, 9:55</small>
-                                    <div class="pull-left">
-                                        <i class="fa fa-star" style="color: coral;"> </i><strong> Shaurya Chakra</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
 
                     </div>
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="login.html" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Martyrs</a>
+                            <a href="/allMartyrs" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Martyrs</a>
                         </div>
                     </div>
 
@@ -506,9 +437,9 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                     <div class="heading-title" style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
                         <h3 style="background: none !important;  margin: 0px !important;  padding: 0px !important; font-size: 30px;">Achievers</h3>
                     </div>
-                    <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": true, "navigation": true, "pagination": false}'>
+                    <div id="achieverImg" class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": true, "navigation": true, "pagination": false}'>
 
-
+            {{#each_upto results3 4}}
                         <div class="img-hover card achievercard">
                             <div class="row">
                                 <div class="col-md-12">
@@ -517,14 +448,14 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                     </div>
                                     <div class="col-md-5">
                                         <a href="blog-single-default.html">
-                                            <img class="img-responsive img-circle margin-top-10" src="assets/images/achievers/CaptManojPandey_PVC.jpg"  style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; " alt="">
+                                            <img class="img-responsive img-circle margin-top-10 {{_id}}" id="{{achieverImage}}" src=""  style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; " alt="">
                                         </a>
                                     </div>
 
                                     <div class="col-md-7">
-                                        <h4 class="text-left margin-top-0 margin-bottom-10" style="color: #fff !important;">CAPT MANOJ KUMAR PANDEY</h4>
+                                        <h4 class="text-left margin-top-0 margin-bottom-10" style="color: #fff !important;">{{achieverName}}</h4>
                                         <br>
-                                        <p class="text-left margin-bottom-10"><strong>Unit : 1/11</strong> &nbsp; | &nbsp;<strong>School No. : 1968/5/4/72</strong></p>
+                                        <p class="text-left margin-bottom-10"><strong>Unit : 1/11</strong> &nbsp; | &nbsp;<strong>School No. : {{achieverSchoolNo}}</strong></p>
 
                                         <div class="date-box" style="color: darkgoldenrod;">
                                             <strong><i class="fa fa-star"></i></strong><br>
@@ -534,10 +465,10 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
                                         <div class="wish">
                                             <strong>Background</strong>
                                             <br>
-                                            Army
+                                            {{achieverBackground}}
 
                                         </div>
-                                        <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
+                                        <a href="/viewAchiever?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read More</a>
 
                                     </div>
 
@@ -546,45 +477,8 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
                             </div>
                         </div>
+                {{/each_upto}}
 
-
-                        <div class="img-hover card achievercard">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="headingachiever">
-                                        <!----->
-                                    </div>
-                                    <div class="col-md-5">
-                                        <a href="blog-single-default.html">
-                                            <img class="img-responsive img-circle margin-top-10" src="assets/images/achievers/CaptSunilChandra_VrC.jpg"  style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; " alt="">
-                                        </a>
-                                    </div>
-
-                                    <div class="col-md-7">
-                                        <h4 class="text-left margin-top-0 margin-bottom-10" style="color: #fff !important;text-transform:uppercase;">Capt Sunil Chandra</h4>
-                                        <br>
-                                        <p class="text-left margin-bottom-10"><strong>Unit : 8 Mahar</strong> &nbsp; | &nbsp;<strong>NDA. : 63rd</strong></p>
-
-                                        <div class="date-box" style="color: darkgoldenrod;">
-                                            <strong><i class="fa fa-star"></i></strong><br>
-                                            <span>Shaurya Chakra</span>
-                                            <br>1999
-                                        </div>
-                                        <div class="wish">
-                                            <strong>Background</strong>
-                                            <br>
-                                            Army
-
-
-                                        </div>
-                                        <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        </div>
 
 
 
@@ -594,7 +488,7 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="http://www.upsainikschool.org/war-heroes-alumni/" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Achievers</a>
+                            <a href="/allAchievers" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Achievers</a>
                         </div>
                     </div>
 
@@ -1397,7 +1291,6 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
         <!-- JAVASCRIPT FILES -->
         <script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
-        <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
 
         <script type="text/javascript" src="assets/js/scripts.js"></script>
         <!-- REVOLUTION SLIDER -->

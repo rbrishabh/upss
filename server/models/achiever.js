@@ -2,33 +2,28 @@ const mongoose = require('mongoose');
 var {ObjectID} = require('mongodb')
 
 
-var homageSchema = new mongoose.Schema({
-    homageName: {
+var achieverSchema = new mongoose.Schema({
+    achieverName: {
         type: String,
         trim:true,
         required:true
     },
-    homageSchoolNo: {
+    achieverSchoolNo: {
         type: String,
         trim:true,
         required:true
     },
-    homageDate: {
+    achieverNotes: {
         type: String,
         trim:true,
         required:true
     },
-    homageNotes: {
+    achieverBackground: {
         type: String,
         trim:true,
         required:true
     },
-    homageBackground: {
-        type: String,
-        trim:true,
-        required:true
-    },
-    homageImage: {
+    achieverImage: {
         type: String,
         required: true
     },
@@ -36,15 +31,11 @@ var homageSchema = new mongoose.Schema({
         type: String,
         trim:true
     },
-    homageStatus: {
+    achieverStatus: {
         type: String,
         trim:true
     },
-    homageCreator: {
-        type: String,
-        trim:true
-    },
-    homageRank: {
+    achieverCreator: {
         type: String,
         trim:true
     },
@@ -163,5 +154,5 @@ var homageSchema = new mongoose.Schema({
 
 
 
-var homage = mongoose.model('homage',homageSchema);
-module.exports =  {homage};
+var achiever = mongoose.model('achiever',achieverSchema);
+module.exports =  {achiever};

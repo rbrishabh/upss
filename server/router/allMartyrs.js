@@ -1,6 +1,7 @@
 var express = require('express');
 var moment = require('moment');
 const {Users} = require('./../models/users');
+const {martyr} = require('./../models/martyr');
 var fs = require('fs');
 const multer = require("multer");
 const {events} = require('./../models/events');
@@ -22,6 +23,174 @@ allMartyrs.use(function timeLog (req, res, next) {
 allMartyrs.get('/',  authenticate, function (req, res) {
     res.render('allMartyrs.hbs');
 });
+
+
+allMartyrs.get('/getData', authenticate, function (req, res) {
+    // console.log('something happened here');
+    // console.log(req.query, "asdas")
+    var user = req.session.userId;
+    var obj = {};
+    Users.findById(user).then((user) => {
+        var searchStr = req.query.search.value;
+        if(req.query.search.value)
+        {
+            var regex = new RegExp(req.query.search.value, "i")
+            searchStr = {martyrCreator:{ $ne: user.email}, $or: [{'martyrName':regex },{'martyrDate': regex},{'martyrCitation': regex },{'martyrRank': regex },{'martyrStatus': regex },{'martyrSchoolNo': regex }] };
+        }
+        else
+        {
+            searchStr={martyrCreator:{ $ne: user.email}};
+        }
+
+        var recordsTotal = 0;
+        var recordsFiltered=0;
+
+        martyr.count({martyrCreator:{ $ne: user.email}}, function(err, c) {
+            recordsTotal=c;
+            // console.log(c);
+            martyr.count(searchStr, function(err, c) {
+                recordsFiltered=c;
+                // console.log(c);
+                // console.log(req.query.start);
+                // console.log(req.query.length);
+                martyr.find(searchStr, 'martyrName martyrSchoolNo martyrDate martyrCitation martyrRank martyrOptions martyrStatus',{'skip': Number(req.query.start), 'limit': Number(req.query.length) }, function (err, results) {
+                    if (err) {
+                        console.log('error while getting results'+err);
+                        return;
+                    }
+                    // console.log(results);
+                    var data = JSON.stringify({
+                        "draw": req.body.draw,
+                        "recordsFiltered": recordsFiltered,
+                        "recordsTotal": recordsTotal,
+                        "data": results
+                    });
+                    res.send(data);
+                });
+
+            });
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+
+
+});
+
+allMartyrs.get('/getMyData', authenticate, function (req, res) {
+    console.log('something happened here');
+    // console.log(req.query, "asdas")
+    var user = req.session.userId;
+    var obj = {};
+    Users.findById(user).then((user) => {
+        console.log(user.email);
+        var searchStr = req.query.search.value;
+        if(req.query.search.value)
+        {
+            var regex = new RegExp(req.query.search.value, "i")
+            searchStr = {martyrCreator : user.email, $or: [{'martyrName':regex },{'martyrDate': regex},{'martyrCitation': regex },{'martyrRank': regex },{'martyrStatus': regex },{'martyrSchoolNo': regex }] };
+        }
+        else
+        {
+            searchStr={martyrCreator : user.email};
+        }
+
+        var recordsTotal = 0;
+        var recordsFiltered=0;
+
+        martyr.count({martyrCreator:user.email},function(err, c) {
+            recordsTotal=c;
+            // console.log(c);
+            martyr.count(searchStr, function(err, c) {
+                recordsFiltered=c;
+                // console.log(c);
+                // console.log(req.query.start);
+                // console.log(req.query.length);
+                martyr.find(searchStr, 'martyrName martyrSchoolNo martyrDate martyrCitation martyrRank martyrOptions martyrStatus',{'skip': Number(req.query.start), 'limit': Number(req.query.length) }, function (err, results) {
+                    if (err) {
+                        console.log('error while getting results'+err);
+                        return;
+                    }
+                    // console.log(results);
+                    var data = JSON.stringify({
+                        "draw": req.body.draw,
+                        "recordsFiltered": recordsFiltered,
+                        "recordsTotal": recordsTotal,
+                        "data": results
+                    });
+                    res.send(data);
+                });
+
+            });
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+
+});
+
+allMartyrs.get('/delete', authenticate, function (req, res) {
+    var id = req.query.id;
+
+    var obj = new ObjectID(id);
+    var user = req.session.userId;
+
+    Users.findById(user).then((user) => {
+        martyr.findById(id).then((found) => {
+            if (found.martyrCreator == user.email) {
+                martyr.findOneAndDelete({_id: obj}).then((found) => {
+                    if (found) {
+                        console.log(found);
+                        var obj = found.martyrImage;
+                        gfs.remove({filename:obj, root: 'images'}, (err, gridStore) => {
+                            if (err) {
+                                return res.status(404).json({err: err});
+                            } else {
+                                res.redirect('/allMartyrs');
+
+
+                            }
+                        });
+
+
+                    }
+                }, (e) => {
+                    console.log(e);
+                    res.send(e);
+
+                }).catch((e) => {
+                    console.log(e);
+                    res.send(e);
+                });
+            } else {
+                res.sendStatus(401).send();
+            }
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+
+
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
+
+
+
 
 // addEvent.post('/',authenticate, (req,res)=> {
 //     var user = req.session.userId;

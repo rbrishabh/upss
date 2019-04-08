@@ -2,33 +2,33 @@ const mongoose = require('mongoose');
 var {ObjectID} = require('mongodb')
 
 
-var homageSchema = new mongoose.Schema({
-    homageName: {
+var martyrSchema = new mongoose.Schema({
+    martyrName: {
         type: String,
         trim:true,
         required:true
     },
-    homageSchoolNo: {
+    martyrSchoolNo: {
         type: String,
         trim:true,
         required:true
     },
-    homageDate: {
+    martyrDate: {
         type: String,
         trim:true,
         required:true
     },
-    homageNotes: {
+    martyrNotes: {
         type: String,
         trim:true,
         required:true
     },
-    homageBackground: {
+    martyrCitation: {
         type: String,
         trim:true,
         required:true
     },
-    homageImage: {
+    martyrImage: {
         type: String,
         required: true
     },
@@ -36,15 +36,15 @@ var homageSchema = new mongoose.Schema({
         type: String,
         trim:true
     },
-    homageStatus: {
+    martyrStatus: {
         type: String,
         trim:true
     },
-    homageCreator: {
+    martyrCreator: {
         type: String,
         trim:true
     },
-    homageRank: {
+    martyrRank: {
         type: String,
         trim:true
     },
@@ -163,5 +163,5 @@ var homageSchema = new mongoose.Schema({
 
 
 
-var homage = mongoose.model('homage',homageSchema);
-module.exports =  {homage};
+var martyr = mongoose.model('martyr',martyrSchema);
+module.exports =  {martyr};

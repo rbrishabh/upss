@@ -194,7 +194,7 @@ allEvents.get('/delete', authenticate, function (req, res) {
                     if (found) {
                         console.log(found);
                         var obj = found.eventImage;
-                        gfs.remove({filename:obj, root: 'events'}, (err, gridStore) => {
+                        gfs.remove({filename:obj, root: 'images'}, (err, gridStore) => {
                             if (err) {
                                 return res.status(404).json({err: err});
                             } else {
