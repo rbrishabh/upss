@@ -26,7 +26,9 @@ var {mongoose, conn} = require('./db/mongoose');
 const {events} = require('./models/events');
 const {homage} = require('./models/homage');
 const {martyr} = require('./models/martyr');
+const {coverage} = require('./models/coverage');
 const {achiever} = require('./models/achiever');
+const {bearer} = require('./models/bearer');
 
 
 //router
@@ -34,9 +36,11 @@ var signUp = require('./router/signUp');
 var login = require('./router/login');
 var allHomage = require('./router/allHomage');
 var allMartyrs = require('./router/allMartyrs');
+var addCoverage = require('./router/addCoverage');
 // var addMartyrs = require('./router/addMartyrs');
 var addHomage = require('./router/addHomage');
-var allbearers = require('./router/allbearers');
+var allBearers = require('./router/allbearers');
+var addBearer = require('./router/addBearer');
 // var addAchievers = require('./router/addAchievers');
 var allAchievers = require('./router/allAchievers');
 var addEvent = require('./router/addEvent');
@@ -119,11 +123,14 @@ app.use('/addachiever', addachiever);
 app.use('/addmartyr', addmartyr);
 app.use('/', home);
 app.use('/addEvent', addEvent);
+app.use('/addofficebearer', addBearer);
 app.use('/allEvents', allEvents);
 // app.use('/addMartyrs', addMartyrs);
-app.use('/allbearers', allbearers);
+app.use('/allbearers', allBearers);
 app.use('/addGalleries', addGalleries);
 app.use('/allGalleries', allGalleries);
+app.use('/addCoverage', addCoverage);
+app.use('/allCoverages', allCoverage);
 app.use('/allCoverage', allCoverage);
 app.use('/donate', donate);
 app.use('/allMartyrs', allMartyrs);
@@ -299,6 +306,99 @@ app.get("/viewHomage", authenticate, function (req, res) {
                     res.render('viewHomage.hbs', post);
                 } else {
                     res.render('viewHomage.hbs', post);
+                }
+            }
+
+
+
+
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
+app.get("/viewCoverage", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+
+
+    Users.findById(user).then((user) => {
+        console.log(typeof user._id);
+        coverage.findById(id).then((post) => {
+            if(req.query.showAllComments){
+                post.showAtOnce = post.comments.length;
+            } else {
+                post.showAtOnce = 5;
+            }
+            if(post.comments.length>0){
+                var a = 0;
+                for(var i = 0; i < post.comments.length; i++){
+
+                    if (
+                        post.comments[i].likes.filter(like => like.user.toString() === user._id.toString())
+                            .length > 0
+                    ) {
+                        post.comments[i].already = true;
+                    } else {
+                        post.comments[i].already = false;
+                    }
+
+                    var uid = user._id;
+                    if(post.comments[i].user.equals(uid)){
+                        post.comments[i].author = true;
+                    } else  {
+                        post.comments[i].author = false;
+                    }
+
+                    for(var j = 0; j < post.comments[i].commentReplies.length; j++){
+
+                        if(post.comments[i].commentReplies[j].user.equals(uid)) {
+                            post.comments[i].commentReplies[j].author = true;
+                        } else {
+                            post.comments[i].commentReplies[j].author = false;
+                        }
+
+                        if (
+                            post.comments[i].commentReplies[j].likes.filter(like => like.user.toString() === user._id.toString())
+                                .length > 0
+                        ) {
+                            post.comments[i].commentReplies[j].already = true;
+                        } else {
+                            post.comments[i].commentReplies[j].already = false;
+                        }
+
+
+
+                    }
+
+                    if(i == post.comments.length-1){
+                        console.log(i);
+                        console.log(post.comments.length-1);
+                        if(post.coverageCreator == user.email){
+                            post.canEdit = true;
+                            console.log(post);
+                            res.render('viewCoverage.hbs', post);
+                        } else {
+                            res.render('viewCoverage.hbs', post);
+                        }
+                    }
+
+                }
+            } else {
+                if(post.coverageCreator == user.email){
+                    post.canEdit = true;
+                    res.render('viewCoverage.hbs', post);
+                } else {
+                    res.render('viewCoverage.hbs', post);
                 }
             }
 
@@ -507,6 +607,99 @@ app.get("/viewAchiever", authenticate, function (req, res) {
         res.send(e);
     });
 });
+app.get("/viewBearer", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+
+
+    Users.findById(user).then((user) => {
+        console.log(typeof user._id);
+        bearer.findById(id).then((post) => {
+            if(req.query.showAllComments){
+                post.showAtOnce = post.comments.length;
+            } else {
+                post.showAtOnce = 5;
+            }
+            if(post.comments.length>0){
+                var a = 0;
+                for(var i = 0; i < post.comments.length; i++){
+
+                    if (
+                        post.comments[i].likes.filter(like => like.user.toString() === user._id.toString())
+                            .length > 0
+                    ) {
+                        post.comments[i].already = true;
+                    } else {
+                        post.comments[i].already = false;
+                    }
+
+                    var uid = user._id;
+                    if(post.comments[i].user.equals(uid)){
+                        post.comments[i].author = true;
+                    } else  {
+                        post.comments[i].author = false;
+                    }
+
+                    for(var j = 0; j < post.comments[i].commentReplies.length; j++){
+
+                        if(post.comments[i].commentReplies[j].user.equals(uid)) {
+                            post.comments[i].commentReplies[j].author = true;
+                        } else {
+                            post.comments[i].commentReplies[j].author = false;
+                        }
+
+                        if (
+                            post.comments[i].commentReplies[j].likes.filter(like => like.user.toString() === user._id.toString())
+                                .length > 0
+                        ) {
+                            post.comments[i].commentReplies[j].already = true;
+                        } else {
+                            post.comments[i].commentReplies[j].already = false;
+                        }
+
+
+
+                    }
+
+                    if(i == post.comments.length-1){
+                        console.log(i);
+                        console.log(post.comments.length-1);
+                        if(post.bearerCreator == user.email){
+                            post.canEdit = true;
+                            console.log(post);
+                            res.render('viewBearer.hbs', post);
+                        } else {
+                            res.render('viewBearer.hbs', post);
+                        }
+                    }
+
+                }
+            } else {
+                if(post.bearerCreator == user.email){
+                    post.canEdit = true;
+                    res.render('viewBearer.hbs', post);
+                } else {
+                    res.render('viewBearer.hbs', post);
+                }
+            }
+
+
+
+
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
 
 
 
@@ -545,6 +738,54 @@ app.get("/editHomage", authenticate, function (req, res) {
         homage.findById(id).then((found) => {
             if(found.homageCreator == user.email){
                 res.render('editHomage.hbs', found);
+            } else {
+                res.sendStatus(401).send();
+            }
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});app.get("/editCoverage", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+    Users.findById(user).then((user) => {
+        coverage.findById(id).then((found) => {
+            if(found.coverageCreator == user.email){
+                res.render('editCoverage.hbs', found);
+            } else {
+                res.sendStatus(401).send();
+            }
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
+
+app.get("/editBearer", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+    Users.findById(user).then((user) => {
+        bearer.findById(id).then((found) => {
+            if(found.bearerCreator == user.email){
+                res.render('editBearer.hbs', found);
             } else {
                 res.sendStatus(401).send();
             }

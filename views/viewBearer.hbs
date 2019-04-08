@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>U.P. SAINIK SCHOOL OBA - View Martyr</title>
+    <title>U.P. SAINIK SCHOOL OBA - View Bearer</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="Author" content="hemant.me"/>
@@ -114,7 +114,7 @@
 
 
                                     <div class="box-title margin-bottom-30">
-                                        <h2 class="size-20 pull-left">{{martyrName}}
+                                        <h2 class="size-20 pull-left">{{bearerPost}}<br>{{bearerName}}
 
 
 
@@ -122,12 +122,12 @@
                                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" style="background-color: #dedede;"><i class="fa fa-pencil"></i> <span class="caret"></span></button>
                                                 <ul class="dropdown-menu" role="menu">
                                                     {{#if canEdit}}
-                                                        <li><a href="/editMartyr?id={{_id}}"><i class="fa fa-edit"></i> Edit</a></li>
+                                                        <li><a href="/editBearer?id={{_id}}"><i class="fa fa-edit"></i> Edit</a></li>
                                                         <li class="divider"></li>
-                                                        <li><a href="/allMartyr/delete?id={{_id}}"><i class="fa fa-trash"></i> Delete</a></li>
+                                                        <li><a href="/allBearer/delete?id={{_id}}"><i class="fa fa-trash"></i> Delete</a></li>
                                                         <li class="divider"></li>
                                                     {{/if}}
-                                                    <li><a href="/addMartyr"><i class="fa fa-plus"></i> Create New</a></li>
+                                                    <li><a href="/addBearer"><i class="fa fa-plus"></i> Create New</a></li>
 
                                                 </ul>
                                             </div>
@@ -137,7 +137,8 @@
 
                                         </h2>
                                         <strong class=" pull-right">
-                                            Died on: {{martyrDate}}
+                                            From: {{bearerFromDate}}<br>
+                                            To: {{bearerToDate}}
                                         </strong>
 
                                         <div class="clearfix"></div>
@@ -147,11 +148,11 @@
                                         <div class="col-md-6">
                                             <div class="clearfix">
 
-                                                <span class="label label-warning">NOTE! </span>
-                                                <br>
-                                                <p style="text-align: justify;">
-                                                    {{martyrNotes}}
-                                                </p>
+<!--                                                <span class="label label-warning">NOTE! </span>-->
+<!--                                                <br>-->
+<!--                                                <p style="text-align: justify;">-->
+
+<!--                                                </p>-->
 
 
 
@@ -160,11 +161,11 @@
 
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
 
                                             <div class="clearfix">
                                                 <div class="thumbnail text-center">
-                                                    <img src="/getMartyrImage?imageId={{martyrImage}}" class="img-responsive">
+                                                    <img src="/getBearerImage?imageId={{bearerImage}}" class="img-responsive ">
                                                     <!--
 <h2 class="size-18 margin-top-10 margin-bottom-0">Event Name</h2>
 <h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">Some Text</h3>
@@ -182,7 +183,7 @@
                                             <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd;; padding: 10px;">
                                                 <a class="box-icon-title" href="#">
                                                     <i class="fa fa-university"></i>
-                                                    <h5>School No. : {{martyrSchoolNo}}</h5>
+                                                    <h5>School No. : {{bearerSchoolNo}}</h5>
                                                 </a>
                                             </div>
 
@@ -191,7 +192,7 @@
                                             <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
                                                 <a class="box-icon-title" href="#">
                                                     <i class="fa fa-user"></i>
-                                                    <h5>Citation: {{martyrCitation}}</h5>
+                                                    <h5>Background: {{bearerBackground}}</h5>
                                                 </a>
                                             </div>
 
@@ -200,7 +201,7 @@
                                             <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
                                                 <a class="box-icon-title" href="#">
                                                     <i class="fa fa-star"></i>
-                                                    <h5>Rank: {{#if martyrRank}} {{martyrRank}} {{else}} None {{/if}}</h5>
+                                                    <h5>Rank: {{#if bearerRank}} {{bearerRank}} {{else}} None {{/if}}</h5>
                                                 </a>
                                             </div>
                                         </div>
@@ -232,7 +233,7 @@
                                                 <div class="box-inner">
                                                     <li>
                                                         <a href="#comment"></a>
-                                                        <a href="/viewMartyr?id={{_id}}&showAllComments=true" class="text-muted">Show All Comments ({{comments.length}})</a>
+                                                        <a href="/viewBearer?id={{_id}}&showAllComments=true" class="text-muted">Show All Comments ({{comments.length}})</a>
                                                     </li>
                                                     <br>
                                                     <input type="hidden" value="5" id="commentShow">
@@ -268,7 +269,7 @@
                                                                     </li>
                                                                     {{#if author}}
                                                                         <li class="pull-right">
-                                                                            <a href="/martyrCommentDelete?id={{@root.id}}&commentId={{commentId}}" class="text-danger">Delete</a>
+                                                                            <a href="/bearerCommentDelete?id={{@root.id}}&commentId={{commentId}}" class="text-danger">Delete</a>
                                                                         </li>
                                                                         <li class="pull-right">
                                                                             <a href="#" onclick='return editComment("{{@root._id}}", "{{commentId}}")' class="text-primary">Edit</a>
@@ -306,7 +307,7 @@
                                                                         {{#if author}}
 
                                                                             <li class="pull-right">
-                                                                                <a href="/martyrCommentReplyDelete?id={{@root.id}}&commentId={{../commentId}}&replyId={{replyId}}" class="text-danger">Delete</a>
+                                                                                <a href="/bearerCommentReplyDelete?id={{@root.id}}&commentId={{../commentId}}&replyId={{replyId}}" class="text-danger">Delete</a>
                                                                             </li>
                                                                             <li class="pull-right">
                                                                                 <a href="#" onclick='return editCommentReply("{{@root._id}}", "{{../commentId}}", "{{replyId}}")' class="text-primary">Edit</a>
@@ -318,7 +319,7 @@
                                                                 </li>
                                                             {{/each_upto}}
                                                             <li class="comment comment-reply">
-                                                                <form action="/martyrCommentReply?commentId={{commentId}}&id={{@root._id}}" method="post">
+                                                                <form action="/bearerCommentReply?commentId={{commentId}}&id={{@root._id}}" method="post">
                                                                 <div class="input-group">
 
                                                                     <input id="btn-input" type="text" class="form-control" name="reply" placeholder="Type your reply...">
@@ -337,7 +338,7 @@
 
 
 
-                                                    <form action="/martyrComment?id={{_id}}" method="post">
+                                                    <form action="/bearerComment?id={{_id}}" method="post">
                                                     <div class="input-group">
 
                                                         <input id="btn-input" name="text" type="text" class="form-control" placeholder="Type your comment...">
@@ -388,8 +389,8 @@
                                         <!--                                                    <li class="list-group-item ">-->
                                         <!--                                                        <a class="dropdown-toggle" href="#">HOMAGE</a>-->
                                         <!--                                                        <ul>-->
-                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Martyrs</a></li>-->
-                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Martyr</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Bearers</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Bearer</a></li>-->
                                         <!--                                                        </ul>-->
                                         <!--                                                    </li>-->
                                         <!--                                                    <li class="list-group-item ">-->
@@ -499,7 +500,7 @@
 <script>
     function editComment(id, commentId) {
         var a = $("#"+commentId+"comment").text().trim();
-        $("#"+commentId+"comment").html('<form method="post" action="/editCommentMartyr?id='+id+'&commentId='+commentId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedComment" id="edit'+commentId+'">&nbsp<input  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+        $("#"+commentId+"comment").html('<form method="post" action="/editCommentBearer?id='+id+'&commentId='+commentId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedComment" id="edit'+commentId+'">&nbsp<input  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
         $('#edit'+commentId).val(a);
 
         console.log(a);
@@ -509,7 +510,7 @@
 
     function editCommentReply(id, commentId, replyId) {
         var a = $("#"+replyId+"reply").text().trim();
-        $("#"+replyId+"reply").html('<form method="post" action="/editCommentReplyMartyr?id='+id+'&commentId='+commentId+'&replyId='+replyId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedReply" id="edit'+replyId+'">&nbsp<input type="submit"  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+        $("#"+replyId+"reply").html('<form method="post" action="/editCommentReplyBearer?id='+id+'&commentId='+commentId+'&replyId='+replyId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedReply" id="edit'+replyId+'">&nbsp<input type="submit"  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
         $('#edit'+replyId).val(a);
 
         console.log(a);
@@ -517,7 +518,7 @@
     }
     function checkLike(id, commentId, mine) {
         console.log(id, commentId, mine);
-        var url = urlFinal+'martyrCommentLike?id='+id+'&commentId='+commentId;
+        var url = urlFinal+'bearerCommentLike?id='+id+'&commentId='+commentId;
 
         var ourRequest = new XMLHttpRequest();
         ourRequest.open('POST',url, true);
@@ -540,7 +541,7 @@
 
     function checkLikeReply(id, commentId, replyId, mine) {
         console.log(id, commentId, replyId, mine);
-        var url = urlFinal+'martyrCommentReplyLike?id='+id+'&commentId='+commentId+'&replyId='+replyId;
+        var url = urlFinal+'bearerCommentReplyLike?id='+id+'&commentId='+commentId+'&replyId='+replyId;
 
         var ourRequest = new XMLHttpRequest();
         ourRequest.open('POST',url, true);

@@ -22,6 +22,8 @@
 
 
         <!-- THEME CSS -->
+        <script type="text/javascript" src="assets/js/config.js"></script>
+
         <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/thematics-education.css" rel="stylesheet" type="text/css" />
@@ -114,89 +116,27 @@
 
 
                                             <label class="switch switch-primary switch-round pull-right">
-                                                <input type="checkbox" >
-                                                <span class="switch-label" data-on="MY" data-off="ALL"></span>
+                                                <input type="checkbox" onclick="checkMyOther()" id="myOther">
+                                                <span class="switch-label" data-on="My" data-off="Other"></span>
                                             </label>
-
                                             <div class="clearfix"></div>
                                         </div>
 
-                                        <div class="autosuggest" data-minLength="1" data-queryURL="">
-                                            <input type="text" name="src" placeholder="Search..." class="form-control typeahead" />
-                                        </div>
-                                        <br>
+<!--                                        <div class="autosuggest" data-minLength="1" data-queryURL="">-->
+<!--                                            <input type="text" name="src" placeholder="Search..." class="form-control typeahead" />-->
+<!--                                        </div>-->
+<!--                                        <br>-->
 
                                         <div class="table-responsive">
-                                            <table class="table table-bordered table-striped table-hover " style="background-color: #ececec;">
+                                            <table id="dtBasicExample" class="table table-bordered table-striped table-hover " style="background-color: #ececec;">
                                                 <thead>
                                                     <tr>
-                                                        <th> Name</th>
-                                                        <th> School Number</th>
-                                                        <th> Died on Date</th>
-                                                        <th> Background</th>
-                                                        <th> Rank</th>
-                                                        <th> Options</th>
-                                                        <th> Status</th>
+                                                        <th>News Heading</th>
+                                                        <th>Options</th>
+                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <!--<tr>-->
-                                                        <!--<td>Name</td>-->
-                                                        <!--<td>1542</td>-->
-                                                        <!--<td>Dec 12, 1988</td>-->
-                                                        <!--<td>Military</td>-->
-                                                        <!--<td>Colonel</td>-->
 
-                                                        <!--<td >-->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="View" ><i class="glyphicon glyphicon-eye-open" ></i></a>-->
-                                                            <!--&nbsp; &nbsp; &nbsp; -->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-pencil" ></i></a>-->
-                                                            <!--&nbsp; &nbsp; &nbsp; -->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash" ></i></a>-->
-
-
-                                                        <!--</td>-->
-                                                        <!--<td class="text-center"><a href="#" class="" style=" color: #87B631;"  data-toggle="tooltip" data-placement="top" title="Approved" ><i class="fa fa-check-circle" ></i> </a></td>-->
-
-                                                    <!--</tr>-->
-                                                    <!--<tr>-->
-                                                        <!--<td>Name</td>-->
-                                                        <!--<td>1542</td>-->
-                                                        <!--<td>Dec 12, 1988</td>-->
-                                                        <!--<td>Military</td>-->
-                                                        <!--<td>Colonel</td>-->
-                                                        <!--<td>-->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="View" ><i class="glyphicon glyphicon-eye-open" ></i></a>-->
-                                                            <!--&nbsp; &nbsp; &nbsp; -->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-pencil" ></i></a>-->
-                                                            <!--&nbsp; &nbsp; &nbsp; -->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash" ></i></a>-->
-
-
-                                                        <!--</td>-->
-                                                        <!--<td class="text-center"><a href="#" class="" style=" color: #EC971F;"  data-toggle="tooltip" data-placement="top" title="Pending" ><i class="fa fa-clock-o" ></i> </a></td>-->
-
-                                                    <!--</tr>-->
-                                                    <!--<tr>-->
-                                                        <!--<td>Name</td>-->
-                                                        <!--<td>1542</td>-->
-                                                        <!--<td>Dec 12, 1988</td>-->
-                                                        <!--<td>Military</td>-->
-                                                        <!--<td>Colonel</td>-->
-                                                        <!--<td>-->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="View" ><i class="glyphicon glyphicon-eye-open" ></i></a>-->
-                                                            <!--&nbsp; &nbsp; &nbsp; -->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Edit" ><i class="fa fa-pencil" ></i></a>-->
-                                                            <!--&nbsp; &nbsp; &nbsp; -->
-                                                            <!--<a href="#" class=""  data-toggle="tooltip" data-placement="top" title="Delete" ><i class="fa fa-trash" ></i></a>-->
-
-
-                                                        <!--</td>-->
-                                                        <!--<td class="text-center"><a href="#" class="" style=" color: #C9302C;"  data-toggle="tooltip" data-placement="top" title="Rejected" ><i class="fa fa-close" ></i> </a></td>-->
-
-                                                    <!--</tr>-->
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -399,8 +339,11 @@
         <!-- JAVASCRIPT FILES -->
         <script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
         <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="assets/js/datatables.js"></script>
 
         <script type="text/javascript" src="assets/js/scripts.js"></script>
+        <script type="text/javascript" src="assets/js/allcoverage.js"></script>
+
 
 
     </body>

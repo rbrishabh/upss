@@ -1,482 +1,502 @@
 <!DOCTYPE html>
 <!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
-<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8" />
-        <title>School Crest - U.P. SAINIK SCHOOL, OBA</title>
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="Author" content="hemant.me" />
+<!--[if gt IE 9]><!-->
+<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>School Crest - U.P. SAINIK SCHOOL, OBA</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="Author" content="hemant.me"/>
 
-        <!-- mobile settings -->
-        <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-
-
-        <!-- WEB FONTS : use %7C instead of | (pipe) -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
-
-        <!-- CORE CSS -->
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-        <!-- REVOLUTION SLIDER -->
-        <link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
-
-        <!-- THEME CSS -->
-        <link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/thematics-education.css" rel="stylesheet" type="text/css" />
-
-        <!-- PAGE LEVEL SCRIPTS -->
-        <link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
-        <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
-
-        <script src="assets/js/home.js"></script>
-    </head>
-
-    <body class="smoothscroll enable-animation" style="background-color: #ededed;">
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"/>
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
 
+    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
+          rel="stylesheet" type="text/css"/>
+
+    <!-- CORE CSS -->
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- REVOLUTION SLIDER -->
+    <link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css"/>
+
+    <!-- THEME CSS -->
+    <link href="assets/css/essentials.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/thematics-education.css" rel="stylesheet" type="text/css"/>
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="assets/css/header-1.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme"/>
+    <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+
+    <script src="assets/js/home.js"></script>
+</head>
+
+<body class="smoothscroll enable-animation" style="background-color: #ededed;">
 
 
-        <!-- wrapper -->
-        <div id="wrapper">
+<!-- wrapper -->
+<div id="wrapper">
 
 
-
-            <div id="header" class="sticky clearfix">
-
-
-                <!-- TOP NAV -->
-                <header id="topNav">
-                    <div class="container">
-
-                        <!-- Mobile Menu Button -->
-                        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <!-- Logo -->
-                        <a class="logo pull-left" href="/">
-                            <img src="assets/images/logo-sm.png" alt="" />
-                        </a>
-
-                        <div class="navbar-collapse pull-right nav-main-collapse collapse submenu-dark">
-                            <nav class="nav-main">
+    <div id="header" class="sticky clearfix">
 
 
-                                <ul id="topMain" class="nav nav-pills nav-main">
-                                    <li class="">
-                                        <a href="/donate">
-                                            <i class="fa fa-gratipay"></i> Donate
-                                        </a>
+        <!-- TOP NAV -->
+        <header id="topNav">
+            <div class="container">
 
-                                    </li>
-                                    {{#if email}}
+                <!-- Mobile Menu Button -->
+                <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <!-- Logo -->
+                <a class="logo pull-left" href="/">
+                    <img src="assets/images/logo-sm.png" alt=""/>
+                </a>
 
-                                        <li class="">
-                                            <a href="/">
-                                                <i class="fa fa-user"></i> {{name}}
-                                            </a>
-
-                                        </li>
-
-
-                                        <li class="">
-                                            <a href="/logout">
-                                                <i class="fa fa-sign-out"></i> Logout
-                                            </a>
-
-                                        </li>
-                                    {{else}}
-                                        <li class="">
-                                            <a href="/login">
-                                                <i class="fa fa-user"></i> LOGIN
-                                            </a>
-
-                                        </li>
-
-                                        <li class="">
-                                            <a href="/signup">
-                                                <i class="fa fa-user-plus"></i> SIGNUP
-                                            </a>
-
-                                        </li>
-                                    {{/if}}
+                <div class="navbar-collapse pull-right nav-main-collapse collapse submenu-dark">
+                    <nav class="nav-main">
 
 
-                                </ul>
-                            </nav>
-                        </div>
-
-                    </div>
-                </header>
-                <!-- /Top Nav -->
-
-            </div>
-
-
-
-
-            <!-- REVOLUTION SLIDER -->
-            <section id="slider" class="slider fullwidthbanner-container roundedcorners" >
-
-                <div class="fullwidthbanner" data-height="500" data-navigationStyle="">
-                    <ul class="hide">
-
-                        <!-- SLIDE -->
-                        <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide">
-
-                            <img src="assets/images/1x1.png" data-lazyload="assets/images/demo/video/back.jpg" alt="video" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
-
-                            <div class="tp-caption tp-fade fadeout fullscreenvideo"
-                                 data-x="0"
-                                 data-y="0"
-                                 data-speed="1000"
-                                 data-start="1100"
-                                 data-easing="Power4.easeOut"
-                                 data-elementdelay="0.01"
-                                 data-endelementdelay="0.1"
-                                 data-endspeed="1500"
-                                 data-endeasing="Power4.easeIn"
-                                 data-autoplay="true"
-                                 data-autoplayonlyfirsttime="false"
-                                 data-nextslideatend="true"
-                                 data-volume="mute"
-                                 data-forceCover="1"
-                                 data-aspectratio="16:9"
-                                 data-forcerewind="on" style="z-index: 2;">
-
-                                <div class="tp-dottedoverlay twoxtwo"><!-- dotted overlay --></div>
-
-                                <video class=""  preload="none" width="100%" height="100%" poster="assets/images/video/back.jpg">
-
-                                    <source src="assets/images/video/back.mp4" type="video/mp4" />
-                                    <source src="assets/images/video/back.WebM" type="video/WebM" />
-                                </video>
-
-                            </div>
-
-                            <div class="tp-caption customin ltl tp-resizeme text_white"
-                                 data-x="center"
-                                 data-y="80"
-                                 data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                                 data-speed="800"
-                                 data-start="1000"
-                                 data-easing="easeOutQuad"
-                                 data-splitin="none"
-                                 data-splitout="none"
-                                 data-elementdelay="0.01"
-                                 data-endelementdelay="0.1"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="z-index: 3;">
-                                <span class="weight-300">CAPTAIN MANOJ KUMAR PANDEY U.P. SAINIK SCHOOL, LUCKNOW</span>
-                            </div>
-
-                            <div class="tp-caption customin ltl tp-resizeme large_bold_white"
-                                 data-x="center"
-                                 data-y="130"
-                                 data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                                 data-speed="800"
-                                 data-start="1200"
-                                 data-easing="easeOutQuad"
-                                 data-splitin="none"
-                                 data-splitout="none"
-                                 data-elementdelay="0.01"
-                                 data-endelementdelay="0.1"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="z-index: 3;">
-                                OLD BOY'S ASSOCIATION
-                            </div>
-
-                            <div class="tp-caption customin ltl tp-resizeme small_light_white"
-                                 data-x="center"
-                                 data-y="250"
-                                 data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                                 data-speed="800"
-                                 data-start="1400"
-                                 data-easing="easeOutQuad"
-                                 data-splitin="none"
-                                 data-splitout="none"
-                                 data-elementdelay="0.01"
-                                 data-endelementdelay="0.1"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="z-index: 3; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
-                                We Prepare Best Army Men
-                            </div>
-
-                            <div class="tp-caption customin ltl tp-resizeme"
-                                 data-x="center"
-                                 data-y="338"
-                                 data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                                 data-speed="800"
-                                 data-start="1550"
-                                 data-easing="easeOutQuad"
-                                 data-splitin="none"
-                                 data-splitout="none"
-                                 data-elementdelay="0.01"
-                                 data-endelementdelay="0.1"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="z-index: 3;">
-                                <img src="assets/images/Logo.png">
-                            </div>
-
-                        </li>
-
-                    </ul>
-                    <div class="tp-bannertimer"></div>
-                </div>
-            </section>
-            <!-- /REVOLUTION SLIDER -->
-
-
-
-            <!-- Services -->
-            <section>
-                <div class="container">
-                    <!--
-LTR INFO: box-icon-left or box-icon-right - are the same on LTR
--->
-                    <div class="row">
-                        <div class="heading-title">
-                            <h2>Upcoming Events</h2>
-
-                        </div>
-                    {{#each_upto results 3}}
-                        <div class="col-sm-4">
-
-                            <div class="box-icon box-icon-left card" >
-                                <a class="box-icon-title" href="#">
-                                    <div class="callendar-body pull-left">
-                                        <div class="callendar-header">
-                                            AUG
-                                        </div>
-                                        <div class="calendar-data">
-                                            28
-                                        </div>
-                                    </div>
-                                    <h2>{{eventName}}</h2>
+                        <ul id="topMain" class="nav nav-pills nav-main">
+                            <li class="">
+                                <a href="/donate">
+                                    <i class="fa fa-gratipay"></i> Donate
                                 </a>
-                                <br>
 
-                                <ul class="text-left size-14 list-inline list-separator">
-                                    <li style="color:darkorange !important;">
-                                        <i class="fa fa-clock-o"></i>
-                                        {{eventDate}}
-                                    </li>
-                                    <li>
-                                        <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"  title="Venue Address">
-                                            <i class="fa fa-institution" ></i>
-                                            {{eventLocation}}
-                                        </a>
-                                    </li>
+                            </li>
+                            {{#if email}}
 
-                                </ul>
-                                <span class="text-left size-14  pull-left margine-left-10" style="font-family: Roboto !important;">
-
-                                    <a href="/viewEvent?id={{_id}}#comment" style="color:#666;"  title="Comments by -   {{#each comments}}&#10;{{name}}{{/each}} ">
-                                        <i class="fa fa-comments"></i> 
-                                        {{comments.length}}
+                                <li class="">
+                                    <a href="/">
+                                        <i class="fa fa-user"></i> {{name}}
                                     </a>
 
-                                    &nbsp;
+                                </li>
+
+
+                                <li class="">
+                                    <a href="/logout">
+                                        <i class="fa fa-sign-out"></i> Logout
+                                    </a>
+
+                                </li>
+                            {{else}}
+                                <li class="">
+                                    <a href="/login">
+                                        <i class="fa fa-user"></i> LOGIN
+                                    </a>
+
+                                </li>
+
+                                <li class="">
+                                    <a href="/signup">
+                                        <i class="fa fa-user-plus"></i> SIGNUP
+                                    </a>
+
+                                </li>
+                            {{/if}}
+
+
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </header>
+        <!-- /Top Nav -->
+
+    </div>
+
+
+    <!-- REVOLUTION SLIDER -->
+    <section id="slider" class="slider fullwidthbanner-container roundedcorners">
+
+        <div class="fullwidthbanner" data-height="500" data-navigationStyle="">
+            <ul class="hide">
+
+                <!-- SLIDE -->
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"
+                    data-title="Slide">
+
+                    <img src="assets/images/1x1.png" data-lazyload="assets/images/demo/video/back.jpg" alt="video"
+                         data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption tp-fade fadeout fullscreenvideo"
+                         data-x="0"
+                         data-y="0"
+                         data-speed="1000"
+                         data-start="1100"
+                         data-easing="Power4.easeOut"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1500"
+                         data-endeasing="Power4.easeIn"
+                         data-autoplay="true"
+                         data-autoplayonlyfirsttime="false"
+                         data-nextslideatend="true"
+                         data-volume="mute"
+                         data-forceCover="1"
+                         data-aspectratio="16:9"
+                         data-forcerewind="on" style="z-index: 2;">
+
+                        <div class="tp-dottedoverlay twoxtwo"><!-- dotted overlay --></div>
+
+                        <video class="" preload="none" width="100%" height="100%" poster="assets/images/video/back.jpg">
+
+                            <source src="assets/images/video/back.mp4" type="video/mp4"/>
+                            <source src="assets/images/video/back.WebM" type="video/WebM"/>
+                        </video>
+
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme text_white"
+                         data-x="center"
+                         data-y="80"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1000"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 3;">
+                        <span class="weight-300">CAPTAIN MANOJ KUMAR PANDEY U.P. SAINIK SCHOOL, LUCKNOW</span>
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme large_bold_white"
+                         data-x="center"
+                         data-y="130"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1200"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 3;">
+                        OLD BOY'S ASSOCIATION
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme small_light_white"
+                         data-x="center"
+                         data-y="250"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1400"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn"
+                         style="z-index: 3; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
+                        We Prepare Best Army Men
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme"
+                         data-x="center"
+                         data-y="338"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1550"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 3;">
+                        <img src="assets/images/Logo.png">
+                    </div>
+
+                </li>
+
+            </ul>
+            <div class="tp-bannertimer"></div>
+        </div>
+    </section>
+    <!-- /REVOLUTION SLIDER -->
+
+
+    <!-- Services -->
+    <section>
+        <div class="container">
+            <!--
+LTR INFO: box-icon-left or box-icon-right - are the same on LTR
+-->
+            <div class="row">
+                <div class="heading-title">
+                    <h2>Upcoming Events</h2>
+
+                </div>
+                {{#each_upto results 3}}
+                    <div class="col-sm-4">
+
+                        <div class="box-icon box-icon-left card">
+                            <a class="box-icon-title" href="#">
+                                <div class="callendar-body pull-left">
+                                    <div class="callendar-header">
+                                        AUG
+                                    </div>
+                                    <div class="calendar-data">
+                                        28
+                                    </div>
+                                </div>
+                                <h2>{{eventName}}</h2>
+                            </a>
+                            <br>
+
+                            <ul class="text-left size-14 list-inline list-separator">
+                                <li style="color:darkorange !important;">
+                                    <i class="fa fa-clock-o"></i>
+                                    {{eventDate}}
+                                </li>
+                                <li>
+                                    <a href="#" style="color: #A02741;" data-toggle="tooltip" data-placement="right"
+                                       title="Venue Address">
+                                        <i class="fa fa-institution"></i>
+                                        {{eventLocation}}
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <span class="text-left size-14  pull-left margine-left-10"
+                                  style="font-family: Roboto !important;">
+
+                                    <a href="/viewEvent?id={{_id}}
+                                #comment" style="color:#666;"  title="Comments by -   {{#each comments}}
+                                &#10;{{name}}{{/each}} ">
+                                        <i class="fa fa-comments"></i>
+                                {{comments.length}}
+                                </a>
+
+                                &nbsp;
 
                                 </span>
-                                <a href="/viewEvent?id={{_id}}" class="btn btn-danger btn-xs pull-right ">Read more</a>
-                                <br>
-                            </div>
-
+                            <a href="/viewEvent?id={{_id}}" class="btn btn-danger btn-xs pull-right ">Read more</a>
+                            <br>
                         </div>
 
-                    {{/each_upto}}
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="/allevents" class="btn btn-primary btn-md" >View All Events</a>
-                        </div>
                     </div>
 
+                {{/each_upto}}
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                        <a href="/allevents" class="btn btn-primary btn-md">View All Events</a>
+                    </div>
                 </div>
-            </section>
-            <!-- /Services -->
+
+            </div>
+    </section>
+    <!-- /Services -->
 
 
+    <!-- Parallax -->
+    <section class="" style="background-image: url('assets/images/bg/blur.jpg');">
 
 
-            <!-- Parallax -->
-            <section class="" style="background-image: url('assets/images/bg/blur.jpg');">
+        <div class="container">
+            <div class="heading-title"
+                 style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
+                <h3 style="background: none !important; color: #fff; margin: 0px !important;  padding: 0px !important; font-size: 30px;">
+                    Homage</h3>
+            </div>
+
+            <div class="row" id="homageImage">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over"
+                         data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": false, "navigation": true, "pagination": false}'>
 
 
-                <div class="container">
-                    <div class="heading-title" style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
-                        <h3 style="background: none !important; color: #fff; margin: 0px !important;  padding: 0px !important; font-size: 30px;">Homage</h3>
-                    </div>
-
-                    <div class="row" id="homageImage">
-                        <div class="col-md-12">
-                            <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": false, "navigation": true, "pagination": false}'>
-
-
-                            {{#each_upto results1 3}}
-                                <div class="img-hover card">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <a href="#">
-                                                <img class="img-responsive margin-top-10 {{id}}" src="" id="{{homageImage}}" alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <h4 class="text-left margin-top-0"><a href="#">{{homageName}}</a></h4>
-                                            <p class="text-left">{{homageNotes}}</p>
-                                            <ul class="text-left size-14 list-inline list-separator" style="font-family: Roboto !important;">
-
-                                                <li style="color: #cc1111; ">
-                                                   <a href="#" title="Venue Address">
-                                                    <i class="fa fa-calendar"></i>
-                                                    {{homageDate}}
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="/viewHomage?id={{_id}}" style="color: dodgerblue;" title="Tributes">
-                                                        <i class="fa fa-comments"></i>
-                                                        {{comments.length}}
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <a href="/viewHomage?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-
-                                {{/each_upto}}
-
-
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                                    <a href="/allhomage" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Homage</a>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- /Parallax -->
-
-
-
-
-            <!-- Courses -->
-            <section>
-                <div class="container">
-
-                    <!-- H2 -->
-                    <div class="heading-title">
-                        <h2>Martyrs</h2>
-                    </div>
-
-                    <div class="row" id="martyrImage">
-{{#each_upto results2 4}}
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        {{martyrNotes}}
-                                        <br><a href="/viewMartyr?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                    </div>
-
-                                    <img alt="" class="img-responsive {{_id}}" src="" id="{{martyrImage}}" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <h4>{{martyrName}}</h4>
-                                    <small>{{martyrDate}}
-                                    {{martyrImage}}</small>
-                                    <div class="pull-left">
-                                        <i class="fa fa-star" style="color: coral;"> </i><strong> {{martyrCitation}}</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
-{{/each_upto}}
-
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="/allMartyrs" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Martyrs</a>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- /Courses -->
-
-
-
-            <!-- Achievers -->
-            <section class="" style="background-image: url('assets/images/achievers/bg.jpg');">
-                <div class="container">
-                    <div class="heading-title" style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
-                        <h3 style="background: none !important;  margin: 0px !important;  padding: 0px !important; font-size: 30px;">Achievers</h3>
-                    </div>
-                    <div id="achieverImg" class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": true, "navigation": true, "pagination": false}'>
-
-            {{#each_upto results3 4}}
-                        <div class="img-hover card achievercard">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="headingachiever">
-                                        <!----->
-                                    </div>
+                        {{#each_upto results1 3}}
+                            <div class="img-hover card">
+                                <div class="row">
                                     <div class="col-md-5">
-                                        <a href="blog-single-default.html">
-                                            <img class="img-responsive img-circle margin-top-10 {{_id}}" id="{{achieverImage}}" src=""  style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; " alt="">
+                                        <a href="#">
+                                            <img class="img-responsive margin-top-10 {{id}}" src="" id="{{homageImage}}"
+                                                 alt="">
                                         </a>
                                     </div>
 
                                     <div class="col-md-7">
-                                        <h4 class="text-left margin-top-0 margin-bottom-10" style="color: #fff !important;">{{achieverName}}</h4>
-                                        <br>
-                                        <p class="text-left margin-bottom-10"><strong>Unit : 1/11</strong> &nbsp; | &nbsp;<strong>School No. : {{achieverSchoolNo}}</strong></p>
+                                        <h4 class="text-left margin-top-0"><a href="#">{{homageName}}</a></h4>
+                                        <p class="text-left">{{homageNotes}}</p>
+                                        <ul class="text-left size-14 list-inline list-separator"
+                                            style="font-family: Roboto !important;">
 
-                                        <div class="date-box" style="color: darkgoldenrod;">
-                                            <strong><i class="fa fa-star"></i></strong><br>
-                                            <span>Param Veer Chakra</span>
-                                            <br>1999
-                                        </div>
-                                        <div class="wish">
-                                            <strong>Background</strong>
-                                            <br>
-                                            {{achieverBackground}}
+                                            <li style="color: #cc1111; ">
+                                                <a href="#" title="Venue Address">
+                                                    <i class="fa fa-calendar"></i>
+                                                    {{homageDate}}
+                                                </a>
+                                            </li>
 
-                                        </div>
-                                        <a href="/viewAchiever?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read More</a>
-
+                                            <li>
+                                                <a href="/viewHomage?id={{_id}}" style="color: dodgerblue;"
+                                                title="Tributes">
+                                                <i class="fa fa-comments"></i>
+                                                {{comments.length}}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <a href="/viewHomage?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read
+                                        More</a>
                                     </div>
-
 
                                 </div>
 
+
+                            </div>
+
+                        {{/each_upto}}
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                            <a href="/allhomage" class="btn btn-primary btn-md"
+                               style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);">View All Homage</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /Parallax -->
+
+
+    <!-- Courses -->
+    <section>
+        <div class="container">
+
+            <!-- H2 -->
+            <div class="heading-title">
+                <h2>Martyrs</h2>
+            </div>
+
+            <div class="row" id="martyrImage">
+                {{#each_upto results2 4}}
+                    <div class="col-md-3">
+
+                        <!-- article item -->
+                        <div class="item-box">
+                            <figure>
+                                <div class="h-overlay">
+                                    {{martyrNotes}}
+                                    <br><a href="/viewMartyr?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read
+                                    More</a>
+                                </div>
+
+                                <img alt="" class="img-responsive {{_id}}" src="" id="{{martyrImage}}" width="263"
+                                     height="147">
+
+                            </figure>
+
+                            <div class="item-box-desc">
+                                <h4>{{martyrName}}</h4>
+                                <small>{{martyrDate}}
+                                </small>
+                                <div class="pull-left">
+                                    <i class="fa fa-star"
+                                       style="color: coral;"> </i><strong> {{martyrCitation}}</strong>
+                                </div>
                             </div>
                         </div>
+                        <!-- /article item -->
+
+                    </div>
+                {{/each_upto}}
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                    <a href="/allMartyrs" class="btn btn-primary btn-md"
+                       style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);">View All Martyrs</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /Courses -->
+
+
+    <!-- Achievers -->
+    <section class="" style="background-image: url('assets/images/achievers/bg.jpg');">
+        <div class="container">
+            <div class="heading-title"
+                 style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
+                <h3 style="background: none !important;  margin: 0px !important;  padding: 0px !important; font-size: 30px;">
+                    Achievers</h3>
+            </div>
+            <div id="achieverImg" class="owl-carousel owl-padding-10 buttons-autohide controlls-over"
+                 data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": true, "navigation": true, "pagination": false}'>
+
+                {{#each_upto results3 4}}
+                    <div class="img-hover card achievercard">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="headingachiever">
+                                    <!----->
+                                </div>
+                                <div class="col-md-5">
+                                    <a href="blog-single-default.html">
+                                        <img class="img-responsive img-circle margin-top-10 {{_id}}"
+                                             id="{{achieverImage}}" src=""
+                                             style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; "
+                                             alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <h4 class="text-left margin-top-0 margin-bottom-10"
+                                        style="color: #fff !important;">{{achieverName}}</h4>
+                                    <br>
+                                    <p class="text-left margin-bottom-10"><strong>Unit : 1/11</strong> &nbsp; |
+                                        &nbsp;<strong>School No. : {{achieverSchoolNo}}</strong></p>
+
+                                    <div class="date-box" style="color: darkgoldenrod;">
+                                        <strong><i class="fa fa-star"></i></strong><br>
+                                        <span>Param Veer Chakra</span>
+                                        <br>1999
+                                    </div>
+                                    <div class="wish">
+                                        <strong>Background</strong>
+                                        <br>
+                                        {{achieverBackground}}
+
+                                    </div>
+                                    <a href="/viewAchiever?id={{_id}}" class="btn btn-danger btn-xs pull-right">Read
+                                    More</a>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
                 {{/each_upto}}
 
 
@@ -484,819 +504,765 @@ LTR INFO: box-icon-left or box-icon-right - are the same on LTR
 
 
 
-                    </div>
+            </div>
 
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="/allAchievers" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All Achievers</a>
-                        </div>
-                    </div>
-
-
-
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                    <a href="/allAchievers" class="btn btn-primary btn-md"
+                       style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);">View All Achievers</a>
                 </div>
-            </section>
-            <!-- /Achievers -->
+            </div>
 
-
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="heading-title">
-                            <h2>Office Bearers</h2>
-
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="content">
-                                <div class="card2">
-                                    <div class="firstinfo"><img src="assets/images/ColAmitChatterjee_front.jpg"/>
-                                        <div class="profileinfo">
-                                            <h1>Col Amit Chatterjee</h1>
-                                            <h3>Principal of UP Sainik School</h3>
-                                            <p class="bio">Background:Military, &nbsp; Rank: Colonel</p>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="badgescard">
-                                    <a href="login.html" class="btn btn-danger pull-right btn-xs">Read More</a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="content">
-                                <div class="card2">
-                                    <div class="firstinfo"><img src="assets/images/Registrar_LtColUdaiPtSingh-300x284.jpg"/>
-                                        <div class="profileinfo">
-                                            <h1>Lt Col Udai Pratap Singh</h1>
-                                            <h3>Registrar of UP Sainik School</h3>
-                                            <p class="bio">Background:Military, &nbsp; Rank: Lt Colonel</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="badgescard">
-                                    <a href="login.html" class="btn btn-danger pull-right btn-xs">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                    </div>
-                    <br><br><br>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="login.html" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View Full List of Office Bearers</a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-
-            <!-- Parallax -->
-            <section class="" style="background-image: url('assets/images/bg/birthdaybg.jpg');">
-
-
-                <div class="container">
-                    <div class="heading-title" style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
-                        <h3 style="background: none !important; color: #fff; margin: 0px !important;  padding: 0px !important; font-size: 30px;">OBA Wishes</h3>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="assets/images/bg/hb.png" class="img-responsive">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"1", "autoPlay": true, "navigation": true, "pagination": false}'>
-
-
-
-
-
-
-
-
-
-                                <div class="img-hover card">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <a href="blog-single-default.html">
-                                                <img class="img-responsive img-circle margin-top-10" src="assets/images/a-min.jpg"  style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; " alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <h3 class="text-left margin-top-0 margin-bottom-10"><a href="#">Full Name</a></h3>
-                                            <p class="text-left margin-bottom-10">One line of best wishes from OBA. Another line of best wishes from OBA.</p>
-
-                                            <div class="date-box">
-                                                <strong>12</strong><br>
-                                                <span>December</span>
-                                            </div>
-                                            <div class="wish">
-                                                <a href="#" style="color: firebrick;"><i class="fa fa-heart" title="Wishes"></i> 7</a>
-                                                <a href="#" style="color: dodgerblue;"><i class="fa fa-comment" title="Comments"></i> 2</a>
-                                                <a href="#" style="color: darkorange;"><i class="fa fa-envelope" title="Messages"></i> 26</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="img-hover card">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <a href="blog-single-default.html">
-                                                <img class="img-responsive img-circle margin-top-10" src="assets/images/a-min.jpg"  style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; " alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <h3 class="text-left margin-top-0 margin-bottom-10"><a href="#">Name -2</a></h3>
-                                            <p class="text-left margin-bottom-10">One line of best wishes from OBA. Another line of best wishes from OBA.</p>
-
-                                            <div class="date-box">
-                                                <strong>12</strong><br>
-                                                <span>December</span>
-                                            </div>
-                                            <div class="wish">
-                                                <a href="#" style="color: firebrick;"><i class="fa fa-heart" title="Wishes"></i> 7</a>
-                                                <a href="#" style="color: dodgerblue;"><i class="fa fa-comment" title="Comments"></i> 2</a>
-                                                <a href="#" style="color: darkorange;"><i class="fa fa-envelope" title="Messages"></i> 26</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- /Parallax -->
-
-
-
-
-            <!-- Media Coverage -->
-            <section>
-                <div class="container">
-
-                    <!-- H2 -->
-                    <div class="heading-title">
-                        <h2>Media Coverage</h2>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <!-- News item -->
-                            <div class="item-box">
-                                <figure>
-                                    <a class="item-hover" href="#">
-                                        <span class="overlay color2"></span>
-                                        <span class="inner">
-                                            <span class="block fa fa-plus fsize20"></span>
-                                            <strong>READ</strong> NEWS
-                                        </span>
-                                    </a>
-                                    <img alt="" class="img-responsive" src="assets/images/GovernorVisit1-768x511.jpg" >
-                                </figure>
-                                <div class="item-box-desc ">
-                                    <h4 class="margin-top-0" > Governor Visit</h4>
-                                    <small>29 June 2014, 9:55</small>
-                                    <br>
-                                    <div class="pull-left">
-                                        <a href="login.html" class="btn btn-danger btn-xs">Read More</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" style="color: dodgerblue;"><i class="fa fa-comment" title="Comments">2</i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /News item -->
-                        </div>
-
-                        <div class="col-md-3">
-                            <!-- News item -->
-                            <div class="item-box">
-                                <figure>
-                                    <a class="item-hover" href="login.html">
-                                        <span class="overlay color2"></span>
-                                        <span class="inner">
-                                            <span class="block fa fa-plus fsize20"></span>
-                                            <strong>READ</strong> NEWS
-                                        </span>
-                                    </a>
-                                    <img alt="" class="img-responsive" src="assets/images/GovernorVisit1-768x511.jpg" >
-                                </figure>
-                                <div class="item-box-desc ">
-                                    <h4 class="margin-top-0">News Heading One</h4>
-                                    <small>29 June 2014, 9:55</small>
-                                    <br>
-                                    <div class="pull-left">
-                                        <a href="login.html" class="btn btn-danger btn-xs">Read More</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" style="color: dodgerblue;"><i class="fa fa-comment" title="Comments">2</i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /News item -->
-                        </div>
-
-                        <div class="col-md-3">
-                            <!-- News item -->
-                            <div class="item-box">
-                                <figure>
-                                    <a class="item-hover" href="login.html">
-                                        <span class="overlay color2"></span>
-                                        <span class="inner">
-                                            <span class="block fa fa-plus fsize20"></span>
-                                            <strong>READ</strong> NEWS
-                                        </span>
-                                    </a>
-                                    <img alt="" class="img-responsive" src="assets/images/GovernorVisit1-768x511.jpg" >
-                                </figure>
-                                <div class="item-box-desc ">
-                                    <h4 class="margin-top-0">News Heading One</h4>
-                                    <small>29 June 2014, 9:55</small>
-                                    <br>
-                                    <div class="pull-left">
-                                        <a href="login.html" class="btn btn-danger btn-xs">Read More</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" style="color: dodgerblue;"><i class="fa fa-comment" title="Comments">2</i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /News item -->
-                        </div>
-
-                        <div class="col-md-3">
-                            <!-- News item -->
-                            <div class="item-box">
-                                <figure>
-                                    <a class="item-hover" href="login.html">
-                                        <span class="overlay color2"></span>
-                                        <span class="inner">
-                                            <span class="block fa fa-plus fsize20"></span>
-                                            <strong>READ</strong> NEWS
-                                        </span>
-                                    </a>
-                                    <img alt="" class="img-responsive" src="assets/images/GovernorVisit1-768x511.jpg" >
-                                </figure>
-                                <div class="item-box-desc ">
-                                    <h4 class="margin-top-0">News Heading One</h4>
-                                    <small>29 June 2014, 9:55</small>
-                                    <br>
-                                    <div class="pull-left">
-                                        <a href="login.html" class="btn btn-danger btn-xs">Read More</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" style="color:dodgerblue;"><i class="fa fa-comment" title="Comments">2</i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /News item -->
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="login.html" class="btn btn-primary btn-sm" title="Login Required" >View All Media Coverage</a>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- /Media Coverage -->
-
-
-            <!-- Donor -->
-            <section class="" style="background-image: url('assets/images/bgPurple.jpg');">
-                <div class="container">
-
-                    <!-- H2 -->
-                    <div class="heading-title" style="color: #fff !important;">
-                        <h2  style="color: #fff !important;">Donor Gallery</h2>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover donor" style="background-color: #fff;">
-                                    <thead class="thead">
-                                        <tr>
-                                            <th>S.N.</th>
-                                            <th>Name</th>
-                                            <th>Amount</th>
-                                            <th>Date</th>
-                                            <th>Cause</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Veerendra Singh</td>
-                                            <td>20000</td>
-                                            <td>22/7/2015</td>
-                                            <td>Welfare Fund</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="login.html" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View Complete List of Donors</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </section>
-            <!-- /Donor -->
-
-
-
-
-            <!-- Gallery -->
-            <section>
-                <div class="container">
-                    <div class="heading-title">
-                        <h2>Images &amp; Video Gallery</h2>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp; Adventure</strong>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i> View Gallery</a>
-                                    </div>
-                                    <img alt="" class="img-responsive" src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <small>29 June 2014, 9:55</small>
-                                    <small><span class="pull-right"><i class="fa fa-image" style="color:darkcyan;"> </i> 12 &nbsp; <i class="fa fa-youtube-play"  style="color:red;"> </i> x2</span></small>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
-
-
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp; Adventure</strong>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i> View Gallery</a>
-                                    </div>
-                                    <img alt="" class="img-responsive" src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <small>29 June 2014, 9:55</small>
-                                    <small><span class="pull-right"><i class="fa fa-image" style="color:darkcyan;"> </i> 12 &nbsp; <i class="fa fa-youtube-play"  style="color:red;"> </i> x2</span></small>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
-
-
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp; Adventure</strong>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i> View Gallery</a>
-                                    </div>
-                                    <img alt="" class="img-responsive" src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <small>29 June 2014, 9:55</small>
-                                    <small><span class="pull-right"><i class="fa fa-image" style="color:darkcyan;"> </i> 12 &nbsp; <i class="fa fa-youtube-play"  style="color:red;"> </i> x2</span></small>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
-
-
-                        <div class="col-md-3">
-
-                            <!-- article item -->
-                            <div class="item-box">
-                                <figure>
-                                    <div class="h-overlay">
-                                        <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp; Adventure</strong>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i> View Gallery</a>
-                                    </div>
-                                    <img alt="" class="img-responsive" src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
-
-                                </figure>
-
-                                <div class="item-box-desc">
-                                    <small>29 June 2014, 9:55</small>
-                                    <small><span class="pull-right"><i class="fa fa-image" style="color:darkcyan;"> </i> 12 &nbsp; <i class="fa fa-youtube-play"  style="color:red;"> </i> x2</span></small>
-                                </div>
-                            </div>
-                            <!-- /article item -->
-
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                            <a href="login.html" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View Full Gallery</a>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- /Gallery -->
-
-
-
-
-
-
-            <section class="" style="background-image: url('assets/images/bg/blur.jpg');">
-
-
-                <div class="container">
-                    <div class="heading-title" style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
-                        <h3 style="background: none !important; color: #fff; margin: 0px !important;  padding: 0px !important; font-size: 30px;">StartUp UPSAINIANs</h3>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": false, "navigation": true, "pagination": false}'>
-
-
-
-                                <div class="img-hover card">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h4 class="text-left margin-top-0 "><a href="#">Full Name</a></h4>
-
-                                            <p class="text-left margin-bottom-10"><strong>School No. : </strong> &nbsp; | &nbsp;<strong>Start Up Name </strong> &nbsp; | &nbsp;<strong>Start Up Year</strong></p>
-
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"    title="Total Images">
-                                                            <i class="fa fa-image" style="color:darkcyan;"> </i>
-                                                            <h4>15</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#" title="Total Videos">
-                                                            <i class="fa fa-youtube-play"  style="color:red;"> </i>
-                                                            <h4>6</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"  title="Total Messages">
-                                                            <i class="fa fa-envelope" style="color:darkorange;"></i>
-                                                            <h4>41</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"  title="Total Comments">
-                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i>
-                                                            <h4>124</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                            <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="img-hover card">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h4 class="text-left margin-top-0 "><a href="#">Full Name</a></h4>
-
-                                            <p class="text-left margin-bottom-10"><strong>School No. : </strong> &nbsp; | &nbsp;<strong>Start Up Name </strong> &nbsp; | &nbsp;<strong>Start Up Year</strong></p>
-
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"    title="Total Images">
-                                                            <i class="fa fa-image" style="color:darkcyan;"> </i>
-                                                            <h4>15</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#" title="Total Videos">
-                                                            <i class="fa fa-youtube-play"  style="color:red;"> </i>
-                                                            <h4>6</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"  title="Total Messages">
-                                                            <i class="fa fa-envelope" style="color:darkorange;"></i>
-                                                            <h4>41</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"  title="Total Comments">
-                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i>
-                                                            <h4>124</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                            <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="img-hover card">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h4 class="text-left margin-top-0 "><a href="#">Full Name</a></h4>
-
-                                            <p class="text-left margin-bottom-10"><strong>School No. : </strong> &nbsp; | &nbsp;<strong>Start Up Name </strong> &nbsp; | &nbsp;<strong>Start Up Year</strong></p>
-
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"    title="Total Images">
-                                                            <i class="fa fa-image" style="color:darkcyan;"> </i>
-                                                            <h4>15</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#" title="Total Videos">
-                                                            <i class="fa fa-youtube-play"  style="color:red;"> </i>
-                                                            <h4>6</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"  title="Total Messages">
-                                                            <i class="fa fa-envelope" style="color:darkorange;"></i>
-                                                            <h4>41</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                                                        <a class="box-icon-title" href="#"  title="Total Comments">
-                                                            <i class="fa fa-comments" style="color: dodgerblue;"></i>
-                                                            <h4>124</h4>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                            <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
-                                    <a href="login.html" class="btn btn-primary btn-md" style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);" >View All StartUps</a>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-
-
-
-            <!-- About -->
-            <section style="background-color: #dedede;">
-                <div class="container text-center">
-
-                    <div class="row text-left">
-
-                        <div class="col-sm-4">
-                            <img src="assets/images/jawan.jpg" class="img-responsive" alt="UP Sainik School Image" />
-                        </div>
-
-                        <div class="col-sm-8">
-                            <div class="heading-title">
-                                <h2>About Us</h2>
-                                <p class="font-lato size-18">Creation of UP Sainik School, Lucknow</p>
-                            </div>
-                            <p style="text-align: justify;">The first decade after independence was a traumatic one. The wounds of partition, communal holocaust, resettlement of millions of refugees, integration of the five hundred and odd native states, the clamour of linguistic reorganization - these were but a few of the daunting problems. The compulsive hostility of Pakistan, souring of the once friendly ties with China, turbulence in the North- East and a vast coastline highlighted the necessity of a nationally representative, sizeable and well- equipped Army, Navy and Air-Force.
-                            </p>
-
-
-                        </div>
-
-
-
-
-
-                        <div class="col-sm-8">
-                            <div class="heading-title">
-
-                                <strong>Aim of School :</strong>
-                            </div>
-
-                                <ul>
-                                    <li>To prepare a cadet to join National Defence Academy.</li>
-                                    <li>Prepare him to be self reliant and excel in other fields in case he is unable to join NDA.</li>
-                                    <li>Provide quality education and ensure homogenious development.</li>
-                                    <li>Inculcate national spirit to infuse loyalty,honesty,integrity and patriotism to take on individual and corporate responsibility.</li>
-                                </ul>
-                                <br>
-                                <hr>
-                                <p>
-                                    <strong> Our website 'www.upsainian.org' launched on April 28, 2000, and launched by Chief Secretary of Uttar Pradesh at CM Annexe in presence of OBA Members.</strong>
-                                </p>
-
-
-
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="assets/images/pride.jpeg" class="img-responsive img-thumbnail" alt="UP Sainik School Image" />
-                            <p>Launch of 'upsainian.org' by Chief Secretary of Uttar Pradesh</p>
-                        </div>
-
-
-
-                        <div class="col-md-12">
-                            <div class="toggle toggle-transparent toggle-noicon">
-
-
-                                <div class="toggle">
-                                    <label><button class="btn btn-danger btn-sm pull-right" >Read More</button></label>
-                                    <br><br>
-                                    <div class="toggle-content">
-                                        <p style="text-align: justify;">
-
-                                            Prior to the Government of India Act of 1935 and the acute demands of World War II, the officer cadre of our armed forces was not open to our countrymen. Rare exceptions were granted to the scions of royalty and blue blood. Analysis of then existing officer cadre revealed a disturbing trend. It remained a monopoly of the so-called martial races and regions and alumni of the highly expensive and elitist public schools beyond the reach of all but a few. In short, our defence forces lacked a truly all-India image, character and ethos. The Indian Military Academy was in existence, therefore the setting up of the National Defence Academy (NDA) at Khadakvasla was but a logical step. The high levels of physical, mental and intellectual attainments needed for induction into the officer cadre could not be nurtured in the common schools mainly because of the lack of infrastructural facilities.<br><br>
-
-                                            A laissez-faire policy to leave it to the already existing, posh public schools would have been grossly unfair to the bright young children all over the country, for whom education in a public school was nothing but a dream. All these reasons prompted the then Defence Minister Shri V K Krishna Menon to envisage a chain of Sainik Schools with at least one in each State to serve as feeders to the NDA. Further, they would act as role models and influence other schools by their example and performance towards a paradigm shift in objectives of school education, as in the pre-independence years and to some extent even today, our education system is syllabus-examination oriented and not aimed at all- round development and enhancement of competitive skills.<br><br>
-
-                                            Uttar Pradesh Sainik School Lucknow was established in July 1960. The only one of the sainik schools to be administered by the state government, the alumni of which, Captain Manoj Pandey, posthumously received Param Veer Chakra (see Awardees of PVC). It was the first Sainik School in the country, and was followed by the setting up of other Sainik Schools, under the Ministry of Defence, Government of India, on the same lines. The education in this school is subsidised by the Government of Uttar Pradesh. It is a boys' residential English medium school affiliated to CBSE Board.
-
-                                        </p>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- /About -->
-
-
-
-
-
-            <!-- FOOTER -->
-            <footer id="footer">
-
-
-                <div class="copyright">
-                    <div class="container">
-<!--
-                        <ul class="pull-right nomargin list-inline mobile-block">
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li>&bull;</li>
-                            <li><a href="#">Privacy</a></li>
-                        </ul>
--->
-                        &copy; All Rights Reserved, UP Sainik School, OBA
-                    </div>
-                </div>
-
-            </footer>
-            <!-- /FOOTER -->
 
         </div>
-        <!-- /wrapper -->
+    </section>
+    <!-- /Achievers -->
 
 
-        <!-- SCROLL TO TOP -->
-        <a href="#" id="toTop"></a>
+    <section>
+        <div class="container" id="bearerImg">
+            <div class="row">
+                <div class="heading-title">
+                    <h2>Office Bearers</h2>
+
+                </div>
+                {{#each_upto results4 2}}
+                    <div class="col-md-6">
+                        <div class="content">
+                            <div class="card2">
+                                <div class="firstinfo"><img class="{{_id}}" id="{{bearerImage}}" src=""/>
+                                    <div class="profileinfo">
+                                        <h1>{{bearerName}}</h1>
+                                        <h3>{{bearerPost}}</h3>
+                                        <p class="bio">Background:{{bearerBackground}}{{#if bearerRank}}
+                                            , &nbsp; Rank: {{bearerRank}}{{/if}}</p>
 
 
-        <!-- PRELOADER -->
-        <div id="preloader">
-            <div class="inner">
-                <span class="loader"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="badgescard">
+                                <a href="/viewBearer?id={{_id}}" class="btn btn-danger pull-right btn-xs">Read More</a>
+                            </div>
+
+                        </div>
+                    </div>
+                {{/each_upto}}
+
+
             </div>
-        </div><!-- /PRELOADER -->
+            <br><br><br>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                    <a href="/allBearers" class="btn btn-primary btn-md"
+                       style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);">View Full List of Office
+                        Bearers</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
 
 
-        <!-- JAVASCRIPT FILES -->
-        <script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
+    <!-- Parallax -->
+    <section class="" style="background-image: url('assets/images/bg/birthdaybg.jpg');">
 
-        <script type="text/javascript" src="assets/js/scripts.js"></script>
-        <!-- REVOLUTION SLIDER -->
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script type="text/javascript" src="assets/js/view/demo.revolution_slider.js"></script>
 
-    </body>
+        <div class="container">
+            <div class="heading-title"
+                 style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
+                <h3 style="background: none !important; color: #fff; margin: 0px !important;  padding: 0px !important; font-size: 30px;">
+                    OBA Wishes</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets/images/bg/hb.png" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over"
+                         data-plugin-options='{"singleItem": false, "items":"1", "autoPlay": true, "navigation": true, "pagination": false}'>
+
+
+                        <div class="img-hover card">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <a href="blog-single-default.html">
+                                        <img class="img-responsive img-circle margin-top-10"
+                                             src="assets/images/a-min.jpg"
+                                             style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; "
+                                             alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <h3 class="text-left margin-top-0 margin-bottom-10"><a href="#">Full Name</a></h3>
+                                    <p class="text-left margin-bottom-10">One line of best wishes from OBA. Another line
+                                        of best wishes from OBA.</p>
+
+                                    <div class="date-box">
+                                        <strong>12</strong><br>
+                                        <span>December</span>
+                                    </div>
+                                    <div class="wish">
+                                        <a href="#" style="color: firebrick;"><i class="fa fa-heart" title="Wishes"></i>
+                                            7</a>
+                                        <a href="#" style="color: dodgerblue;"><i class="fa fa-comment"
+                                                                                  title="Comments"></i> 2</a>
+                                        <a href="#" style="color: darkorange;"><i class="fa fa-envelope"
+                                                                                  title="Messages"></i> 26</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="img-hover card">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <a href="blog-single-default.html">
+                                        <img class="img-responsive img-circle margin-top-10"
+                                             src="assets/images/a-min.jpg"
+                                             style="display: block; box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); margin-top: -100px; "
+                                             alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <h3 class="text-left margin-top-0 margin-bottom-10"><a href="#">Name -2</a></h3>
+                                    <p class="text-left margin-bottom-10">One line of best wishes from OBA. Another line
+                                        of best wishes from OBA.</p>
+
+                                    <div class="date-box">
+                                        <strong>12</strong><br>
+                                        <span>December</span>
+                                    </div>
+                                    <div class="wish">
+                                        <a href="#" style="color: firebrick;"><i class="fa fa-heart" title="Wishes"></i>
+                                            7</a>
+                                        <a href="#" style="color: dodgerblue;"><i class="fa fa-comment"
+                                                                                  title="Comments"></i> 2</a>
+                                        <a href="#" style="color: darkorange;"><i class="fa fa-envelope"
+                                                                                  title="Messages"></i> 26</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /Parallax -->
+
+
+    <!-- Media Coverage -->
+    <section>
+        <div class="container">
+
+            <!-- H2 -->
+            <div class="heading-title">
+                <h2>Media Coverage</h2>
+
+            </div>
+
+            <div id="coverageImg" class="row">
+                {{#each_upto results5 4}}
+                    <div class="col-md-3">
+                        <!-- News item -->
+                        <div class="item-box">
+                            <figure>
+                                <a class="item-hover" href="/viewCoverage?id={{_id}}">
+                                <span class="overlay color2"></span>
+                                <span class="inner">
+                                            <span class="block fa fa-plus fsize20"></span>
+                                            <strong>READ</strong> NEWS
+                                        </span>
+                                </a>
+                                <img alt="" class="img-responsive {{_id}}" id="{{coverageImage}}" src="">
+                            </figure>
+                            <div class="item-box-desc ">
+                                <h4 class="margin-top-0"> {{coverageNewsHeading}}</h4>
+                                <!--                                    <small>29 June 2014, 9:55</small>-->
+                                <br>
+                                <div class="pull-left">
+                                    <a href="/viewCoverage?id={{_id}}" class="btn btn-danger btn-xs">Read More</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" style="color: dodgerblue;"><i class="fa fa-comment"
+                                                                              title="Comments">{{comments.length}}</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /News item -->
+                    </div>
+                {{/each_upto}}
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                <a href="/allCoverage" class="btn btn-primary btn-sm" title="Login Required">View All Media Coverage</a>
+            </div>
+        </div>
+
+</div>
+</section>
+<!-- /Media Coverage -->
+
+
+<!-- Donor -->
+<section class="" style="background-image: url('assets/images/bgPurple.jpg');">
+    <div class="container">
+
+        <!-- H2 -->
+        <div class="heading-title" style="color: #fff !important;">
+            <h2 style="color: #fff !important;">Donor Gallery</h2>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover donor" style="background-color: #fff;">
+                        <thead class="thead">
+                        <tr>
+                            <th>S.N.</th>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Cause</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Veerendra Singh</td>
+                            <td>20000</td>
+                            <td>22/7/2015</td>
+                            <td>Welfare Fund</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                <a href="login.html" class="btn btn-primary btn-md"
+                   style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);">View Complete List of Donors</a>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<!-- /Donor -->
+
+
+<!-- Gallery -->
+<section>
+    <div class="container">
+        <div class="heading-title">
+            <h2>Images &amp; Video Gallery</h2>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <!-- article item -->
+                <div class="item-box">
+                    <figure>
+                        <div class="h-overlay">
+                            <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp;
+                                Adventure</strong>
+                            <br>
+                            <br>
+                            <br>
+                            <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i>
+                                View Gallery</a>
+                        </div>
+                        <img alt="" class="img-responsive"
+                             src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
+
+                    </figure>
+
+                    <div class="item-box-desc">
+                        <small>29 June 2014, 9:55</small>
+                        <small><span class="pull-right"><i class="fa fa-image"
+                                                           style="color:darkcyan;"> </i> 12 &nbsp; <i
+                                class="fa fa-youtube-play" style="color:red;"> </i> x2</span></small>
+                    </div>
+                </div>
+                <!-- /article item -->
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <!-- article item -->
+                <div class="item-box">
+                    <figure>
+                        <div class="h-overlay">
+                            <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp;
+                                Adventure</strong>
+                            <br>
+                            <br>
+                            <br>
+                            <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i>
+                                View Gallery</a>
+                        </div>
+                        <img alt="" class="img-responsive"
+                             src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
+
+                    </figure>
+
+                    <div class="item-box-desc">
+                        <small>29 June 2014, 9:55</small>
+                        <small><span class="pull-right"><i class="fa fa-image"
+                                                           style="color:darkcyan;"> </i> 12 &nbsp; <i
+                                class="fa fa-youtube-play" style="color:red;"> </i> x2</span></small>
+                    </div>
+                </div>
+                <!-- /article item -->
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <!-- article item -->
+                <div class="item-box">
+                    <figure>
+                        <div class="h-overlay">
+                            <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp;
+                                Adventure</strong>
+                            <br>
+                            <br>
+                            <br>
+                            <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i>
+                                View Gallery</a>
+                        </div>
+                        <img alt="" class="img-responsive"
+                             src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
+
+                    </figure>
+
+                    <div class="item-box-desc">
+                        <small>29 June 2014, 9:55</small>
+                        <small><span class="pull-right"><i class="fa fa-image"
+                                                           style="color:darkcyan;"> </i> 12 &nbsp; <i
+                                class="fa fa-youtube-play" style="color:red;"> </i> x2</span></small>
+                    </div>
+                </div>
+                <!-- /article item -->
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <!-- article item -->
+                <div class="item-box">
+                    <figure>
+                        <div class="h-overlay">
+                            <strong style="font-size: 16px !important; font-weight: 500;">Sports &amp;
+                                Adventure</strong>
+                            <br>
+                            <br>
+                            <br>
+                            <a href="login.html" class="btn btn-danger btn-xs pull-right"><i class="fa fa-search"></i>
+                                View Gallery</a>
+                        </div>
+                        <img alt="" class="img-responsive"
+                             src="assets/images/gallery/images/sports/basketball-768x549.jpg" width="263" height="147">
+
+                    </figure>
+
+                    <div class="item-box-desc">
+                        <small>29 June 2014, 9:55</small>
+                        <small><span class="pull-right"><i class="fa fa-image"
+                                                           style="color:darkcyan;"> </i> 12 &nbsp; <i
+                                class="fa fa-youtube-play" style="color:red;"> </i> x2</span></small>
+                    </div>
+                </div>
+                <!-- /article item -->
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                <a href="login.html" class="btn btn-primary btn-md"
+                   style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);">View Full Gallery</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- /Gallery -->
+
+
+<section class="" style="background-image: url('assets/images/bg/blur.jpg');">
+
+
+    <div class="container">
+        <div class="heading-title"
+             style="background: none !important; color: #fff; margin: 0px !important; padding: 0px !important;">
+            <h3 style="background: none !important; color: #fff; margin: 0px !important;  padding: 0px !important; font-size: 30px;">
+                StartUp UPSAINIANs</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over"
+                     data-plugin-options='{"singleItem": false, "items":"2", "autoPlay": false, "navigation": true, "pagination": false}'>
+
+
+                    <div class="img-hover card">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-left margin-top-0 "><a href="#">Full Name</a></h4>
+
+                                <p class="text-left margin-bottom-10"><strong>School No. : </strong> &nbsp; |
+                                    &nbsp;<strong>Start Up Name </strong> &nbsp; | &nbsp;<strong>Start Up Year</strong>
+                                </p>
+
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Images">
+                                                <i class="fa fa-image" style="color:darkcyan;"> </i>
+                                                <h4>15</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Videos">
+                                                <i class="fa fa-youtube-play" style="color:red;"> </i>
+                                                <h4>6</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Messages">
+                                                <i class="fa fa-envelope" style="color:darkorange;"></i>
+                                                <h4>41</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Comments">
+                                                <i class="fa fa-comments" style="color: dodgerblue;"></i>
+                                                <h4>124</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="img-hover card">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-left margin-top-0 "><a href="#">Full Name</a></h4>
+
+                                <p class="text-left margin-bottom-10"><strong>School No. : </strong> &nbsp; |
+                                    &nbsp;<strong>Start Up Name </strong> &nbsp; | &nbsp;<strong>Start Up Year</strong>
+                                </p>
+
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Images">
+                                                <i class="fa fa-image" style="color:darkcyan;"> </i>
+                                                <h4>15</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Videos">
+                                                <i class="fa fa-youtube-play" style="color:red;"> </i>
+                                                <h4>6</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Messages">
+                                                <i class="fa fa-envelope" style="color:darkorange;"></i>
+                                                <h4>41</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Comments">
+                                                <i class="fa fa-comments" style="color: dodgerblue;"></i>
+                                                <h4>124</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="img-hover card">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-left margin-top-0 "><a href="#">Full Name</a></h4>
+
+                                <p class="text-left margin-bottom-10"><strong>School No. : </strong> &nbsp; |
+                                    &nbsp;<strong>Start Up Name </strong> &nbsp; | &nbsp;<strong>Start Up Year</strong>
+                                </p>
+
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Images">
+                                                <i class="fa fa-image" style="color:darkcyan;"> </i>
+                                                <h4>15</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Videos">
+                                                <i class="fa fa-youtube-play" style="color:red;"> </i>
+                                                <h4>6</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Messages">
+                                                <i class="fa fa-envelope" style="color:darkorange;"></i>
+                                                <h4>41</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
+                                            <a class="box-icon-title" href="#" title="Total Comments">
+                                                <i class="fa fa-comments" style="color: dodgerblue;"></i>
+                                                <h4>124</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <a href="login.html" class="btn btn-danger btn-xs pull-right">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center margin-top-20 margin-bottom-20 ">
+                        <a href="login.html" class="btn btn-primary btn-md"
+                           style="box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.4);">View All StartUps</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- About -->
+<section style="background-color: #dedede;">
+    <div class="container text-center">
+
+        <div class="row text-left">
+
+            <div class="col-sm-4">
+                <img src="assets/images/jawan.jpg" class="img-responsive" alt="UP Sainik School Image"/>
+            </div>
+
+            <div class="col-sm-8">
+                <div class="heading-title">
+                    <h2>About Us</h2>
+                    <p class="font-lato size-18">Creation of UP Sainik School, Lucknow</p>
+                </div>
+                <p style="text-align: justify;">The first decade after independence was a traumatic one. The wounds of
+                    partition, communal holocaust, resettlement of millions of refugees, integration of the five hundred
+                    and odd native states, the clamour of linguistic reorganization - these were but a few of the
+                    daunting problems. The compulsive hostility of Pakistan, souring of the once friendly ties with
+                    China, turbulence in the North- East and a vast coastline highlighted the necessity of a nationally
+                    representative, sizeable and well- equipped Army, Navy and Air-Force.
+                </p>
+
+
+            </div>
+
+
+            <div class="col-sm-8">
+                <div class="heading-title">
+
+                    <strong>Aim of School :</strong>
+                </div>
+
+                <ul>
+                    <li>To prepare a cadet to join National Defence Academy.</li>
+                    <li>Prepare him to be self reliant and excel in other fields in case he is unable to join NDA.</li>
+                    <li>Provide quality education and ensure homogenious development.</li>
+                    <li>Inculcate national spirit to infuse loyalty,honesty,integrity and patriotism to take on
+                        individual and corporate responsibility.
+                    </li>
+                </ul>
+                <br>
+                <hr>
+                <p>
+                    <strong> Our website 'www.upsainian.org' launched on April 28, 2000, and launched by Chief Secretary
+                        of Uttar Pradesh at CM Annexe in presence of OBA Members.</strong>
+                </p>
+
+
+            </div>
+            <div class="col-sm-4">
+                <img src="assets/images/pride.jpeg" class="img-responsive img-thumbnail" alt="UP Sainik School Image"/>
+                <p>Launch of 'upsainian.org' by Chief Secretary of Uttar Pradesh</p>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="toggle toggle-transparent toggle-noicon">
+
+
+                    <div class="toggle">
+                        <label>
+                            <button class="btn btn-danger btn-sm pull-right">Read More</button>
+                        </label>
+                        <br><br>
+                        <div class="toggle-content">
+                            <p style="text-align: justify;">
+
+                                Prior to the Government of India Act of 1935 and the acute demands of World War II, the
+                                officer cadre of our armed forces was not open to our countrymen. Rare exceptions were
+                                granted to the scions of royalty and blue blood. Analysis of then existing officer cadre
+                                revealed a disturbing trend. It remained a monopoly of the so-called martial races and
+                                regions and alumni of the highly expensive and elitist public schools beyond the reach
+                                of all but a few. In short, our defence forces lacked a truly all-India image, character
+                                and ethos. The Indian Military Academy was in existence, therefore the setting up of the
+                                National Defence Academy (NDA) at Khadakvasla was but a logical step. The high levels of
+                                physical, mental and intellectual attainments needed for induction into the officer
+                                cadre could not be nurtured in the common schools mainly because of the lack of
+                                infrastructural facilities.<br><br>
+
+                                A laissez-faire policy to leave it to the already existing, posh public schools would
+                                have been grossly unfair to the bright young children all over the country, for whom
+                                education in a public school was nothing but a dream. All these reasons prompted the
+                                then Defence Minister Shri V K Krishna Menon to envisage a chain of Sainik Schools with
+                                at least one in each State to serve as feeders to the NDA. Further, they would act as
+                                role models and influence other schools by their example and performance towards a
+                                paradigm shift in objectives of school education, as in the pre-independence years and
+                                to some extent even today, our education system is syllabus-examination oriented and not
+                                aimed at all- round development and enhancement of competitive skills.<br><br>
+
+                                Uttar Pradesh Sainik School Lucknow was established in July 1960. The only one of the
+                                sainik schools to be administered by the state government, the alumni of which, Captain
+                                Manoj Pandey, posthumously received Param Veer Chakra (see Awardees of PVC). It was the
+                                first Sainik School in the country, and was followed by the setting up of other Sainik
+                                Schools, under the Ministry of Defence, Government of India, on the same lines. The
+                                education in this school is subsidised by the Government of Uttar Pradesh. It is a boys'
+                                residential English medium school affiliated to CBSE Board.
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- /About -->
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+
+    <div class="copyright">
+        <div class="container">
+            <!--
+                                    <ul class="pull-right nomargin list-inline mobile-block">
+                                        <li><a href="#">Terms &amp; Conditions</a></li>
+                                        <li>&bull;</li>
+                                        <li><a href="#">Privacy</a></li>
+                                    </ul>
+            -->
+            &copy; All Rights Reserved, UP Sainik School, OBA
+        </div>
+    </div>
+
+</footer>
+<!-- /FOOTER -->
+
+</div>
+<!-- /wrapper -->
+
+
+<!-- SCROLL TO TOP -->
+<a href="#" id="toTop"></a>
+
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="inner">
+        <span class="loader"></span>
+    </div>
+</div><!-- /PRELOADER -->
+
+
+<!-- JAVASCRIPT FILES -->
+<script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
+
+<script type="text/javascript" src="assets/js/scripts.js"></script>
+<!-- REVOLUTION SLIDER -->
+<script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="assets/js/view/demo.revolution_slider.js"></script>
+
+</body>
 </html>

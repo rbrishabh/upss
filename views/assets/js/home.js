@@ -28,6 +28,26 @@ $(document).ready(function () {
 
     }
 
+    var imgs3 = document.getElementById('bearerImg').getElementsByTagName('img');
+    var curImg3 = null;
+
+    for(var i = 0; i < imgs3 .length; i++) {
+        curImg3 = imgs3[i];
+        $("."+curImg3.classList[0]).attr("src", "getBearerImage?imageId="+curImg3.id);
+
+
+    }
+
+
+ var imgs4 = document.getElementById('coverageImg').getElementsByTagName('img');
+    var curImg4 = null;
+
+    for(var i = 0; i < imgs4 .length; i++) {
+        curImg4 = imgs4[i];
+        $("."+curImg4.classList[1]).attr("src", "getBearerImage?imageId="+curImg4.id);
+
+    }
+
 
 });
 
