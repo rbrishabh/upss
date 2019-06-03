@@ -10,6 +10,7 @@ var MongoStore = require('connect-mongo')(session)
 const request = require('request');
 var fs = require('fs');
 var path = require("path");
+const RateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 var morgan = require("morgan");
 var compression = require("compression");
@@ -17,7 +18,7 @@ const crypto = require('crypto');
 const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
-
+// yp u
 
 //models and db
 const {Users} = require('./models/users');
@@ -49,6 +50,7 @@ var allCoverage = require('./router/allCoverage');
 var donate = require('./router/donate');
 var addGalleries = require('./router/addGalleries');
 var addmartyr = require('./router/addmartyr');
+var allBirthdays = require('./router/allBirthdays');
 var addachiever = require('./router/addachiever');
 var allGalleries = require('./router/allGalleries');
 var home = require('./router/home');
@@ -78,12 +80,22 @@ app.use(session({
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
-        mongooseConnection: conn
+        mongooseConnection: conn,
+        ttl: 1 * 24 * 60 * 60
     })
 }));
 
 app.use(morgan("common"));
 app.use(helmet());
+
+const limiter = new RateLimit({
+    windowMs: 15*60*1000, //15 mins
+    max:100, // limit of number of req per ip
+    delayMs: 0 // disable delays
+});
+
+app.use(limiter);
+
 var date = moment();
 console.log(date.unix());
 
@@ -132,6 +144,7 @@ app.use('/allGalleries', allGalleries);
 app.use('/addCoverage', addCoverage);
 app.use('/allCoverages', allCoverage);
 app.use('/allCoverage', allCoverage);
+app.use('/allBirthdays', allBirthdays);
 app.use('/donate', donate);
 app.use('/allMartyrs', allMartyrs);
 app.use('/allHomage', allHomage);

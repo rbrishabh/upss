@@ -24,7 +24,7 @@ conn.once('open', function () {
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 mongoose.connect(database,{
-    useNewUrlParser:true
+    useNewUrlParser: true
 });
 
 
