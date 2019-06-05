@@ -21,7 +21,7 @@ allBearers.use(function timeLog (req, res, next) {
 });
 
 allBearers.get('/', authenticate, function (req, res) {
-    res.render('allBearers.hbs');
+    res.render('allbearers.hbs');
 });
 
 allBearers.get('/getData', authenticate, function (req, res) {
