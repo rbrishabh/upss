@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
+var {ObjectID} = require('mongodb')
 
 
 
@@ -17,6 +18,11 @@ var userSchema = new mongoose.Schema({
     },
     dob: {
         type: String,
+        required: true,
+        trim:true
+    },
+    birthdayMonth: {
+        type: Number,
         required: true,
         trim:true
     },
@@ -78,9 +84,7 @@ var userSchema = new mongoose.Schema({
         unique:true,
         type: String,
         required: true,
-        trim:true,
-        minlength: 13,
-        maxlength:13
+        trim:true
     },
     occupation: {
         type: String,
@@ -103,11 +107,13 @@ var userSchema = new mongoose.Schema({
         type: String,
         trim:true
     },
+    imageName: {
+        type: String,
+        trim:true
+    },
     omobile: {
         type: String,
-        trim:true,
-        minlength: 13,
-        maxlength:13
+        trim:true
     },
     olno: {
         type: String,
@@ -140,15 +146,113 @@ var userSchema = new mongoose.Schema({
     fb: {
         type: String,
         trim:true
-    }
+    },
+    profileImage: {
+        type: String,
+        trim:true
+    },
+    comments: [
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: true
+            },
+            commentId: {
+                type: mongoose.Schema.Types.ObjectId,
+                default: new ObjectID()
+            },
+            email:{
+                type: String,
+                required: true
+            },
+            text: {
+                type: String,
+                required: true
+            },
+            name: {
+                type: String
+            },
+            avatar: {
+                type: mongoose.Schema.Types.ObjectId,
+            },
+            date: {
+                type: Date,
+                default: Date.now
+            },
+            likes: [{
+                user: {
+                    type: mongoose.Schema.Types.ObjectId
+                },
+                email:{
+                    type: String,
+                },
+                name: {
+                    type: String
+                },
+                avatar: {
+                    type: mongoose.Schema.Types.ObjectId,
+                },
+                date: {
+                    type: Date,
+                    default: Date.now
+                }
+            }],
+            commentReplies: [
+                {
+                    user: {
+                        type: mongoose.Schema.Types.ObjectId,
+                    },
+                    replyId: {
+                        type: mongoose.Schema.Types.ObjectId,
+                        default: new ObjectID()
+                    },
+                    email:{
+                        type: String,
+                    },
+                    text: {
+                        type: String,
+                    },
+                    name: {
+                        type: String
+                    },
+                    avatar: {
+                        type: mongoose.Schema.Types.ObjectId,
+                    },
+                    date: {
+                        type: Date,
+                        default: Date.now
+                    },
+                    likes: [{
+                        user: {
+                            type: mongoose.Schema.Types.ObjectId,
+                            required: true
+                        },
+                        email:{
+                            type: String,
+                        },
+                        name: {
+                            type: String
+                        },
+                        avatar: {
+                            type: mongoose.Schema.Types.ObjectId,
+                        },
+                        date: {
+                            type: Date,
+                            default: Date.now
+                        }
+                    }],
+                }
+            ],
+        }
+    ]
 });
 
 
-userSchema.methods.toJSON = function () {
-    var user = this;
-    var userObject = user.toObject();
-    return _.pick(userObject, ['_id', 'name','occupation','mobile']);
-};
+// userSchema.methods.toJSON = function () {
+//     var user = this;
+//     var userObject = user.toObject();
+//     return _.pick(userObject, ['_id', 'name','occupation','mobile']);
+// };
 
 
 userSchema.statics.findByCredentials = function (email , password) {

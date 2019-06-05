@@ -5,28 +5,35 @@ var randomize = require('randomatic');
 const _ = require('lodash');
 const {authenticate,authenticated} = require('./../middleware/authenticate');
 
-var signUp = express.Router();
+var profile = express.Router();
 
 // middleware that is specific to this router
-signUp.use(function timeLog (req, res, next) {
+profile.use(function timeLog (req, res, next) {
     next();
 });
 
-signUp.get('/', authenticated, function (req, res) {
-    res.render('signUp.hbs');
+profile.get('/', authenticate, function (req, res) {
+
+
+
+    var user = req.session.userId;
+
+    Users.findById(user).then((user) => {
+    res.render('profile.hbs', user);
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
 });
 
-signUp.post('/', function (req, res) {
-    var body = _.pick(req.body, ['sn', 'house', 'dob', 'yoj', 'pyear','address','country','city','zip','lno','email','password','name', 'mobile', 'occupation','oaddress','ocountry','ocity','ozip','olno','faname', 'maname', 'maritalStatus', 'remarks', 'web', 'faxno', 'fb', 'omobile']);
+profile.post('/', function (req, res) {
+    var body = _.pick(req.body, ['sn', 'house', 'dob', 'yoj', 'pyear','address','country','city','zip','lno','email','password','name', 'mobile', 'occupation','oaddress','ocountry','ocity','ozip','olno','faname', 'maname', 'maritalStatus', 'remarks', 'web', 'faxno', 'fb']);
     body.superAdmin = false;
-    var arr = body.dob.split('-');
-
-    console.log(arr[1]);
-    body.birthdayMonth = arr[1];
     body.mobile = "+91" + body.mobile;
     body.mobile = body.mobile.replace(/\-/g,"");
-    body.omobile = "+91" + body.omobile;
-    body.omobile = body.omobile.replace(/\-/g,"");
     if (req.body.password == req.body.cpassword) {
         var newUser = new Users(body);
         newUser.save().then((user) => {
@@ -44,38 +51,38 @@ signUp.post('/', function (req, res) {
                 var user = {};
                 user.msg = 'Email-Id already exists';
                 user.err = true;
-                res.render('signUp.hbs', user);
+                res.render('profile.hbs', user);
 
             } else if (err.indexOf("mobile_1") != -1) {
                 var user = {};
                 user.msg = 'Mobile already exists';
                 user.err = true;
-                res.render('signUp.hbs', user);
+                res.render('profile.hbs', user);
             }
             else {
                 var user = {};
                 console.log(e);
                 user.msg = 'Something went wrong, please try again.';
                 user.err = true;
-                res.render('signUp.hbs', user);
+                res.render('profile.hbs', user);
             }
         }).catch((e) => {
             var user = {};
             console.log(e);
             user.err = true;
             user.msg = 'Something went wrong, please try again.';
-                res.render('signUp.hbs', user);
+            res.render('profile.hbs', user);
         });
 
     } else {
         var user = {};
         user.msg = "Passwords do not match.";
         user.err = true;
-        res.render('signUp.hbs', user);
+        res.render('profile.hbs', user);
     }
 });
 
 
-module.exports = signUp;
+module.exports = profile;
 
 

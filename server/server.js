@@ -54,6 +54,7 @@ var allBirthdays = require('./router/allBirthdays');
 var addachiever = require('./router/addachiever');
 var allGalleries = require('./router/allGalleries');
 var home = require('./router/home');
+var profile = require('./router/profile');
 
 
 var app = express();
@@ -89,8 +90,8 @@ app.use(morgan("common"));
 app.use(helmet());
 
 const limiter = new RateLimit({
-    windowMs: 15*60*1000, //15 mins
-    max:100, // limit of number of req per ip
+    windowMs: 1*60*1000, //1 mins
+    max:200, // limit of number of req per ip
     delayMs: 0 // disable delays
 });
 
@@ -144,6 +145,7 @@ app.use('/allGalleries', allGalleries);
 app.use('/addCoverage', addCoverage);
 app.use('/allCoverages', allCoverage);
 app.use('/allCoverage', allCoverage);
+app.use('/editProfile', profile);
 app.use('/allBirthdays', allBirthdays);
 app.use('/donate', donate);
 app.use('/allMartyrs', allMartyrs);
@@ -319,6 +321,100 @@ app.get("/viewHomage", authenticate, function (req, res) {
                     res.render('viewHomage.hbs', post);
                 } else {
                     res.render('viewHomage.hbs', post);
+                }
+            }
+
+
+
+
+
+        }, (e) => {
+            res.send(e);
+        }).catch((e) => {
+            res.send(e);
+        });
+    }, (e) => {
+        console.log(e);
+        res.redirect("/login");
+    }).catch((e) => {
+        console.log(e);
+        res.send(e);
+    });
+});
+
+app.get("/viewBirthday", authenticate, function (req, res) {
+    var id = req.query.id;
+    var user = req.session.userId;
+
+
+    Users.findById(user).then((user) => {
+        console.log(typeof user._id);
+        Users.findById(id).then((post) => {
+            if(req.query.showAllComments){
+                post.showAtOnce = post.comments.length;
+            } else {
+                post.showAtOnce = 5;
+            }
+            if(post.comments.length>0){
+                var a = 0;
+                for(var i = 0; i < post.comments.length; i++){
+
+                    if (
+                        post.comments[i].likes.filter(like => like.user.toString() === user._id.toString())
+                            .length > 0
+                    ) {
+                        post.comments[i].already = true;
+                    } else {
+                        post.comments[i].already = false;
+                    }
+
+                    var uid = user._id;
+                    if(post.comments[i].user.equals(uid)){
+                        post.comments[i].author = true;
+                    } else  {
+                        post.comments[i].author = false;
+                    }
+
+                    for(var j = 0; j < post.comments[i].commentReplies.length; j++){
+
+                        if(post.comments[i].commentReplies[j].user.equals(uid)) {
+                            post.comments[i].commentReplies[j].author = true;
+                        } else {
+                            post.comments[i].commentReplies[j].author = false;
+                        }
+
+                        if (
+                            post.comments[i].commentReplies[j].likes.filter(like => like.user.toString() === user._id.toString())
+                                .length > 0
+                        ) {
+                            post.comments[i].commentReplies[j].already = true;
+                        } else {
+                            post.comments[i].commentReplies[j].already = false;
+                        }
+
+
+
+                    }
+
+                    if(i == post.comments.length-1){
+                        console.log(i);
+                        console.log(post.comments.length-1);
+                        if(post.birthdayCreator == user.email){
+                            post.canEdit = true;
+                            console.log(post);
+                            res.render('viewBirthday.hbs', post);
+                        } else {
+                            res.render('viewBirthday.hbs', post);
+                        }
+                    }
+
+                }
+            } else {
+                if(post.birthdayCreator == user.email){
+                    post.canEdit = true;
+                    res.render('viewBirthday.hbs', post);
+                } else {
+                    res.render('viewBirthday.hbs', post);
                 }
             }
 

@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>U.P. SAINIK SCHOOL OBA - View Achiever</title>
+    <title>U.P. SAINIK SCHOOL OBA - View Birthday</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="Author" content="hemant.me"/>
@@ -59,7 +59,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <!-- Logo -->
-                <a class="logo pull-left" href="index.html">
+                <a class="logo pull-left" href="/">
                     <img src="assets/images/logo-sm.png" alt="" />
                 </a>
 
@@ -68,7 +68,6 @@
 
 
                         <ul id="topMain" class="nav nav-pills nav-main">
-
                             <li>
 
                                 <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i
@@ -114,31 +113,18 @@
 
 
                                     <div class="box-title margin-bottom-30">
-                                        <h2 class="size-20 pull-left">{{achieverName}}
+                                        <h2 class="size-20 pull-left">{{name}}
 
 
 
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" style="background-color: #dedede;"><i class="fa fa-pencil"></i> <span class="caret"></span></button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    {{#if canEdit}}
-                                                        <li><a href="/editAchiever?id={{_id}}"><i class="fa fa-edit"></i> Edit</a></li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="/allAchiever/delete?id={{_id}}"><i class="fa fa-trash"></i> Delete</a></li>
-                                                        <li class="divider"></li>
-                                                    {{/if}}
-                                                    <li><a href="/addAchiever"><i class="fa fa-plus"></i> Create New</a></li>
-
-                                                </ul>
-                                            </div>
 
 
 
 
                                         </h2>
-<!--                                        <strong class=" pull-right">-->
-<!--                                            Died on: {{achieverDate}}-->
-<!--                                        </strong>-->
+                                        <strong class=" pull-right">
+                                            Birthday: {{dob}}
+                                        </strong>
 
                                         <div class="clearfix"></div>
                                     </div>
@@ -150,7 +136,7 @@
                                                 <span class="label label-warning">NOTE! </span>
                                                 <br>
                                                 <p style="text-align: justify;">
-                                                    {{achieverNotes}}
+                                                    {{remarks}}
                                                 </p>
 
 
@@ -164,7 +150,7 @@
 
                                             <div class="clearfix">
                                                 <div class="thumbnail text-center">
-                                                    <img src="/getAchieverImage?imageId={{achieverImage}}" class="img-responsive">
+                                                    <img src="/getMartyrImage?imageId={{profileImage}}" class="img-responsive">
                                                     <!--
 <h2 class="size-18 margin-top-10 margin-bottom-0">Event Name</h2>
 <h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">Some Text</h3>
@@ -182,7 +168,7 @@
                                             <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd;; padding: 10px;">
                                                 <a class="box-icon-title" href="#">
                                                     <i class="fa fa-university"></i>
-                                                    <h5>School No. : {{achieverSchoolNo}}</h5>
+                                                    <h5>School No. : {{sn}}</h5>
                                                 </a>
                                             </div>
 
@@ -191,19 +177,19 @@
                                             <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
                                                 <a class="box-icon-title" href="#">
                                                     <i class="fa fa-user"></i>
-                                                    <h5>Background: {{achieverBackground}}</h5>
+                                                    <h5>House: {{house}}</h5>
                                                 </a>
                                             </div>
 
                                         </div>
-<!--                                        <div class="col-md-4 col-sm-4 col-xs-4">-->
-<!--                                            <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">-->
-<!--                                                <a class="box-icon-title" href="#">-->
-<!--                                                    <i class="fa fa-star"></i>-->
-<!--                                                    <h5>Rank: {{#if achieverRank}} {{achieverRank}} {{else}} None {{/if}}</h5>-->
-<!--                                                </a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <div class="box-icon box-icon-center box-icon-round" style="background-color: #cdcdcd; padding: 10px;">
+                                                <a class="box-icon-title" href="#">
+                                                    <i class="fa fa-star"></i>
+                                                    <h5>Father's Name: {{#if faname}} {{faname}} {{else}} N/A {{/if}}</h5>
+                                                </a>
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -214,7 +200,7 @@
                                             <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large box-icon-content">
                                                 <div class="box-icon-title">
                                                     <i class="fa fa-heart-o"></i>
-                                                    <h2>Tributes</h2>
+                                                    <h2>Wish {{name}} a very happy birthday!</h2>
                                                 </div>
                                             </div>
 
@@ -232,7 +218,7 @@
                                                 <div class="box-inner">
                                                     <li>
                                                         <a href="#comment"></a>
-                                                        <a href="/viewAchiever?id={{_id}}&showAllComments=true" class="text-muted">Show All Comments ({{comments.length}})</a>
+                                                        <a href="/viewBirthday?id={{_id}}&showAllComments=true" class="text-muted">Show All Comments ({{comments.length}})</a>
                                                     </li>
                                                     <br>
                                                     <input type="hidden" value="5" id="commentShow">
@@ -268,7 +254,7 @@
                                                                     </li>
                                                                     {{#if author}}
                                                                         <li class="pull-right">
-                                                                            <a href="/achieverCommentDelete?id={{@root.id}}&commentId={{commentId}}" class="text-danger">Delete</a>
+                                                                            <a href="/birthdayCommentDelete?id={{@root.id}}&commentId={{commentId}}" class="text-danger">Delete</a>
                                                                         </li>
                                                                         <li class="pull-right">
                                                                             <a href="#" onclick='return editComment("{{@root._id}}", "{{commentId}}")' class="text-primary">Edit</a>
@@ -306,7 +292,7 @@
                                                                         {{#if author}}
 
                                                                             <li class="pull-right">
-                                                                                <a href="/achieverCommentReplyDelete?id={{@root.id}}&commentId={{../commentId}}&replyId={{replyId}}" class="text-danger">Delete</a>
+                                                                                <a href="/birthdayCommentReplyDelete?id={{@root.id}}&commentId={{../commentId}}&replyId={{replyId}}" class="text-danger">Delete</a>
                                                                             </li>
                                                                             <li class="pull-right">
                                                                                 <a href="#" onclick='return editCommentReply("{{@root._id}}", "{{../commentId}}", "{{replyId}}")' class="text-primary">Edit</a>
@@ -318,7 +304,7 @@
                                                                 </li>
                                                             {{/each_upto}}
                                                             <li class="comment comment-reply">
-                                                                <form action="/achieverCommentReply?commentId={{commentId}}&id={{@root._id}}" method="post">
+                                                                <form action="/birthdayCommentReply?commentId={{commentId}}&id={{@root._id}}" method="post">
                                                                 <div class="input-group">
 
                                                                     <input id="btn-input" type="text" class="form-control" name="reply" placeholder="Type your reply...">
@@ -337,7 +323,7 @@
 
 
 
-                                                    <form action="/achieverComment?id={{_id}}" method="post">
+                                                    <form action="/birthdayComment?id={{_id}}" method="post">
                                                     <div class="input-group">
 
                                                         <input id="btn-input" name="text" type="text" class="form-control" placeholder="Type your comment...">
@@ -388,15 +374,15 @@
                                         <!--                                                    <li class="list-group-item ">-->
                                         <!--                                                        <a class="dropdown-toggle" href="#">HOMAGE</a>-->
                                         <!--                                                        <ul>-->
-                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Achievers</a></li>-->
-                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Achiever</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Birthdays</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Birthday</a></li>-->
                                         <!--                                                        </ul>-->
                                         <!--                                                    </li>-->
                                         <!--                                                    <li class="list-group-item ">-->
                                         <!--                                                        <a class="dropdown-toggle" href="#">MARTYRS</a>-->
                                         <!--                                                        <ul>-->
-                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Martyrs</a></li>-->
-                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Martyr</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> All Birthdays</a></li>-->
+                                        <!--                                                            <li><a href="#"><span class="size-11 text-muted pull-right"> </span> Add Birthday</a></li>-->
                                         <!--                                                        </ul>-->
                                         <!--                                                    </li>-->
                                         <!--                                                    <li class="list-group-item ">-->
@@ -499,7 +485,7 @@
 <script>
     function editComment(id, commentId) {
         var a = $("#"+commentId+"comment").text().trim();
-        $("#"+commentId+"comment").html('<form method="post" action="/editCommentAchiever?id='+id+'&commentId='+commentId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedComment" id="edit'+commentId+'">&nbsp<input  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+        $("#"+commentId+"comment").html('<form method="post" action="/editCommentBirthday?id='+id+'&commentId='+commentId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedComment" id="edit'+commentId+'">&nbsp<input  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
         $('#edit'+commentId).val(a);
 
         console.log(a);
@@ -509,7 +495,7 @@
 
     function editCommentReply(id, commentId, replyId) {
         var a = $("#"+replyId+"reply").text().trim();
-        $("#"+replyId+"reply").html('<form method="post" action="/editCommentReplyAchiever?id='+id+'&commentId='+commentId+'&replyId='+replyId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedReply" id="edit'+replyId+'">&nbsp<input type="submit"  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
+        $("#"+replyId+"reply").html('<form method="post" action="/editCommentReplyBirthday?id='+id+'&commentId='+commentId+'&replyId='+replyId+'"><input type="text" style="border: 1.5px solid #ddd; border-radius: 3px; padding-left: 5px; color: #666" name="editedReply" id="edit'+replyId+'">&nbsp<input type="submit"  class="text-primary btn btn-xs btn-lime" style="margin-top: -1px" type="submit" value="Submit"> </form>');
         $('#edit'+replyId).val(a);
 
         console.log(a);
@@ -517,7 +503,7 @@
     }
     function checkLike(id, commentId, mine) {
         console.log(id, commentId, mine);
-        var url = urlFinal+'achieverCommentLike?id='+id+'&commentId='+commentId;
+        var url = urlFinal+'birthdayCommentLike?id='+id+'&commentId='+commentId;
 
         var ourRequest = new XMLHttpRequest();
         ourRequest.open('POST',url, true);
@@ -540,7 +526,7 @@
 
     function checkLikeReply(id, commentId, replyId, mine) {
         console.log(id, commentId, replyId, mine);
-        var url = urlFinal+'achieverCommentReplyLike?id='+id+'&commentId='+commentId+'&replyId='+replyId;
+        var url = urlFinal+'birthdayCommentReplyLike?id='+id+'&commentId='+commentId+'&replyId='+replyId;
 
         var ourRequest = new XMLHttpRequest();
         ourRequest.open('POST',url, true);

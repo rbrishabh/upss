@@ -4,7 +4,7 @@ var moment = require('moment');
 const {Users} = require('./../models/users');
 var fs = require('fs');
 const multer = require("multer");
-const {User} = require('./../models/users');
+
 var {ObjectID} = require('mongodb')
 var randomize = require('randomatic');
 const formidable = require('formidable');
@@ -24,7 +24,7 @@ allBirthdays.get('/', authenticate, function (req, res) {
     res.render('allBirthdays.hbs');
 });
 
-allBirthdays.get('/getData', authenticate, function (req, res) {
+allBirthdays.get('/getData1', authenticate, function (req, res) {
     // console.log('something happened here');
     // console.log(req.query, "asdas")
     var user = req.session.userId;
@@ -34,36 +34,37 @@ allBirthdays.get('/getData', authenticate, function (req, res) {
         if(req.query.search.value)
         {
             var regex = new RegExp(req.query.search.value, "i")
-            searchStr = {birthdayCreator:{ $ne: user.email}, $or: [{'birthdayNewsHeading':regex },{'birthdayStatus': regex }] };
+            searchStr = {birthdayMonth:Number(req.query.month)+1, $or: [{'name':regex },{'sn': regex },{'dob': regex },{'house': regex }] };
         }
         else
         {
-            searchStr={birthdayCreator:{ $ne: user.email}};
+            searchStr={birthdayMonth:Number(req.query.month)+1};
         }
 
         var recordsTotal = 0;
         var recordsFiltered=0;
 
-        User.count({birthdayCreator:{ $ne: user.email}}, function(err, c) {
+        Users.count({birthdayMonth:Number(req.query.month)+1}, function(err, c) {
             recordsTotal=c;
             // console.log(c);
-            User.count(searchStr, function(err, c) {
+            Users.count(searchStr, function(err, c) {
                 recordsFiltered=c;
                 // console.log(c);
                 // console.log(req.query.start);
                 // console.log(req.query.length);
-                User.find(searchStr, 'birthdayNewsHeading birthdayOptions birthdayStatus',{'skip': Number(req.query.start), 'limit': Number(req.query.length) }, function (err, results) {
+                Users.find(searchStr, 'name sn dob house options',{'skip': Number(req.query.start), 'limit': Number(req.query.length) }, function (err, results) {
                     if (err) {
                         console.log('error while getting results'+err);
                         return;
                     }
-                    // console.log(results);
+                    console.log(results);
                     var data = JSON.stringify({
                         "draw": req.body.draw,
                         "recordsFiltered": recordsFiltered,
                         "recordsTotal": recordsTotal,
                         "data": results
                     });
+                    console.log(data);
                     res.send(data);
                 });
 
@@ -80,47 +81,46 @@ allBirthdays.get('/getData', authenticate, function (req, res) {
 
 });
 
-allBirthdays.get('/getMyData', authenticate, function (req, res) {
-    console.log('something happened here');
-    // console.log(req.query, "asdas")
+
+allBirthdays.get('/getDataSearch', authenticate, function (req, res) {
     var user = req.session.userId;
     var obj = {};
     Users.findById(user).then((user) => {
-        console.log(user.email);
         var searchStr = req.query.search.value;
         if(req.query.search.value)
         {
             var regex = new RegExp(req.query.search.value, "i")
-            searchStr = {birthdayCreator : user.email, $or: [{'birthdayNewsHeading':regex },{'birthdayStatus': regex }] };
+            searchStr = {$or: [{'name':regex },{'sn': regex },{'dob': regex },{'house': regex }] };
         }
         else
         {
-            searchStr={birthdayCreator : user.email};
+            searchStr="";
         }
 
         var recordsTotal = 0;
         var recordsFiltered=0;
 
-        User.count({birthdayCreator:user.email},function(err, c) {
+        Users.count({}, function(err, c) {
             recordsTotal=c;
             // console.log(c);
-            User.count(searchStr, function(err, c) {
+            Users.count(searchStr, function(err, c) {
                 recordsFiltered=c;
                 // console.log(c);
                 // console.log(req.query.start);
                 // console.log(req.query.length);
-                User.find(searchStr, 'birthdayNewsHeading birthdayOptions birthdayStatus',{'skip': Number(req.query.start), 'limit': Number(req.query.length) }, function (err, results) {
+                Users.find(searchStr, 'name sn dob house options',{'skip': Number(req.query.start), 'limit': Number(req.query.length) }, function (err, results) {
                     if (err) {
                         console.log('error while getting results'+err);
                         return;
                     }
-                    // console.log(results);
+                    console.log(results);
                     var data = JSON.stringify({
                         "draw": req.body.draw,
                         "recordsFiltered": recordsFiltered,
                         "recordsTotal": recordsTotal,
                         "data": results
                     });
+                    console.log(data);
                     res.send(data);
                 });
 
@@ -143,9 +143,9 @@ allBirthdays.get('/delete', authenticate, function (req, res) {
     var user = req.session.userId;
 
     Users.findById(user).then((user) => {
-        User.findById(id).then((found) => {
+        Users.findById(id).then((found) => {
             if (found.birthdayCreator == user.email) {
-                User.findOneAndDelete({_id: obj}).then((found) => {
+                Users.findOneAndDelete({_id: obj}).then((found) => {
                     if (found) {
                         console.log(found);
                         var obj = found.birthdayImage;

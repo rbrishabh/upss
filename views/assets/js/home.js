@@ -49,5 +49,15 @@ $(document).ready(function () {
     }
 
 
+    var imgs5 = document.getElementById('birthdayImg').getElementsByTagName('img');
+    var curImg5 = null;
+
+    for(var i = 0; i < imgs5.length; i++) {
+        curImg5 = imgs5[i];
+        $("."+curImg5.classList[3]).attr("src", "getBearerImage?imageId="+curImg5.id);
+
+    }
+
+
 });
 
