@@ -1,3 +1,5 @@
+//Author -- Rishabh Budhiraja -- github.com/rbrishabh
+
 var express = require("express");
 var helmet = require("helmet");
 const randomize = require("randomatic");
