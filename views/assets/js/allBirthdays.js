@@ -113,10 +113,13 @@ function monthChange(forMonth){
 //
 // }
 
-function destroySearch() {
-    $("#tableSearch").hide();
-    if(table!= null){
-        table.destroy();
-        table = null;
+function destroySearch(value) {
+    if(value === ""){
+        $("#tableSearch").hide();
+        if(table!= null){
+            table.destroy();
+            table = null;
+        }
     }
+
 }
