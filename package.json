@@ -37,6 +37,8 @@
     "multer-gridfs-storage": "^3.2.3",
     "os": "^0.1.1",
     "randomatic": "^3.1.1",
-    "request": "^2.88.0"
-  }
+    "request": "^2.88.0",
+    "snyk": "^1.200.1"
+  },
+  "snyk": true
 }
