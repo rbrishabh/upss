@@ -24,7 +24,7 @@
     "express-to-https": "^1.0.3",
     "formidable": "^1.2.1",
     "gridfs-stream": "^1.1.1",
-    "hbs": "^4.0.4",
+    "hbs": "^4.0.5",
     "helmet": "^3.18.0",
     "jquery": "^3.4.1",
     "lodash": "^4.17.11",
