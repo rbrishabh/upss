@@ -94,7 +94,6 @@ app.use(helmet());
 const limiter = new RateLimit({
     windowMs: 1*60*1000, //1 mins
     max:7, // limit of number of req per ip
-    delayMs: 0 // disable delays
 });
 
 app.use(limiter);
