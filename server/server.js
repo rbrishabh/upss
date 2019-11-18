@@ -92,7 +92,7 @@ app.use(morgan("common"));
 app.use(helmet());
 
 const limiter = new RateLimit({
-    windowMs: 1*60*1000, //1 mins
+    windowMs: 1*60*1000*15, //1 mins
     max:7, // limit of number of req per ip
 });
 
