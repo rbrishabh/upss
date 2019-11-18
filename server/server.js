@@ -60,6 +60,12 @@ var profile = require('./router/profile');
 
 
 var app = express();
+const limiter = new RateLimit({
+    windowMs: 1*60*1000*15, //1 mins
+    max:7, // limit of number of req per ip
+});
+
+app.use(limiter);
 var toHttps = require('express-to-https').basic;
 app.use(toHttps);
 
@@ -91,12 +97,6 @@ app.use(session({
 app.use(morgan("common"));
 app.use(helmet());
 
-const limiter = new RateLimit({
-    windowMs: 1*60*1000*15, //1 mins
-    max:7, // limit of number of req per ip
-});
-
-app.use(limiter);
 
 var date = moment();
 console.log(date.unix());
